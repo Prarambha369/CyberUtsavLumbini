@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #0A0A0A;
+  --color-surface: #111111;
+  --color-surface-2: #1A1A1A;
+  --color-border: #222222;
+  --color-border-2: #2E2E2E;
+  --color-cyan: #00D4FF;
+  --color-cyan-glow: rgba(0, 212, 255, 0.15);
+  --color-amber: #F59E0B;
+  --color-green: #00FF41;
+  --color-red: #E53E3E;
+  --color-text: #F5F5F5;
+  --color-text-2: #A0A0A0;
+  --color-text-muted: #555555;
+  --color-neo-shadow: #00D4FF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--color-cyan);
+  color: #000;
+}
+
+/* ── Neo-Brutalist utilities ── */
+.neo-shadow {
+  box-shadow: 6px 6px 0px 0px var(--color-neo-shadow);
+}
+
+.neo-shadow-sm {
+  box-shadow: 3px 3px 0px 0px var(--color-neo-shadow);
+}
+
+.neo-shadow-lg {
+  box-shadow: 12px 12px 0px 0px var(--color-neo-shadow);
+}
+
+.neo-hover {
+  transition: all 0.2s ease;
+}
+
+.neo-hover:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px 0px 0px var(--color-neo-shadow);
+}
+
+/* ── Focus visible for keyboard nav ── */
+*:focus-visible {
+  outline: 3px solid var(--color-cyan);
+  outline-offset: 2px;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* ── Form validation ── */
+input:invalid:not(:placeholder-shown) {
+  border-color: var(--color-red) !important;
+}
+
+select:invalid {
+  border-color: var(--color-red) !important;
+}
