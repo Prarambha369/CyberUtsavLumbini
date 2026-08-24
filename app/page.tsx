@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, type JSX } from "react";
+import { useState, useEffect, type JSX } from "react";
 import Nav from "@/components/Nav";
 import PreRegistrationForm from "@/components/PreRegistrationForm";
-import { tracks, cities, timeline, steps, prizes, faqs } from "@/lib/data";
+import { tracks, cities, timeline, steps, prizes, faqs, team } from "@/lib/data";
 
 /* ─── SVG Icon helper ─── */
 function Icon({ name, className = "w-6 h-6" }: { name: string; className?: string }) {
@@ -24,6 +24,68 @@ function Icon({ name, className = "w-6 h-6" }: { name: string; className?: strin
     github: <svg className={className} fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>,
   };
   return icons[name] || null;
+}
+
+/* ─── Site Under Work Modal ─── */
+function SiteUnderWorkModal() {
+  const [visible, setVisible] = useState(true);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || !visible) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site under construction notice"
+    >
+      <div className="bg-[#111] border-2 border-[#00D4FF] max-w-lg w-full p-8 neo-shadow-lg relative">
+        <div className="flex items-center gap-2 mb-4">
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F59E0B] opacity-75" />
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-[#F59E0B]" />
+          </span>
+          <span className="text-xs font-black text-[#F59E0B] tracking-[0.15em]">
+            SITE UNDER WORK &bull; SYSTEM IN INITIALIZATION
+          </span>
+        </div>
+        <h2 className="text-xl font-black mb-3">
+          CYBER UTSAV 3.0 &mdash; LUMBINI CHAPTER PORTAL
+        </h2>
+        <p className="text-sm text-[#A0A0A0] font-sans leading-relaxed mb-6">
+          The official pre-registration portal for the Lumbini Provincial Chapter
+          (Hosted in Butwal City, co-organized by ButwalHacks & Tech Gurkha Digital
+          Services) is currently being finalized. Full schedule, venue map, and
+          registration will open soon!
+        </p>
+        <ul className="space-y-2 text-xs text-[#A0A0A0] font-sans mb-6">
+          <li className="flex items-center gap-2">
+            <Icon name="mapPin" className="w-4 h-4 text-[#00D4FF] shrink-0" />
+            Host Location: Butwal City, Lumbini Province
+          </li>
+          <li className="flex items-center gap-2">
+            <Icon name="trophy" className="w-4 h-4 text-[#F59E0B] shrink-0" />
+            Winners advance directly to Kathmandu Grand Finale
+          </li>
+          <li className="flex items-center gap-2">
+            <Icon name="users" className="w-4 h-4 text-[#7542E5] shrink-0" />
+            Co-Organized by ButwalHacks Ecosystem
+          </li>
+        </ul>
+        <button
+          onClick={() => setVisible(false)}
+          className="w-full bg-[#00D4FF] text-black font-black text-sm py-3 border-2 border-black neo-shadow-sm neo-hover cursor-pointer"
+        >
+          CONTINUE TO PREVIEW SITE
+        </button>
+      </div>
+    </div>
+  );
 }
 
 /* ─── FAQ Accordion ─── */
@@ -54,24 +116,30 @@ export default function CyberUtsavLumbini() {
     <div className="min-h-screen bg-[#0A0A0A] text-[#F5F5F5] font-mono selection:bg-[#00D4FF] selection:text-black">
       <Nav />
 
+      {/* ═══ SITE UNDER WORK MODAL ═══ */}
+      <SiteUnderWorkModal />
+
       {/* ═══ HERO ═══ */}
       <header className="relative overflow-hidden border-b-2 border-[#222] bg-[#0F0F0F]">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#00D4FF] opacity-5 blur-[100px] rounded-full pointer-events-none" aria-hidden="true" />
         <div className="max-w-6xl mx-auto px-4 py-20 md:py-32 relative z-10">
           <div className="inline-block bg-[#F59E0B] text-black font-black px-4 py-1.5 border-2 border-black neo-shadow-sm mb-8 text-xs tracking-[0.15em]">
-            COMING SOON &bull; JAN &ndash; FEB 2027
+            LUMBINI PROVINCIAL CHAPTER &bull; HOST CITY: BUTWAL
           </div>
           <h1 className="text-5xl md:text-7xl font-black leading-[0.9] mb-6 tracking-tight">
-            THE INTERNATIONAL<br />
-            <span className="text-[#00D4FF]">PROVINCIAL CHAPTER</span>
+            CYBER UTSAV 3.0<br />
+            <span className="text-[#00D4FF]">LUMBINI CHAPTER</span>
           </h1>
-          <p className="text-xl md:text-2xl text-[#A0A0A0] max-w-2xl mb-10 leading-relaxed font-sans">
-            Cyber Utsav 3.0 arrives in Lumbini. Bridging regional expertise with
-            global cybersecurity innovation.
+          <p className="text-xl md:text-2xl text-[#A0A0A0] max-w-2xl mb-6 leading-relaxed font-sans">
+            Nepal&apos;s biggest student hackathon arrives in Lumbini Province.
+            Regional winning teams secure direct entry to the Kathmandu Grand Finale.
             <span className="block mt-3 text-[#F59E0B] font-black text-lg font-mono">
               CO-ORGANIZED BY BUTWALHACKS.
             </span>
           </p>
+          <div className="inline-block bg-[#00D4FF]/10 border-2 border-[#00D4FF] px-4 py-2 mb-10 text-xs font-bold text-[#00D4FF] font-mono">
+            WINNERS ADVANCE DIRECTLY TO THE KATHMANDU GRAND FINALE
+          </div>
           <div className="flex flex-col sm:flex-row gap-5">
             <a href="#register" className="group relative inline-flex items-center justify-center px-8 py-4 font-black text-black bg-[#00D4FF] border-2 border-black neo-shadow neo-hover">
               PRE-REGISTER NOW
@@ -266,7 +334,7 @@ export default function CyberUtsavLumbini() {
       {/* ═══ FAQ ═══ */}
       <section className="py-20 border-b-2 border-[#222] bg-[#0A0A0A]">
         <div className="max-w-3xl mx-auto px-4">
-          <div className="text-xs text-[#555] tracking-[0.15em] mb-3 text-center">06 &mdash; FAQ</div>
+          <div className="text-xs text-[#555] tracking-[0.15em] mb-3 text-center">07 &mdash; FAQ</div>
           <h2 className="text-4xl font-black mb-12 text-center">
             FREQUENTLY <span className="text-[#00D4FF]">ASKED</span>
           </h2>
@@ -278,11 +346,55 @@ export default function CyberUtsavLumbini() {
         </div>
       </section>
 
+      {/* ═══ ORGANIZING TEAM ═══ */}
+      <section id="team" className="py-20 border-b-2 border-[#222] bg-[#0F0F0F]">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-xs text-[#555] tracking-[0.15em] mb-3 text-center">06 &mdash; ORGANIZING TEAM</div>
+          <h2 className="text-4xl font-black mb-4 text-center">
+            THE PEOPLE <span className="text-[#00D4FF]">BEHIND IT</span>
+          </h2>
+          <p className="text-center text-[#A0A0A0] mb-12 font-sans max-w-lg mx-auto">
+            A cross-organizational team of students, developers, and community builders making CyberUtsav Lumbini happen.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            {team.map((member) => (
+              <div key={member.name} className="bg-[#111] border-2 border-[#222] p-6 text-center hover:border-[#00D4FF] transition-colors group">
+                <div className="w-20 h-20 mx-auto mb-4 border-2 border-[#333] group-hover:border-[#00D4FF] transition-colors overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Hide image, show initials fallback
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = "none";
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div
+                    className="w-full h-full items-center justify-center text-lg font-black hidden"
+                    style={{ backgroundColor: member.color + "15", color: member.color }}
+                    aria-hidden="true"
+                  >
+                    {member.initials}
+                  </div>
+                </div>
+                <h3 className="font-black text-sm mb-1">{member.name}</h3>
+                <p className="text-xs text-[#00D4FF] font-bold mb-1">{member.role}</p>
+                <p className="text-[10px] text-[#555] font-sans">{member.org}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ PRE-REGISTRATION FORM ═══ */}
       <section id="register" className="py-20 bg-[#0F0F0F]">
         <div className="max-w-3xl mx-auto px-4">
           <div className="text-center mb-12">
-            <div className="text-xs text-[#555] tracking-[0.15em] mb-3">07 &mdash; PRE-REGISTRATION</div>
+            <div className="text-xs text-[#555] tracking-[0.15em] mb-3">08 &mdash; PRE-REGISTRATION</div>
             <h2 className="text-4xl font-black mb-4">
               SECURE <span className="text-[#00D4FF]">YOUR SPOT</span>
             </h2>

@@ -144,3 +144,30 @@ export const teamRoles = [
   "Team Leader",
   "Member",
 ];
+
+export const team = [
+  {
+    name: "Basanta",
+    role: "Lead Organizer",
+    org: "Tech Gurkha Digital Services",
+    initials: "BA",
+    color: "#00D4FF",
+    photo: "/photos/Basanta.png",
+  },
+  {
+    name: "Prarambha Bashyal",
+    role: "Founder, ButwalHacks & Lumbini Chapter Lead",
+    org: "ButwalHacks",
+    initials: "PB",
+    color: "#FF6611",
+    photo: "/photos/Prarambha.png",
+  },
+  {
+    name: "Prashanna",
+    role: "Tech & Logistics OC",
+    org: "ButwalHacks",
+    initials: "PR",
+    color: "#7542E5",
+    photo: "/photos/prashanna.png",
+  },
+];
