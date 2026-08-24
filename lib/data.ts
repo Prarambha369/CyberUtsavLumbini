@@ -153,6 +153,8 @@ export const team = [
     initials: "BA",
     color: "#00D4FF",
     photo: "/photos/Basanta.png",
+    github: null,
+    linkedin: null,
   },
   {
     name: "Prarambha Bashyal",
@@ -161,6 +163,8 @@ export const team = [
     initials: "PB",
     color: "#FF6611",
     photo: "/photos/Prarambha.png",
+    github: "https://github.com/Prarambha369",
+    linkedin: "https://linkedin.com/in/misterbashyal",
   },
   {
     name: "Prashanna",
@@ -169,5 +173,7 @@ export const team = [
     initials: "PR",
     color: "#7542E5",
     photo: "/photos/prashanna.png",
+    github: null,
+    linkedin: null,
   },
 ];
