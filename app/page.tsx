@@ -331,21 +331,6 @@ export default function CyberUtsavLumbini() {
         </div>
       </section>
 
-      {/* ═══ FAQ ═══ */}
-      <section className="py-20 border-b-2 border-[#222] bg-[#0A0A0A]">
-        <div className="max-w-3xl mx-auto px-4">
-          <div className="text-xs text-[#555] tracking-[0.15em] mb-3 text-center">07 &mdash; FAQ</div>
-          <h2 className="text-4xl font-black mb-12 text-center">
-            FREQUENTLY <span className="text-[#00D4FF]">ASKED</span>
-          </h2>
-          <div className="space-y-3">
-            {faqs.map((f) => (
-              <FAQItem key={f.question} q={f.question} a={f.answer} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ═══ ORGANIZING TEAM ═══ */}
       <section id="team" className="py-20 border-b-2 border-[#222] bg-[#0F0F0F]">
         <div className="max-w-6xl mx-auto px-4">
@@ -409,6 +394,21 @@ export default function CyberUtsavLumbini() {
                   )}
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ FAQ ═══ */}
+      <section className="py-20 border-b-2 border-[#222] bg-[#0A0A0A]">
+        <div className="max-w-3xl mx-auto px-4">
+          <div className="text-xs text-[#555] tracking-[0.15em] mb-3 text-center">07 &mdash; FAQ</div>
+          <h2 className="text-4xl font-black mb-12 text-center">
+            FREQUENTLY <span className="text-[#00D4FF]">ASKED</span>
+          </h2>
+          <div className="space-y-3">
+            {faqs.map((f) => (
+              <FAQItem key={f.question} q={f.question} a={f.answer} />
             ))}
           </div>
         </div>
