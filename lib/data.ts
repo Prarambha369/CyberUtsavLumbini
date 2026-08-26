@@ -139,6 +139,69 @@ export const teamRoles = [
   "Member",
 ];
 
+export const pastEvents = [
+  {
+    year: "2024",
+    title: "CyberUtsav 2.0",
+    subtitle: "National Finals — Kathmandu",
+    organizer: "Tech Gurkha Digital Services",
+    type: "cyberutsav",
+    description:
+      "The second edition of Nepal's largest student hackathon. Teams from all provinces competed in Kathmandu for the national champion title.",
+    highlights: ["National championship", "Multi-province participation", "Industry mentorship"],
+  },
+  {
+    year: "2024",
+    title: "ButwalHacks Bootcamp",
+    subtitle: "Git & GitHub Workshop — Butwal",
+    organizer: "ButwalHacks",
+    type: "butwalhacks",
+    description:
+      "A hands-on workshop teaching version control, open-source contribution, and collaboration skills to local students.",
+    highlights: ["50+ students trained", "Open-source focused", "Community driven"],
+  },
+  {
+    year: "2023",
+    title: "CyberUtsav 1.0",
+    subtitle: "Inaugural Edition — Kathmandu",
+    organizer: "Tech Gurkha Digital Services",
+    type: "cyberutsav",
+    description:
+      "The very first CyberUtsav hackathon that launched Nepal's student hackathon movement. Pioneering cybersecurity and innovation among students.",
+    highlights: ["First edition", "Cybersecurity focus", "Student innovation"],
+  },
+  {
+    year: "2023",
+    title: "ButwalHacks Meetup",
+    subtitle: "Community Kickoff — Butwal",
+    organizer: "ButwalHacks",
+    type: "butwalhacks",
+    description:
+      "The founding meetup that brought together Butwal's student developers and sparked the formation of the ButwalHacks community.",
+    highlights: ["Community founding", "Student networking", "Local tech ecosystem"],
+  },
+  {
+    year: "2024",
+    title: "Tech Talk Series",
+    subtitle: "AI & Cybersecurity — Butwal",
+    organizer: "ButwalHacks",
+    type: "butwalhacks",
+    description:
+      "A series of technical talks covering AI fundamentals and cybersecurity basics, open to all students in the Rupandehi district.",
+    highlights: ["AI & security topics", "Open to all students", "Expert speakers"],
+  },
+  {
+    year: "2024",
+    title: "Hackathon Prep Workshop",
+    subtitle: "Idea to Prototype — Butwal",
+    organizer: "ButwalHacks",
+    type: "butwalhacks",
+    description:
+      "Pre-CyberUtsav preparation workshop helping teams refine their ideas, form teams, and build early prototypes before the provincial round.",
+    highlights: ["Pre-event prep", "Team building", "Prototype sprint"],
+  },
+];
+
 export const team = [
   {
     name: "Lead Organizer",

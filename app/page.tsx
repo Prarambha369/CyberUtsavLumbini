@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback, type JSX } from "react";
 import Nav from "@/components/Nav";
 import PreRegistrationForm from "@/components/PreRegistrationForm";
-import { tracks, hostCityDetails, timeline, steps, prizes, faqs, team } from "@/lib/data";
+import { tracks, hostCityDetails, timeline, steps, prizes, faqs, team, pastEvents } from "@/lib/data";
 
 /* ─── SVG Icon helper ─── */
 function Icon({ name, className = "w-6 h-6", style }: { name: string; className?: string; style?: React.CSSProperties }) {
@@ -446,10 +446,47 @@ export default function CyberUtsavLumbini() {
         </div>
       </section>
 
+      {/* ═══ PAST EVENTS ═══ */}
+      <section id="past-events" className="section-pad" style={{ scrollMarginTop: "96px" }} data-reveal>
+        <div className="section-label">
+          <span>07</span>
+          <p>Past Events</p>
+        </div>
+        <div style={{ textAlign: "center", marginBottom: "48px" }}>
+          <h2 className="poster-title" style={{ marginBottom: "16px" }}>
+            What We&apos;ve <span style={{ color: "var(--red)" }}>Built Before</span>
+          </h2>
+          <p style={{ color: "var(--muted)", fontWeight: 700, lineHeight: 1.7, maxWidth: "640px", margin: "0 auto" }}>
+            From national hackathon finals to local community workshops — a track record
+            of empowering student builders across Nepal through CyberUtsav and ButwalHacks.
+          </p>
+        </div>
+        <div className="past-events-grid">
+          {pastEvents.map((event, i) => (
+            <article key={i} className={`past-event-card past-event-${event.type}`}>
+              <div className="past-event-head">
+                <span className="past-event-year">{event.year}</span>
+                <span className={`past-event-badge ${event.type === "butwalhacks" ? "badge-bwh" : "badge-cu"}`}>
+                  {event.organizer}
+                </span>
+              </div>
+              <h3 className="past-event-title">{event.title}</h3>
+              <p className="past-event-subtitle">{event.subtitle}</p>
+              <p className="past-event-desc">{event.description}</p>
+              <ul className="past-event-highlights">
+                {event.highlights.map((h) => (
+                  <li key={h}>{h}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* ═══ SPONSORS ═══ */}
       <section id="sponsors" className="section-pad" style={{ scrollMarginTop: "96px" }} data-reveal>
         <div className="section-label">
-          <span>07</span>
+          <span>08</span>
           <p>Sponsors &amp; Partners</p>
         </div>
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
@@ -508,9 +545,8 @@ export default function CyberUtsavLumbini() {
 
       {/* ═══ CODE OF CONDUCT ═══ */}
       <section id="coc" className="section-pad" style={{ background: "var(--paper-2)", scrollMarginTop: "96px" }} data-reveal>
-        <div className="section-label">
-          <span>08</span>
-          <p>Code of Conduct &amp; Links</p>
+        <div className="section-label">            <span>09</span>
+            <p>Code of Conduct &amp; Links</p>
         </div>
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <h2 className="poster-title" style={{ marginBottom: "24px" }}>
@@ -564,7 +600,7 @@ export default function CyberUtsavLumbini() {
       <section className="section-pad" data-reveal>
         <div className="faq-new">
           <div className="section-label">
-            <span>09</span>
+            <span>10</span>
             <p>Frequently Asked</p>
           </div>
           <h2 className="poster-title">FAQ</h2>
@@ -588,7 +624,7 @@ export default function CyberUtsavLumbini() {
           <div className="form-section-intro">
             <div style={{ display: "flex", justifyContent: "center", marginBottom: "28px" }}>
               <div className="section-label" style={{ display: "flex", marginBottom: 0 }}>
-                <span>10</span>
+                <span>11</span>
                 <p>Pre-Registration</p>
               </div>
             </div>
