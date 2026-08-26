@@ -135,7 +135,7 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
               i + 1 === current
                 ? "bg-[var(--blue)] text-black border-black neo-shadow-sm"
                 : i + 1 < current
-                ? "bg-[var(--lime)] text-black border-black"
+                ? "bg-[var(--red)] text-black border-black"
                 : "bg-[var(--paper)] text-[var(--muted)] border-[var(--ink)]"
             }`}
           >
@@ -144,7 +144,7 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
           {i < total - 1 && (
             <div
               className={`w-8 h-0.5 ${
-                i + 1 < current ? "bg-[var(--lime)]" : "bg-[#333]"
+                i + 1 < current ? "bg-[var(--red)]" : "bg-[#333]"
               }`}
             />
           )}
@@ -259,11 +259,11 @@ export default function PreRegistrationForm() {
   /* ── Success state ── */
   if (isSubmitted) {
     return (
-      <div className="bg-[var(--paper-2)] border-2 border-[var(--lime)] p-8 md:p-12 neo-shadow text-center">
-        <div className="w-20 h-20 bg-[var(--lime)]/10 border-2 border-[var(--lime)] flex items-center justify-center mx-auto mb-6">
+      <div className="bg-[var(--paper-2)] border-2 border-[var(--red)] p-8 md:p-12 neo-shadow text-center">
+        <div className="w-20 h-20 bg-[var(--red)]/10 border-2 border-[var(--red)] flex items-center justify-center mx-auto mb-6">
           <Check />
         </div>
-        <h3 className="text-3xl font-black text-[var(--lime)] mb-3">
+        <h3 className="text-3xl font-black text-[var(--red)] mb-3">
           PRE-REGISTRATION SUCCESSFUL
         </h3>
         <p className="text-[var(--muted)] font-sans mb-6 max-w-md mx-auto">
@@ -657,7 +657,7 @@ export default function PreRegistrationForm() {
             type="submit"
             disabled={isSubmitting}
             aria-busy={isSubmitting}
-            className="inline-flex items-center gap-2 px-8 py-3 bg-[var(--lime)] text-black font-black text-sm border-2 border-black neo-shadow-sm neo-hover disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[3px_3px_0px_0px_var(--lime)] transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-[var(--red)] text-black font-black text-sm border-2 border-black neo-shadow-sm neo-hover disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[3px_3px_0px_0px_var(--red)] transition-all"
           >
             {isSubmitting ? (
               <>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, type JSX } from "react";
+import { useState, useEffect, useRef, useCallback, type JSX } from "react";
 import Nav from "@/components/Nav";
 import PreRegistrationForm from "@/components/PreRegistrationForm";
 import { tracks, hostCityDetails, timeline, steps, prizes, faqs, team } from "@/lib/data";
@@ -26,7 +26,28 @@ function Icon({ name, className = "w-6 h-6", style }: { name: string; className?
   return icons[name] || null;
 }
 
-const trackAccents = ["var(--lime)", "var(--mint)", "var(--blue)", "var(--red)", "var(--mint)", "var(--blue)"];
+const trackAccents = ["var(--red)", "var(--mint)", "var(--blue)", "var(--red)", "var(--mint)", "var(--blue)"];
+
+/* ─── Scroll Reveal Hook ─── */
+function useScrollReveal() {
+  const ref = useCallback((node: HTMLElement | null) => {
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    node.querySelectorAll("[data-reveal]").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
 
 /* ─── Site Under Work Modal ─── */
 function SiteUnderWorkModal() {
@@ -56,7 +77,7 @@ function SiteUnderWorkModal() {
             Site Under Work &bull; System in Initialization
           </span>
         </div>
-        <h2 className="poster-title text-xl mb-3">Cyber Utsav 3.0 &mdash; Lumbini Chapter Portal</h2>
+        <h2 className="poster-title text-xl mb-3">CyberUtsav Lumbini &mdash; Portal</h2>
         <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--muted)" }}>
           The official pre-registration portal for the Lumbini Provincial Chapter
           (Hosted in Butwal City, co-organized by ButwalHacks &amp; Tech Gurkha Digital
@@ -73,7 +94,7 @@ function SiteUnderWorkModal() {
             Winners advance directly to Kathmandu Grand Finale
           </li>
           <li className="flex items-center gap-2">
-            <Icon name="users" className="w-4 h-4 shrink-0" style={{ color: "var(--lime)" }} />
+            <Icon name="users" className="w-4 h-4 shrink-0" style={{ color: "var(--red)" }} />
             Co-Organized by ButwalHacks Ecosystem
           </li>
         </ul>
@@ -89,6 +110,8 @@ function SiteUnderWorkModal() {
    MAIN PAGE
    ═══════════════════════════════════════ */
 export default function CyberUtsavLumbini() {
+  const revealRef = useScrollReveal();
+
   return (
     <>
       <Nav />
@@ -108,12 +131,13 @@ export default function CyberUtsavLumbini() {
             <span className="stamp stamp-blue">Host City: Butwal</span>
           </div>
           <h1 className="poster-title">
-            Cyber Utsav 3.0<br />
-            <span style={{ color: "var(--red)" }}>Lumbini Chapter</span>
+            CyberUtsav<br />
+            <span style={{ color: "var(--red)" }}>Lumbini</span>
           </h1>
           <p className="hero-lede">
-            Nepal&apos;s biggest student hackathon arrives in Lumbini Province.
-            Regional winning teams secure direct entry to the Kathmandu Grand Finale.
+            The Lumbini Provincial Chapter of Nepal&apos;s biggest student hackathon.
+            A selection round where regional winning teams secure direct entry to the
+            Kathmandu Grand Finale.
             <span className="hero-org-tag">Co-organized by ButwalHacks</span>
           </p>
           <div className="hero-cta-row">
@@ -130,7 +154,7 @@ export default function CyberUtsavLumbini() {
         <aside className="hero-ticket" aria-label="Event at a glance">
           <div className="hero-ticket-head">
             <span>Admit One Team</span>
-            <span>N&deg; 003</span>
+            <span>N&deg; L01</span>
           </div>
           <div className="hero-ticket-body">
             <div className="hero-ticket-row">
@@ -150,7 +174,7 @@ export default function CyberUtsavLumbini() {
             </div>
           </div>
           <div className="hero-ticket-foot">
-            <span>CyberUtsav 3.0</span>
+            <span>CyberUtsav Lumbini</span>
             <span>Entry Free</span>
           </div>
         </aside>
@@ -172,7 +196,7 @@ export default function CyberUtsavLumbini() {
       </header>
 
       {/* ═══ ABOUT / MANIFESTO ═══ */}
-      <section id="about" className="section-pad" style={{ background: "var(--paper-2)", scrollMarginTop: "96px" }}>
+      <section id="about" className="section-pad" style={{ background: "var(--paper-2)", scrollMarginTop: "96px" }} data-reveal>
         <div className="section-label">
           <span>01</span>
           <p>About the Event</p>
@@ -182,12 +206,12 @@ export default function CyberUtsavLumbini() {
             <h2 className="poster-title">Lumbini Chapter</h2>
             <div className="manifesto-copy">
               <p>
-                CyberUtsav is Nepal&apos;s largest student-focused hackathon series,
-                organized by Tech Gurkha Digital Services for high school students,
-                A-Levels students, and recent graduates.
+                CyberUtsav Lumbini is the Lumbini Provincial Chapter of CyberUtsav,
+                Nepal&apos;s largest student-focused hackathon series organized by
+                Tech Gurkha Digital Services.
               </p>
               <p>
-                The Lumbini provincial chapter brings that national platform home
+                This provincial selection round brings the national platform home
                 to Butwal — giving western Nepal&apos;s student builders a local stage
                 to build, pitch, and earn a direct route to the Kathmandu Grand Finale.
               </p>
@@ -238,7 +262,7 @@ export default function CyberUtsavLumbini() {
       </section>
 
       {/* ═══ TRACKS ═══ */}
-      <section id="tracks" className="track-wall section-pad" style={{ scrollMarginTop: "96px" }}>
+      <section id="tracks" className="track-wall section-pad" style={{ scrollMarginTop: "96px" }} data-reveal>
         <div className="section-label">
           <span>02</span>
           <p>Hackathon Tracks</p>
@@ -268,7 +292,7 @@ export default function CyberUtsavLumbini() {
       </section>
 
       {/* ═══ PROCESS + TIMELINE ═══ */}
-      <section id="schedule" className="route-section section-pad" style={{ scrollMarginTop: "96px" }}>
+      <section id="schedule" className="route-section section-pad" style={{ scrollMarginTop: "96px" }} data-reveal>
         <div className="section-label">
           <span>03</span>
           <p>Process + Event Format</p>
@@ -301,7 +325,7 @@ export default function CyberUtsavLumbini() {
       </section>
 
       {/* ═══ PRIZES ═══ */}
-      <section id="prizes" className="section-pad" style={{ scrollMarginTop: "96px" }}>
+      <section id="prizes" className="section-pad" style={{ scrollMarginTop: "96px" }} data-reveal>
         <div className="section-label">
           <span>04</span>
           <p>Prizes</p>
@@ -332,7 +356,7 @@ export default function CyberUtsavLumbini() {
       </section>
 
       {/* ═══ HOST CITY (Butwal round) ═══ */}
-      <section id="butwal" className="passport section-pad" style={{ scrollMarginTop: "96px" }}>
+      <section id="butwal" className="passport section-pad" style={{ scrollMarginTop: "96px" }} data-reveal>
         <div className="section-label">
           <span>05</span>
           <p>The Butwal Round</p>
@@ -356,68 +380,191 @@ export default function CyberUtsavLumbini() {
       </section>
 
       {/* ═══ ORGANIZING TEAM ═══ */}
-      <section id="team" className="team-roster section-pad" style={{ scrollMarginTop: "96px" }}>
+      <section id="team" className="team-roster section-pad" style={{ scrollMarginTop: "96px" }} data-reveal>
         <div className="section-label">
           <span>06</span>
           <p>Organizing Team</p>
         </div>
         <div className="team-roster-head">
           <h2 className="poster-title">
-            The People <span style={{ color: "var(--lime)" }}>Behind It</span>
+            The People <span style={{ color: "var(--red)" }}>Behind It</span>
           </h2>
           <p>
             A cross-organizational team of students, developers, and community builders making CyberUtsav Lumbini happen.
           </p>
         </div>
-        <div className="team-grid">
+
+        {/* ButwalHacks spotlight */}
+        <div className="butwalhacks-spotlight">
+          <div className="butwalhacks-spotlight-badge">
+            <Icon name="bolt" className="w-8 h-8" />
+          </div>
+          <div>
+            <span className="stamp stamp-blue" style={{ transform: "rotate(-1deg)" }}>Co-Organizer</span>
+            <h3 className="poster-title" style={{ marginTop: "16px" }}>
+              <span style={{ color: "var(--red)" }}>ButwalHacks</span>
+            </h3>
+            <p style={{ color: "rgba(243, 234, 216, 0.78)", fontWeight: 700, lineHeight: 1.7, marginTop: "12px" }}>
+              The driving force behind the Lumbini Chapter. ButwalHacks is Butwal&apos;s
+              student developer community — building, teaching, and organizing hackathons
+              to put western Nepal on the innovation map.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop: "20px" }}>
+              <a href="https://github.com/butwalhacks" target="_blank" rel="noopener noreferrer" className="team-socials-link">
+                <Icon name="github" /> GitHub
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="team-socials-link">
+                <svg style={{ width: 14, height: 14 }} fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Placeholder team grid */}
+        <div className="team-grid" style={{ marginTop: "42px" }}>
           {team.map((member) => (
             <article key={member.name}>
-              <figure>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={member.photo}
-                  alt={member.name}
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = "none";
-                    const fallback = target.nextElementSibling as HTMLElement;
-                    if (fallback) fallback.style.display = "flex";
-                  }}
-                />
-                <span className="team-fallback" style={{ color: member.color }} aria-hidden="true">
+              <div style={{ display: "grid", placeItems: "center", height: "160px", borderBottom: "3px solid var(--ink)", background: "var(--paper-2)" }}>
+                <span style={{ fontFamily: "var(--font-archivo), 'Archivo Black', Impact, sans-serif", fontSize: "52px", color: member.color }} aria-hidden="true">
                   {member.initials}
                 </span>
-              </figure>
-              <div>
-                <span className="team-initials">{member.initials}</span>
-                <h3>{member.name}</h3>
+              </div>
+              <div style={{ padding: "22px" }}>
+                <h3 style={{ fontFamily: "var(--font-archivo), 'Archivo Black', Impact, sans-serif", fontSize: "clamp(22px, 2vw, 28px)", lineHeight: 0.92, textTransform: "uppercase", letterSpacing: "-0.05em" }}>
+                  {member.name}
+                </h3>
                 <p className="team-role">
                   <Icon name="mapPin" /> {member.role}
                 </p>
-                <div className="team-socials">
-                  {member.github && (
-                    <a href={member.github} target="_blank" rel="noopener noreferrer">
-                      <Icon name="github" /> GitHub
-                    </a>
-                  )}
-                  {member.linkedin && (
-                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                      <svg style={{ width: 14, height: 14 }} fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                      LinkedIn
-                    </a>
-                  )}
-                </div>
+                <span style={{ display: "inline-block", marginTop: "10px", color: "var(--muted)", fontFamily: "var(--font-space), 'Space Grotesk', Inter, sans-serif", fontSize: "12px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                  {member.org}
+                </span>
               </div>
             </article>
           ))}
         </div>
       </section>
 
+      {/* ═══ SPONSORS ═══ */}
+      <section id="sponsors" className="section-pad" style={{ scrollMarginTop: "96px" }} data-reveal>
+        <div className="section-label">
+          <span>07</span>
+          <p>Sponsors &amp; Partners</p>
+        </div>
+        <div style={{ textAlign: "center", marginBottom: "48px" }}>
+          <h2 className="poster-title" style={{ marginBottom: "16px" }}>
+            Backed By <span style={{ color: "var(--blue)" }}>The Best</span>
+          </h2>
+          <p style={{ color: "var(--muted)", fontWeight: 700, lineHeight: 1.7, maxWidth: "600px", margin: "0 auto" }}>
+            CyberUtsav Lumbini is made possible by organizations and communities
+            that believe in empowering Nepal&apos;s next generation of builders.
+          </p>
+        </div>
+        <div className="sponsor-tiers">
+          {/* Title Sponsor */}
+          <div className="sponsor-tier">
+            <span className="stamp stamp-red" style={{ transform: "rotate(-1deg)" }}>Title Sponsor</span>
+            <div className="sponsor-placeholder-grid">
+              {[1].map((i) => (
+                <div key={i} className="sponsor-card sponsor-card-lg">
+                  <span className="sponsor-card-label">Your Brand Here</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Gold Sponsors */}
+          <div className="sponsor-tier">
+            <span className="stamp stamp-blue" style={{ transform: "rotate(-1deg)" }}>Gold Partners</span>
+            <div className="sponsor-placeholder-grid">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="sponsor-card">
+                  <span className="sponsor-card-label">Partner {i}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Community Partners */}
+          <div className="sponsor-tier">
+            <span className="stamp" style={{ transform: "rotate(-1deg)", color: "var(--mint)" }}>Community Partners</span>
+            <div className="sponsor-placeholder-grid">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="sponsor-card sponsor-card-sm">
+                  <span className="sponsor-card-label">Community {i}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div style={{ textAlign: "center", marginTop: "48px" }}>
+          <p style={{ color: "var(--muted)", fontWeight: 700, marginBottom: "20px" }}>
+            Interested in sponsoring CyberUtsav Lumbini?
+          </p>
+          <a href="mailto:prarambha@butwalhacks.com" className="atlas-button dark">
+            Become a Sponsor <Icon name="arrow" className="w-4 h-4" />
+          </a>
+        </div>
+      </section>
+
+      {/* ═══ CODE OF CONDUCT ═══ */}
+      <section id="coc" className="section-pad" style={{ background: "var(--paper-2)", scrollMarginTop: "96px" }} data-reveal>
+        <div className="section-label">
+          <span>08</span>
+          <p>Code of Conduct &amp; Links</p>
+        </div>
+        <div style={{ maxWidth: "960px", margin: "0 auto" }}>
+          <h2 className="poster-title" style={{ marginBottom: "24px" }}>
+            Code of <span style={{ color: "var(--red)" }}>Conduct</span>
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
+            <div className="receipt" style={{ boxShadow: "7px 7px 0 var(--ink)" }}>
+              <h3 style={{ fontSize: "22px" }}>Our Commitment</h3>
+              <p style={{ color: "var(--muted)", fontWeight: 700, lineHeight: 1.7, marginTop: "16px" }}>
+                CyberUtsav Lumbini is dedicated to providing a harassment-free
+                experience for everyone. We do not tolerate harassment of
+                participants in any form.
+              </p>
+            </div>
+            <div className="receipt" style={{ boxShadow: "7px 7px 0 var(--ink)" }}>
+              <h3 style={{ fontSize: "22px" }}>Event Links</h3>
+              <div style={{ display: "grid", gap: "12px", marginTop: "20px" }}>
+                <a href="https://butwalhacks.com" target="_blank" rel="noopener noreferrer" className="event-link-card">
+                  <Icon name="bolt" className="w-5 h-5" style={{ color: "var(--red)" }} />
+                  <div>
+                    <strong>ButwalHacks</strong>
+                    <span>Community &amp; Co-Organizer</span>
+                  </div>
+                </a>
+                <a href="https://cyberutsav.com" target="_blank" rel="noopener noreferrer" className="event-link-card">
+                  <Icon name="shield" className="w-5 h-5" style={{ color: "var(--red)" }} />
+                  <div>
+                    <strong>CyberUtsav</strong>
+                    <span>Parent Event — National Series</span>
+                  </div>
+                </a>
+                <a href="https://github.com/Prarambha369/CyberUtsavLumbini" target="_blank" rel="noopener noreferrer" className="event-link-card">
+                  <Icon name="github" className="w-5 h-5" />
+                  <div>
+                    <strong>GitHub Repo</strong>
+                    <span>Open source project code</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <p style={{ color: "var(--muted)", fontWeight: 650, lineHeight: 1.7, marginTop: "28px", fontSize: "15px" }}>
+            CyberUtsav Lumbini is a provincial chapter selection round under the
+            national CyberUtsav series organized by Tech Gurkha Digital Services.
+            Winning teams from Butwal advance directly to the Kathmandu Grand Finale.
+          </p>
+        </div>
+      </section>
+
       {/* ═══ FAQ ═══ */}
-      <section className="section-pad">
+      <section className="section-pad" data-reveal>
         <div className="faq-new">
           <div className="section-label">
-            <span>07</span>
+            <span>09</span>
             <p>Frequently Asked</p>
           </div>
           <h2 className="poster-title">FAQ</h2>
@@ -441,7 +588,7 @@ export default function CyberUtsavLumbini() {
           <div className="form-section-intro">
             <div style={{ display: "flex", justifyContent: "center", marginBottom: "28px" }}>
               <div className="section-label" style={{ display: "flex", marginBottom: 0 }}>
-                <span>08</span>
+                <span>10</span>
                 <p>Pre-Registration</p>
               </div>
             </div>
@@ -473,7 +620,7 @@ export default function CyberUtsavLumbini() {
       <footer className="atlas-footer">
         <div>
           <div className="atlas-footer-brand">
-            CYBER UTSAV <em>3.0</em>
+            CYBER UTSAV <em>LUMBINI</em>
           </div>
           <p>
             The Lumbini Provincial Chapter of Nepal&apos;s biggest student hackathon — hosted in Butwal, co-organized by ButwalHacks. Winners advance to the Kathmandu Grand Finale.
@@ -482,7 +629,7 @@ export default function CyberUtsavLumbini() {
         <div>
           <h3>Organizers</h3>
           <p style={{ marginTop: "12px", fontWeight: 750 }}>Tech Gurkha Digital Services</p>
-          <p style={{ color: "var(--lime)", marginTop: "8px", fontWeight: 900 }}>ButwalHacks (Co-Organizer)</p>
+          <p style={{ color: "var(--red)", marginTop: "8px", fontWeight: 900 }}>ButwalHacks (Co-Organizer)</p>
         </div>
         <div>
           <h3>Links</h3>
@@ -491,16 +638,16 @@ export default function CyberUtsavLumbini() {
           <a href="mailto:prarambha@butwalhacks.com">Contact Us</a>
         </div>
         <div>
-          <h3>Past Editions</h3>
-          <a href="#">CyberUtsav 1.0</a>
-          <a href="#">CyberUtsav 2.0</a>
+          <h3>National Series</h3>
+          <a href="https://cyberutsav.com" target="_blank" rel="noopener noreferrer">CyberUtsav (Parent)</a>
+          <a href="https://butwalhacks.com" target="_blank" rel="noopener noreferrer">ButwalHacks</a>
           <a href="https://github.com/Prarambha369/CyberUtsavLumbini" target="_blank" rel="noopener noreferrer" className="footer-github" aria-label="GitHub" style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginTop: "16px" }}>
             <Icon name="github" className="w-5 h-5" /> GitHub
           </a>
         </div>
         <div className="footer-rights">
           <p>
-            &copy; 2026 CyberUtsav &mdash; Organized by Tech Gurkha Digital Services. Co-organized by ButwalHacks.
+            &copy; 2026 CyberUtsav Lumbini &mdash; Provincial chapter of CyberUtsav. Organized by Tech Gurkha Digital Services. Co-organized by ButwalHacks.
           </p>
         </div>
       </footer>

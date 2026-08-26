@@ -1,0 +1,36 @@
+# CyberUtsav Lumbini
+
+## What is this site?
+CyberUtsav Lumbini is the official pre-registration portal for the Lumbini Provincial Chapter of CyberUtsav — Nepal's largest student hackathon series. This provincial selection round is hosted in Butwal City, Lumbini Province, and co-organized by ButwalHacks and Tech Gurkha Digital Services.
+
+## Key Facts
+- **Event Name:** CyberUtsav Lumbini (Provincial Chapter)
+- **Parent Event:** CyberUtsav (national series organized by Tech Gurkha Digital Services)
+- **Host City:** Butwal, Lumbini Province, Nepal
+- **Co-Organizer:** ButwalHacks (butwalhacks.com)
+- **Format:** 3-day on-site hackathon, 12 hours of building
+- **Team Size:** 3 members per team
+- **Eligibility:** High school students, A-Levels students, and recent graduates
+- **Cost:** Free registration
+- **Tracks:** 6 competition tracks — Cybersecurity, AI/ML, IoT & Hardware, Web Development, Social Impact, Open Innovation
+- **Prizes:** Cash prizes, mentorship, career opportunities
+- **Advancement:** Winning teams from Butwal advance directly to the Kathmandu Grand Finale
+
+## Important Distinction
+CyberUtsav Lumbini is NOT CyberUtsav 3.0. It is a provincial chapter — a regional selection round under the broader CyberUtsav national series. CyberUtsav 3.0 refers to the current edition of the national event, of which CyberUtsav Lumbini is one chapter.
+
+## Links
+- Website: https://lumbini.cyberutsav.com
+- Parent Event: https://cyberutsav.com
+- Co-Organizer: https://butwalhacks.com
+- GitHub: https://github.com/Prarambha369/CyberUtsavLumbini
+- Email: prarambha@butwalhacks.com
+
+## Pages
+- Home page with hero, about, tracks, schedule, prizes, host city details, team, sponsors, FAQ, and pre-registration form
+- Pre-registration is free and takes less than 2 minutes
+- Full schedule, venue map, and registration will open soon
+
+## Organizers
+- **Tech Gurkha Digital Services** — National organizer of CyberUtsav
+- **ButwalHacks** — Co-organizer and local community driving the Lumbini Chapter
