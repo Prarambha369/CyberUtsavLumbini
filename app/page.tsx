@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback, type JSX } from "react";
+import { useState, useEffect, type JSX } from "react";
 import Nav from "@/components/Nav";
 import PreRegistrationForm from "@/components/PreRegistrationForm";
 import { tracks, hostCityDetails, timeline, steps, prizes, faqs, team, pastEvents } from "@/lib/data";
@@ -26,12 +26,11 @@ function Icon({ name, className = "w-6 h-6", style }: { name: string; className?
   return icons[name] || null;
 }
 
-const trackAccents = ["var(--red)", "var(--mint)", "var(--blue)", "var(--red)", "var(--mint)", "var(--blue)"];
+const trackAccents = ["var(--red)", "var(--mint)", "var(--purple)", "var(--red)", "var(--mint)", "var(--purple)"];
 
 /* ─── Scroll Reveal Hook ─── */
 function useScrollReveal() {
-  const ref = useCallback((node: HTMLElement | null) => {
-    if (!node) return;
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -41,12 +40,11 @@ function useScrollReveal() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
     );
-    node.querySelectorAll("[data-reveal]").forEach((el) => observer.observe(el));
+    document.querySelectorAll("[data-reveal]").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
-  return ref;
 }
 
 /* ─── Site Under Work Modal ─── */
@@ -86,7 +84,7 @@ function SiteUnderWorkModal() {
         </p>
         <ul className="space-y-2 text-sm mb-6" style={{ color: "var(--muted)" }}>
           <li className="flex items-center gap-2">
-            <Icon name="mapPin" className="w-4 h-4 shrink-0" style={{ color: "var(--blue)" }} />
+            <Icon name="mapPin" className="w-4 h-4 shrink-0" style={{ color: "var(--purple)" }} />
             Host Location: Butwal City, Lumbini Province
           </li>
           <li className="flex items-center gap-2">
@@ -110,7 +108,7 @@ function SiteUnderWorkModal() {
    MAIN PAGE
    ═══════════════════════════════════════ */
 export default function CyberUtsavLumbini() {
-  const revealRef = useScrollReveal();
+  useScrollReveal();
 
   return (
     <>
@@ -491,7 +489,7 @@ export default function CyberUtsavLumbini() {
         </div>
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
           <h2 className="poster-title" style={{ marginBottom: "16px" }}>
-            Backed By <span style={{ color: "var(--blue)" }}>The Best</span>
+            Backed By <span style={{ color: "var(--purple)" }}>The Best</span>
           </h2>
           <p style={{ color: "var(--muted)", fontWeight: 700, lineHeight: 1.7, maxWidth: "600px", margin: "0 auto" }}>
             CyberUtsav Lumbini is made possible by organizations and communities

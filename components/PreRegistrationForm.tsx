@@ -133,7 +133,7 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
           <div
             className={`w-10 h-10 flex items-center justify-center font-black text-sm border-2 transition-all ${
               i + 1 === current
-                ? "bg-[var(--blue)] text-black border-black neo-shadow-sm"
+                ? "bg-[var(--purple)] text-black border-black neo-shadow-sm"
                 : i + 1 < current
                 ? "bg-[var(--red)] text-black border-black"
                 : "bg-[var(--paper)] text-[var(--muted)] border-[var(--ink)]"
@@ -168,7 +168,7 @@ function Field({
 }) {
   return (
     <div className="space-y-2">
-      <label className="block text-sm font-black text-[var(--blue)]">
+      <label className="block text-sm font-black text-[var(--purple)]">
         {label} {required && <span className="text-[var(--red)]">*</span>}
       </label>
       {children}
@@ -180,10 +180,10 @@ function Field({
 }
 
 const inputClass =
-  "w-full bg-[var(--paper)] border-2 border-[var(--ink)] p-4 text-[var(--ink)] focus:border-[var(--blue)] focus:outline-none focus:shadow-[4px_4px_0px_0px_var(--blue)] transition-all placeholder:text-[var(--muted)] text-sm";
+  "w-full bg-[var(--paper)] border-2 border-[var(--ink)] p-4 text-[var(--ink)] focus:border-[var(--purple)] focus:outline-none focus:shadow-[4px_4px_0px_0px_var(--purple)] transition-all placeholder:text-[var(--muted)] text-sm";
 
 const selectClass =
-  "w-full bg-[var(--paper)] border-2 border-[var(--ink)] p-4 text-[var(--ink)] focus:border-[var(--blue)] focus:outline-none focus:shadow-[4px_4px_0px_0px_var(--blue)] transition-all appearance-none cursor-pointer text-sm";
+  "w-full bg-[var(--paper)] border-2 border-[var(--ink)] p-4 text-[var(--ink)] focus:border-[var(--purple)] focus:outline-none focus:shadow-[4px_4px_0px_0px_var(--purple)] transition-all appearance-none cursor-pointer text-sm";
 
 /* ═══════════════════════════════════════
    MAIN FORM COMPONENT
@@ -271,7 +271,7 @@ export default function PreRegistrationForm() {
           your confirmation and next steps.
         </p>
         <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-6 max-w-sm mx-auto text-left">
-          <h4 className="font-black text-sm text-[var(--blue)] mb-3">REGISTRATION DETAILS</h4>
+          <h4 className="font-black text-sm text-[var(--purple)] mb-3">REGISTRATION DETAILS</h4>
           <div className="space-y-2 text-sm font-sans">
             <div className="flex justify-between">
               <span className="text-[var(--muted)]">Name:</span>
@@ -283,7 +283,7 @@ export default function PreRegistrationForm() {
             </div>
             <div className="flex justify-between">
               <span className="text-[var(--muted)]">Track:</span>
-              <span className="font-bold text-[var(--blue)]">{formData.interest}</span>
+              <span className="font-bold text-[var(--purple)]">{formData.interest}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-[var(--muted)]">Country:</span>
@@ -293,7 +293,7 @@ export default function PreRegistrationForm() {
         </div>
         <a
           href="/"
-          className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-[var(--blue)] text-black font-black text-sm border-2 border-black neo-shadow-sm neo-hover"
+          className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-[var(--purple)] text-black font-black text-sm border-2 border-black neo-shadow-sm neo-hover"
         >
           BACK TO HOME
         </a>
@@ -305,7 +305,7 @@ export default function PreRegistrationForm() {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="bg-[var(--paper-2)] border-2 border-[var(--blue)] p-6 md:p-12 neo-shadow-lg"
+      className="bg-[var(--paper-2)] border-2 border-[var(--purple)] p-6 md:p-12 neo-shadow-lg"
       noValidate
     >
       <StepIndicator current={step} total={totalSteps} />
@@ -333,7 +333,7 @@ export default function PreRegistrationForm() {
       {step === 1 && (
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[var(--blue)] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
+            <div className="w-10 h-10 bg-[var(--purple)] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
               <UserIcon />
             </div>
             <div>
@@ -394,7 +394,7 @@ export default function PreRegistrationForm() {
       {step === 2 && (
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[var(--blue)] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
+            <div className="w-10 h-10 bg-[var(--purple)] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
@@ -461,7 +461,7 @@ export default function PreRegistrationForm() {
       {step === 3 && (
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[var(--blue)] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
+            <div className="w-10 h-10 bg-[var(--purple)] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
               <Shield />
             </div>
             <div>
@@ -524,7 +524,7 @@ export default function PreRegistrationForm() {
 
           {/* Track preview cards */}
           <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-6">
-            <h4 className="font-black text-sm text-[var(--blue)] mb-4">SELECTED TRACK: {formData.interest || "—"}</h4>
+            <h4 className="font-black text-sm text-[var(--purple)] mb-4">SELECTED TRACK: {formData.interest || "—"}</h4>
             <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
               {interests.map((i) => (
                 <button
@@ -533,7 +533,7 @@ export default function PreRegistrationForm() {
                   onClick={() => update("interest", i)}
                   className={`p-2 text-[10px] font-bold border-2 transition-all ${
                     formData.interest === i
-                      ? "border-[var(--blue)] bg-[var(--blue)] text-black"
+                      ? "border-[var(--purple)] bg-[var(--purple)] text-black"
                       : "border-[var(--ink)] bg-[var(--paper-2)] text-[var(--muted)] hover:border-[var(--ink)]"
                   }`}
                 >
@@ -549,7 +549,7 @@ export default function PreRegistrationForm() {
       {step === 4 && (
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[var(--blue)] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
+            <div className="w-10 h-10 bg-[var(--purple)] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
               <Lock />
             </div>
             <div>
@@ -561,7 +561,7 @@ export default function PreRegistrationForm() {
           {/* Summary cards */}
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-4">
-              <h4 className="font-black text-xs text-[var(--blue)] tracking-widest mb-3">PERSONAL</h4>
+              <h4 className="font-black text-xs text-[var(--purple)] tracking-widest mb-3">PERSONAL</h4>
               <div className="space-y-2 text-sm font-sans">
                 <div className="flex justify-between"><span className="text-[var(--muted)]">Name:</span><span className="font-bold">{formData.firstName} {formData.lastName}</span></div>
                 <div className="flex justify-between"><span className="text-[var(--muted)]">Email:</span><span className="font-bold">{formData.email}</span></div>
@@ -570,7 +570,7 @@ export default function PreRegistrationForm() {
             </div>
 
             <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-4">
-              <h4 className="font-black text-xs text-[var(--blue)] tracking-widest mb-3">TEAM</h4>
+              <h4 className="font-black text-xs text-[var(--purple)] tracking-widest mb-3">TEAM</h4>
               <div className="space-y-2 text-sm font-sans">
                 <div className="flex justify-between"><span className="text-[var(--muted)]">Team:</span><span className="font-bold">{formData.teamName}</span></div>
                 <div className="flex justify-between"><span className="text-[var(--muted)]">Role:</span><span className="font-bold">{formData.teamRole}</span></div>
@@ -580,16 +580,16 @@ export default function PreRegistrationForm() {
             </div>
 
             <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-4">
-              <h4 className="font-black text-xs text-[var(--blue)] tracking-widest mb-3">EVENT</h4>
+              <h4 className="font-black text-xs text-[var(--purple)] tracking-widest mb-3">EVENT</h4>
               <div className="space-y-2 text-sm font-sans">
                 <div className="flex justify-between"><span className="text-[var(--muted)]">Country:</span><span className="font-bold">{formData.country}</span></div>
                 <div className="flex justify-between"><span className="text-[var(--muted)]">Affiliation:</span><span className="font-bold">{formData.affiliation}</span></div>
-                <div className="flex justify-between"><span className="text-[var(--muted)]">Track:</span><span className="font-bold text-[var(--blue)]">{formData.interest}</span></div>
+                <div className="flex justify-between"><span className="text-[var(--muted)]">Track:</span><span className="font-bold text-[var(--purple)]">{formData.interest}</span></div>
               </div>
             </div>
 
             <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-4">
-              <h4 className="font-black text-xs text-[var(--blue)] tracking-widest mb-3">EXPERIENCE</h4>
+              <h4 className="font-black text-xs text-[var(--purple)] tracking-widest mb-3">EXPERIENCE</h4>
               <div className="space-y-2 text-sm font-sans">
                 <div className="flex justify-between"><span className="text-[var(--muted)]">Level:</span><span className="font-bold">{formData.experience || "Not specified"}</span></div>
               </div>
@@ -603,10 +603,10 @@ export default function PreRegistrationForm() {
                 type="checkbox"
                 checked={formData.agreedToCodeOfConduct}
                 onChange={(e) => update("agreedToCodeOfConduct", e.target.checked)}
-                className="mt-1 w-5 h-5 accent-[var(--blue)] bg-[var(--paper)] border-2 border-[var(--ink)] cursor-pointer"
+                className="mt-1 w-5 h-5 accent-[var(--purple)] bg-[var(--paper)] border-2 border-[var(--ink)] cursor-pointer"
               />
               <span className="text-sm font-sans text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors">
-                I agree to the <strong className="text-[var(--blue)]">Code of Conduct</strong> and will follow all event rules and guidelines. <span className="text-[var(--red)]">*</span>
+                I agree to the <strong className="text-[var(--purple)]">Code of Conduct</strong> and will follow all event rules and guidelines. <span className="text-[var(--red)]">*</span>
               </span>
             </label>
 
@@ -615,10 +615,10 @@ export default function PreRegistrationForm() {
                 type="checkbox"
                 checked={formData.agreedToPrivacy}
                 onChange={(e) => update("agreedToPrivacy", e.target.checked)}
-                className="mt-1 w-5 h-5 accent-[var(--blue)] bg-[var(--paper)] border-2 border-[var(--ink)] cursor-pointer"
+                className="mt-1 w-5 h-5 accent-[var(--purple)] bg-[var(--paper)] border-2 border-[var(--ink)] cursor-pointer"
               />
               <span className="text-sm font-sans text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors">
-                I agree to the <strong className="text-[var(--blue)]">Privacy Policy</strong> and consent to data processing for event communication. <span className="text-[var(--red)]">*</span>
+                I agree to the <strong className="text-[var(--purple)]">Privacy Policy</strong> and consent to data processing for event communication. <span className="text-[var(--red)]">*</span>
               </span>
             </label>
           </div>
@@ -648,7 +648,7 @@ export default function PreRegistrationForm() {
           <button
             type="button"
             onClick={goNext}
-            className="inline-flex items-center gap-2 px-8 py-3 bg-[var(--blue)] text-black font-black text-sm border-2 border-black neo-shadow-sm neo-hover"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-[var(--purple)] text-black font-black text-sm border-2 border-black neo-shadow-sm neo-hover"
           >
             NEXT <Arrow />
           </button>

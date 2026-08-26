@@ -5,10 +5,11 @@
   --paper: #f3ead8;
   --paper-2: #fff8e9;
   --red: #ec3f2b;
-  --blue: #2047ff;
+  --purple: #7c3aed;
   --lime: #c9ff45;
   --mint: #3dd6a3;
   --muted: #635f57;
+  --blue: #2047ff;
   --line: rgba(16, 16, 20, 0.18);
   --shadow-hard: 10px 10px 0 #101014;
   --radius: 28px;
@@ -38,7 +39,7 @@ body {
     ),
     radial-gradient(
       circle at 88% 6%,
-      rgba(32, 71, 255, 0.14),
+      rgba(124, 58, 237, 0.14),
     transparent 20rem
     ),
     linear-gradient(90deg, rgba(16, 16, 20, 0.05) 1px, transparent 1px),
@@ -84,7 +85,7 @@ button {
 }
 
 *:focus-visible {
-  outline: 3px solid var(--blue);
+  outline: 3px solid var(--purple);
   outline-offset: 2px;
 }
 
@@ -276,7 +277,7 @@ button {
 }
 
 .stamp-blue {
-  color: var(--blue);
+  color: var(--purple);
 }
 
 /* ───────────────────────── Layout ───────────────────────── */
@@ -520,7 +521,7 @@ button {
 
 .hero-stat-strip article:nth-child(4) {
   color: var(--paper-2);
-  background: var(--blue);
+  background: var(--purple);
 }
 
 .hero-stat-strip strong {
@@ -747,7 +748,7 @@ button {
 
 .route-section {
   background:
-    linear-gradient(135deg, rgba(32, 71, 255, 0.08), transparent 34%),
+    linear-gradient(135deg, rgba(124, 58, 237, 0.08), transparent 34%),
     var(--paper);
 }
 
@@ -787,7 +788,7 @@ button {
 
 .route-board article:nth-child(3) {
   color: var(--paper-2);
-  background: var(--blue);
+  background: var(--purple);
 }
 
 .route-board article:nth-child(4) {
@@ -926,7 +927,7 @@ button {
 }
 
 .receipt-lines em {
-  color: var(--blue);
+  color: var(--purple);
   font-family: var(--font-archivo), "Archivo Black", Impact, sans-serif;
   font-size: 24px;
   font-style: normal;
@@ -1193,7 +1194,7 @@ button {
   border: 2px solid var(--ink);
   border-radius: 999px;
   padding: 0 12px;
-  color: var(--blue);
+  color: var(--purple);
   font-family: var(--font-archivo), "Archivo Black", Impact, sans-serif;
   font-size: 15px;
   line-height: 1;
@@ -1571,9 +1572,9 @@ select:invalid:not(:placeholder-shown):not([value=""]) {
 }
 
 .badge-cu {
-  color: var(--blue);
-  border-color: var(--blue);
-  background: rgba(32, 71, 255, 0.08);
+  color: var(--purple);
+  border-color: var(--purple);
+  background: rgba(124, 58, 237, 0.08);
 }
 
 .past-event-title {
