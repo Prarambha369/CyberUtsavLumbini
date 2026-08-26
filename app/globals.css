@@ -220,9 +220,6 @@ button {
   font-size: 13px;
   font-weight: 900;
   cursor: pointer;
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease;
 }
 
 .header-ticket,
@@ -305,6 +302,7 @@ button {
   color: var(--paper-2);
   background: var(--ink);
   letter-spacing: 0;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .section-label p {
@@ -1306,7 +1304,7 @@ button {
   height: 20px;
   flex-shrink: 0;
   color: var(--red);
-  transition: rotate 0.2s ease;
+  transition: rotate 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .faq-stack details[open] summary svg {
@@ -1497,12 +1495,16 @@ select:invalid:not(:placeholder-shown):not([value=""]) {
 }
 
 /* Staggered children reveal */
-[data-reveal].revealed > .stagger-children > *:nth-child(1) { transition-delay: 0s; }
-[data-reveal].revealed > .stagger-children > *:nth-child(2) { transition-delay: 0.08s; }
-[data-reveal].revealed > .stagger-children > *:nth-child(3) { transition-delay: 0.16s; }
-[data-reveal].revealed > .stagger-children > *:nth-child(4) { transition-delay: 0.24s; }
-[data-reveal].revealed > .stagger-children > *:nth-child(5) { transition-delay: 0.32s; }
-[data-reveal].revealed > .stagger-children > *:nth-child(6) { transition-delay: 0.4s; }
+[data-reveal].revealed > .stagger-children > * {
+  --stagger-index: 0;
+  transition-delay: calc(var(--stagger-index) * 0.08s);
+}
+[data-reveal].revealed > .stagger-children > *:nth-child(1) { --stagger-index: 0; }
+[data-reveal].revealed > .stagger-children > *:nth-child(2) { --stagger-index: 1; }
+[data-reveal].revealed > .stagger-children > *:nth-child(3) { --stagger-index: 2; }
+[data-reveal].revealed > .stagger-children > *:nth-child(4) { --stagger-index: 3; }
+[data-reveal].revealed > .stagger-children > *:nth-child(5) { --stagger-index: 4; }
+[data-reveal].revealed > .stagger-children > *:nth-child(6) { --stagger-index: 5; }
 
 /* ───────────────────────── Hero Animations ───────────────────────── */
 
@@ -1639,7 +1641,8 @@ select:invalid:not(:placeholder-shown):not([value=""]) {
 
 /* ───────────────────────── Button & Link Animations ───────────────────────── */
 
-.atlas-button {
+.atlas-button,
+.header-ticket {
   transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
               box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1),
               background 0.2s ease;
@@ -1678,15 +1681,9 @@ select:invalid:not(:placeholder-shown):not([value=""]) {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.faq-stack summary svg {
-  transition: rotate 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
+
 
 /* ───────────────────────── Section Label Pulse ───────────────────────── */
-
-.section-label span {
-  transition: transform 0.2s ease, background 0.2s ease;
-}
 
 [data-reveal].revealed .section-label span {
   animation: labelPop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;

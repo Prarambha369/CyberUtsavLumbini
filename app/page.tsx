@@ -105,10 +105,6 @@ function SiteUnderWorkModal() {
 export default function CyberUtsavLumbini() {
   useScrollReveal();
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, []);
-
   return (
     <>
       <Nav />
