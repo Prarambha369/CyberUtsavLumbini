@@ -133,10 +133,10 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
           <div
             className={`w-10 h-10 flex items-center justify-center font-black text-sm border-2 transition-all ${
               i + 1 === current
-                ? "bg-[#00D4FF] text-black border-black neo-shadow-sm"
+                ? "bg-[var(--blue)] text-black border-black neo-shadow-sm"
                 : i + 1 < current
-                ? "bg-[#00FF41] text-black border-black"
-                : "bg-[#1A1A1A] text-[#555] border-[#333]"
+                ? "bg-[var(--lime)] text-black border-black"
+                : "bg-[var(--paper)] text-[var(--muted)] border-[var(--ink)]"
             }`}
           >
             {i + 1 < current ? <Check /> : i + 1}
@@ -144,7 +144,7 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
           {i < total - 1 && (
             <div
               className={`w-8 h-0.5 ${
-                i + 1 < current ? "bg-[#00FF41]" : "bg-[#333]"
+                i + 1 < current ? "bg-[var(--lime)]" : "bg-[#333]"
               }`}
             />
           )}
@@ -168,22 +168,22 @@ function Field({
 }) {
   return (
     <div className="space-y-2">
-      <label className="block text-sm font-black text-[#00D4FF]">
-        {label} {required && <span className="text-[#E53E3E]">*</span>}
+      <label className="block text-sm font-black text-[var(--blue)]">
+        {label} {required && <span className="text-[var(--red)]">*</span>}
       </label>
       {children}
       {error && (
-        <p className="text-xs text-[#E53E3E] font-sans" role="alert">{error}</p>
+        <p className="text-xs text-[var(--red)] font-sans" role="alert">{error}</p>
       )}
     </div>
   );
 }
 
 const inputClass =
-  "w-full bg-[#0A0A0A] border-2 border-[#333] p-4 text-[#F5F5F5] font-mono focus:border-[#00D4FF] focus:outline-none focus:shadow-[4px_4px_0px_0px_#00D4FF] transition-all placeholder:text-[#555] text-sm";
+  "w-full bg-[var(--paper)] border-2 border-[var(--ink)] p-4 text-[var(--ink)] focus:border-[var(--blue)] focus:outline-none focus:shadow-[4px_4px_0px_0px_var(--blue)] transition-all placeholder:text-[var(--muted)] text-sm";
 
 const selectClass =
-  "w-full bg-[#0A0A0A] border-2 border-[#333] p-4 text-[#F5F5F5] font-mono focus:border-[#00D4FF] focus:outline-none focus:shadow-[4px_4px_0px_0px_#00D4FF] transition-all appearance-none cursor-pointer text-sm";
+  "w-full bg-[var(--paper)] border-2 border-[var(--ink)] p-4 text-[var(--ink)] focus:border-[var(--blue)] focus:outline-none focus:shadow-[4px_4px_0px_0px_var(--blue)] transition-all appearance-none cursor-pointer text-sm";
 
 /* ═══════════════════════════════════════
    MAIN FORM COMPONENT
@@ -259,41 +259,41 @@ export default function PreRegistrationForm() {
   /* ── Success state ── */
   if (isSubmitted) {
     return (
-      <div className="bg-[#111] border-2 border-[#00FF41] p-8 md:p-12 neo-shadow text-center">
-        <div className="w-20 h-20 bg-[#00FF41]/10 border-2 border-[#00FF41] flex items-center justify-center mx-auto mb-6">
+      <div className="bg-[var(--paper-2)] border-2 border-[var(--lime)] p-8 md:p-12 neo-shadow text-center">
+        <div className="w-20 h-20 bg-[var(--lime)]/10 border-2 border-[var(--lime)] flex items-center justify-center mx-auto mb-6">
           <Check />
         </div>
-        <h3 className="text-3xl font-black text-[#00FF41] mb-3">
+        <h3 className="text-3xl font-black text-[var(--lime)] mb-3">
           PRE-REGISTRATION SUCCESSFUL
         </h3>
-        <p className="text-[#A0A0A0] font-sans mb-6 max-w-md mx-auto">
-          Welcome aboard, {formData.firstName}! Check <strong className="text-[#F5F5F5]">{formData.email}</strong> for
+        <p className="text-[var(--muted)] font-sans mb-6 max-w-md mx-auto">
+          Welcome aboard, {formData.firstName}! Check <strong className="text-[var(--ink)]">{formData.email}</strong> for
           your confirmation and next steps.
         </p>
-        <div className="bg-[#0A0A0A] border-2 border-[#222] p-6 max-w-sm mx-auto text-left">
-          <h4 className="font-black text-sm text-[#00D4FF] mb-3">REGISTRATION DETAILS</h4>
+        <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-6 max-w-sm mx-auto text-left">
+          <h4 className="font-black text-sm text-[var(--blue)] mb-3">REGISTRATION DETAILS</h4>
           <div className="space-y-2 text-sm font-sans">
             <div className="flex justify-between">
-              <span className="text-[#555]">Name:</span>
+              <span className="text-[var(--muted)]">Name:</span>
               <span className="font-bold">{formData.firstName} {formData.lastName}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-[#555]">Team:</span>
+              <span className="text-[var(--muted)]">Team:</span>
               <span className="font-bold">{formData.teamName}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-[#555]">Track:</span>
-              <span className="font-bold text-[#00D4FF]">{formData.interest}</span>
+              <span className="text-[var(--muted)]">Track:</span>
+              <span className="font-bold text-[var(--blue)]">{formData.interest}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-[#555]">Country:</span>
+              <span className="text-[var(--muted)]">Country:</span>
               <span className="font-bold">{formData.country}</span>
             </div>
           </div>
         </div>
         <a
           href="/"
-          className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-[#00D4FF] text-black font-black text-sm border-2 border-black neo-shadow-sm neo-hover"
+          className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-[var(--blue)] text-black font-black text-sm border-2 border-black neo-shadow-sm neo-hover"
         >
           BACK TO HOME
         </a>
@@ -305,16 +305,16 @@ export default function PreRegistrationForm() {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="bg-[#111] border-2 border-[#00D4FF] p-6 md:p-12 neo-shadow-lg"
+      className="bg-[var(--paper-2)] border-2 border-[var(--blue)] p-6 md:p-12 neo-shadow-lg"
       noValidate
     >
       <StepIndicator current={step} total={totalSteps} />
 
       {/* ── Error banner ── */}
       {errors.length > 0 && (
-        <div className="bg-[#E53E3E]/10 border-2 border-[#E53E3E] p-4 mb-6" role="alert">
-          <p className="font-black text-sm text-[#E53E3E] mb-1">PLEASE FIX THE FOLLOWING:</p>
-          <ul className="text-xs text-[#E53E3E] font-sans space-y-1">
+        <div className="bg-[var(--red)]/10 border-2 border-[var(--red)] p-4 mb-6" role="alert">
+          <p className="font-black text-sm text-[var(--red)] mb-1">PLEASE FIX THE FOLLOWING:</p>
+          <ul className="text-xs text-[var(--red)] font-sans space-y-1">
             {errors.map((err) => (
               <li key={err}>• {err}</li>
             ))}
@@ -324,8 +324,8 @@ export default function PreRegistrationForm() {
 
       {/* ── Server error ── */}
       {serverError && (
-        <div className="bg-[#E53E3E]/10 border-2 border-[#E53E3E] p-4 mb-6" role="alert">
-          <p className="font-black text-sm text-[#E53E3E]">{serverError}</p>
+        <div className="bg-[var(--red)]/10 border-2 border-[var(--red)] p-4 mb-6" role="alert">
+          <p className="font-black text-sm text-[var(--red)]">{serverError}</p>
         </div>
       )}
 
@@ -333,12 +333,12 @@ export default function PreRegistrationForm() {
       {step === 1 && (
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[#00D4FF] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
+            <div className="w-10 h-10 bg-[var(--blue)] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
               <UserIcon />
             </div>
             <div>
               <h3 className="font-black text-lg">PERSONAL INFORMATION</h3>
-              <p className="text-xs text-[#555] font-sans">Step 1 of {totalSteps} — Tell us about yourself</p>
+              <p className="text-xs text-[var(--muted)] font-sans">Step 1 of {totalSteps} — Tell us about yourself</p>
             </div>
           </div>
 
@@ -394,14 +394,14 @@ export default function PreRegistrationForm() {
       {step === 2 && (
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[#00D4FF] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
+            <div className="w-10 h-10 bg-[var(--blue)] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             </div>
             <div>
               <h3 className="font-black text-lg">TEAM DETAILS</h3>
-              <p className="text-xs text-[#555] font-sans">Step 2 of {totalSteps} — Your team of 3</p>
+              <p className="text-xs text-[var(--muted)] font-sans">Step 2 of {totalSteps} — Your team of 3</p>
             </div>
           </div>
 
@@ -450,8 +450,8 @@ export default function PreRegistrationForm() {
             </Field>
           </div>
 
-          <div className="bg-[#1A1A1A] border-2 border-[#333] p-4 text-xs text-[#A0A0A0] font-sans">
-            <strong className="text-[#F5F5F5]">Note:</strong> Teams of exactly 3 members are required for CyberUtsav. 
+          <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-4 text-xs text-[var(--muted)] font-sans">
+            <strong className="text-[var(--ink)]">Note:</strong> Teams of exactly 3 members are required for CyberUtsav. 
             You can register your team now and add teammate details later.
           </div>
         </div>
@@ -461,12 +461,12 @@ export default function PreRegistrationForm() {
       {step === 3 && (
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[#00D4FF] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
+            <div className="w-10 h-10 bg-[var(--blue)] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
               <Shield />
             </div>
             <div>
               <h3 className="font-black text-lg">EVENT PREFERENCES</h3>
-              <p className="text-xs text-[#555] font-sans">Step 3 of {totalSteps} — Where and what</p>
+              <p className="text-xs text-[var(--muted)] font-sans">Step 3 of {totalSteps} — Where and what</p>
             </div>
           </div>
 
@@ -523,8 +523,8 @@ export default function PreRegistrationForm() {
           </Field>
 
           {/* Track preview cards */}
-          <div className="bg-[#1A1A1A] border-2 border-[#333] p-6">
-            <h4 className="font-black text-sm text-[#00D4FF] mb-4">SELECTED TRACK: {formData.interest || "—"}</h4>
+          <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-6">
+            <h4 className="font-black text-sm text-[var(--blue)] mb-4">SELECTED TRACK: {formData.interest || "—"}</h4>
             <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
               {interests.map((i) => (
                 <button
@@ -533,8 +533,8 @@ export default function PreRegistrationForm() {
                   onClick={() => update("interest", i)}
                   className={`p-2 text-[10px] font-bold border-2 transition-all ${
                     formData.interest === i
-                      ? "border-[#00D4FF] bg-[#00D4FF] text-black"
-                      : "border-[#333] bg-[#111] text-[#555] hover:border-[#555]"
+                      ? "border-[var(--blue)] bg-[var(--blue)] text-black"
+                      : "border-[var(--ink)] bg-[var(--paper-2)] text-[var(--muted)] hover:border-[var(--ink)]"
                   }`}
                 >
                   {i.split(" ")[0]}
@@ -549,64 +549,64 @@ export default function PreRegistrationForm() {
       {step === 4 && (
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[#00D4FF] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
+            <div className="w-10 h-10 bg-[var(--blue)] text-black flex items-center justify-center border-2 border-black neo-shadow-sm">
               <Lock />
             </div>
             <div>
               <h3 className="font-black text-lg">REVIEW & SUBMIT</h3>
-              <p className="text-xs text-[#555] font-sans">Step 4 of {totalSteps} — Confirm your registration</p>
+              <p className="text-xs text-[var(--muted)] font-sans">Step 4 of {totalSteps} — Confirm your registration</p>
             </div>
           </div>
 
           {/* Summary cards */}
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-[#0A0A0A] border-2 border-[#222] p-4">
-              <h4 className="font-black text-xs text-[#00D4FF] tracking-widest mb-3">PERSONAL</h4>
+            <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-4">
+              <h4 className="font-black text-xs text-[var(--blue)] tracking-widest mb-3">PERSONAL</h4>
               <div className="space-y-2 text-sm font-sans">
-                <div className="flex justify-between"><span className="text-[#555]">Name:</span><span className="font-bold">{formData.firstName} {formData.lastName}</span></div>
-                <div className="flex justify-between"><span className="text-[#555]">Email:</span><span className="font-bold">{formData.email}</span></div>
-                {formData.phone && <div className="flex justify-between"><span className="text-[#555]">Phone:</span><span className="font-bold">{formData.phone}</span></div>}
+                <div className="flex justify-between"><span className="text-[var(--muted)]">Name:</span><span className="font-bold">{formData.firstName} {formData.lastName}</span></div>
+                <div className="flex justify-between"><span className="text-[var(--muted)]">Email:</span><span className="font-bold">{formData.email}</span></div>
+                {formData.phone && <div className="flex justify-between"><span className="text-[var(--muted)]">Phone:</span><span className="font-bold">{formData.phone}</span></div>}
               </div>
             </div>
 
-            <div className="bg-[#0A0A0A] border-2 border-[#222] p-4">
-              <h4 className="font-black text-xs text-[#00D4FF] tracking-widest mb-3">TEAM</h4>
+            <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-4">
+              <h4 className="font-black text-xs text-[var(--blue)] tracking-widest mb-3">TEAM</h4>
               <div className="space-y-2 text-sm font-sans">
-                <div className="flex justify-between"><span className="text-[#555]">Team:</span><span className="font-bold">{formData.teamName}</span></div>
-                <div className="flex justify-between"><span className="text-[#555]">Role:</span><span className="font-bold">{formData.teamRole}</span></div>
-                {formData.teamMember1 && <div className="flex justify-between"><span className="text-[#555]">Member 1:</span><span className="font-bold">{formData.teamMember1}</span></div>}
-                {formData.teamMember2 && <div className="flex justify-between"><span className="text-[#555]">Member 2:</span><span className="font-bold">{formData.teamMember2}</span></div>}
+                <div className="flex justify-between"><span className="text-[var(--muted)]">Team:</span><span className="font-bold">{formData.teamName}</span></div>
+                <div className="flex justify-between"><span className="text-[var(--muted)]">Role:</span><span className="font-bold">{formData.teamRole}</span></div>
+                {formData.teamMember1 && <div className="flex justify-between"><span className="text-[var(--muted)]">Member 1:</span><span className="font-bold">{formData.teamMember1}</span></div>}
+                {formData.teamMember2 && <div className="flex justify-between"><span className="text-[var(--muted)]">Member 2:</span><span className="font-bold">{formData.teamMember2}</span></div>}
               </div>
             </div>
 
-            <div className="bg-[#0A0A0A] border-2 border-[#222] p-4">
-              <h4 className="font-black text-xs text-[#00D4FF] tracking-widest mb-3">EVENT</h4>
+            <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-4">
+              <h4 className="font-black text-xs text-[var(--blue)] tracking-widest mb-3">EVENT</h4>
               <div className="space-y-2 text-sm font-sans">
-                <div className="flex justify-between"><span className="text-[#555]">Country:</span><span className="font-bold">{formData.country}</span></div>
-                <div className="flex justify-between"><span className="text-[#555]">Affiliation:</span><span className="font-bold">{formData.affiliation}</span></div>
-                <div className="flex justify-between"><span className="text-[#555]">Track:</span><span className="font-bold text-[#00D4FF]">{formData.interest}</span></div>
+                <div className="flex justify-between"><span className="text-[var(--muted)]">Country:</span><span className="font-bold">{formData.country}</span></div>
+                <div className="flex justify-between"><span className="text-[var(--muted)]">Affiliation:</span><span className="font-bold">{formData.affiliation}</span></div>
+                <div className="flex justify-between"><span className="text-[var(--muted)]">Track:</span><span className="font-bold text-[var(--blue)]">{formData.interest}</span></div>
               </div>
             </div>
 
-            <div className="bg-[#0A0A0A] border-2 border-[#222] p-4">
-              <h4 className="font-black text-xs text-[#00D4FF] tracking-widest mb-3">EXPERIENCE</h4>
+            <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-4">
+              <h4 className="font-black text-xs text-[var(--blue)] tracking-widest mb-3">EXPERIENCE</h4>
               <div className="space-y-2 text-sm font-sans">
-                <div className="flex justify-between"><span className="text-[#555]">Level:</span><span className="font-bold">{formData.experience || "Not specified"}</span></div>
+                <div className="flex justify-between"><span className="text-[var(--muted)]">Level:</span><span className="font-bold">{formData.experience || "Not specified"}</span></div>
               </div>
             </div>
           </div>
 
           {/* Agreements */}
-          <div className="space-y-4 pt-4 border-t border-[#222]">
+          <div className="space-y-4 pt-4 border-t border-[var(--ink)]">
             <label className="flex items-start gap-3 cursor-pointer group">
               <input
                 type="checkbox"
                 checked={formData.agreedToCodeOfConduct}
                 onChange={(e) => update("agreedToCodeOfConduct", e.target.checked)}
-                className="mt-1 w-5 h-5 accent-[#00D4FF] bg-[#0A0A0A] border-2 border-[#333] cursor-pointer"
+                className="mt-1 w-5 h-5 accent-[var(--blue)] bg-[var(--paper)] border-2 border-[var(--ink)] cursor-pointer"
               />
-              <span className="text-sm font-sans text-[#A0A0A0] group-hover:text-[#F5F5F5] transition-colors">
-                I agree to the <strong className="text-[#00D4FF]">Code of Conduct</strong> and will follow all event rules and guidelines. <span className="text-[#E53E3E]">*</span>
+              <span className="text-sm font-sans text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors">
+                I agree to the <strong className="text-[var(--blue)]">Code of Conduct</strong> and will follow all event rules and guidelines. <span className="text-[var(--red)]">*</span>
               </span>
             </label>
 
@@ -615,15 +615,15 @@ export default function PreRegistrationForm() {
                 type="checkbox"
                 checked={formData.agreedToPrivacy}
                 onChange={(e) => update("agreedToPrivacy", e.target.checked)}
-                className="mt-1 w-5 h-5 accent-[#00D4FF] bg-[#0A0A0A] border-2 border-[#333] cursor-pointer"
+                className="mt-1 w-5 h-5 accent-[var(--blue)] bg-[var(--paper)] border-2 border-[var(--ink)] cursor-pointer"
               />
-              <span className="text-sm font-sans text-[#A0A0A0] group-hover:text-[#F5F5F5] transition-colors">
-                I agree to the <strong className="text-[#00D4FF]">Privacy Policy</strong> and consent to data processing for event communication. <span className="text-[#E53E3E]">*</span>
+              <span className="text-sm font-sans text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors">
+                I agree to the <strong className="text-[var(--blue)]">Privacy Policy</strong> and consent to data processing for event communication. <span className="text-[var(--red)]">*</span>
               </span>
             </label>
           </div>
 
-          <div className="bg-[#1A1A1A] border-2 border-[#333] p-4 flex items-center gap-3 text-xs text-[#A0A0A0] font-sans">
+          <div className="bg-[var(--paper)] border-2 border-[var(--ink)] p-4 flex items-center gap-3 text-xs text-[var(--muted)] font-sans">
             <Lock />
             <span>Your data is encrypted and will only be used for event communication. We never share your information with third parties.</span>
           </div>
@@ -631,12 +631,12 @@ export default function PreRegistrationForm() {
       )}
 
       {/* ── Navigation buttons ── */}
-      <div className="flex justify-between items-center mt-8 pt-6 border-t border-[#222]">
+      <div className="flex justify-between items-center mt-8 pt-6 border-t border-[var(--ink)]">
         {step > 1 ? (
           <button
             type="button"
             onClick={goBack}
-            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#333] text-[#A0A0A0] font-black text-sm hover:border-[#555] hover:text-[#F5F5F5] transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[var(--ink)] text-[var(--muted)] font-black text-sm hover:border-[var(--ink)] hover:text-[var(--ink)] transition-all"
           >
             <ArrowLeft /> BACK
           </button>
@@ -648,7 +648,7 @@ export default function PreRegistrationForm() {
           <button
             type="button"
             onClick={goNext}
-            className="inline-flex items-center gap-2 px-8 py-3 bg-[#00D4FF] text-black font-black text-sm border-2 border-black neo-shadow-sm neo-hover"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-[var(--blue)] text-black font-black text-sm border-2 border-black neo-shadow-sm neo-hover"
           >
             NEXT <Arrow />
           </button>
@@ -657,7 +657,7 @@ export default function PreRegistrationForm() {
             type="submit"
             disabled={isSubmitting}
             aria-busy={isSubmitting}
-            className="inline-flex items-center gap-2 px-8 py-3 bg-[#00FF41] text-black font-black text-sm border-2 border-black neo-shadow-sm neo-hover disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[3px_3px_0px_0px_#00FF41] transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-[var(--lime)] text-black font-black text-sm border-2 border-black neo-shadow-sm neo-hover disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[3px_3px_0px_0px_var(--lime)] transition-all"
           >
             {isSubmitting ? (
               <>

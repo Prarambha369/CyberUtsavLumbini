@@ -43,19 +43,13 @@ export const tracks = [
   },
 ];
 
-export const cities = [
-  { name: "Biratnagar", country: "Nepal", flag: "🇳🇵" },
-  { name: "Janakpur", country: "Nepal", flag: "🇳🇵" },
-  { name: "Chitwan", country: "Nepal", flag: "🇳🇵" },
-  { name: "Kathmandu", country: "Nepal", flag: "🇳🇵", highlight: true },
-  { name: "Pokhara", country: "Nepal", flag: "🇳🇵" },
-  { name: "Butwal", country: "Nepal", flag: "🇳🇵", highlight: true },
-  { name: "Birendranagar", country: "Nepal", flag: "🇳🇵" },
-  { name: "Dhangadhi", country: "Nepal", flag: "🇳🇵" },
-  { name: "New Delhi", country: "India", flag: "🇮🇳" },
-  { name: "Dhaka", country: "Bangladesh", flag: "🇧🇩" },
-  { name: "Dubai", country: "UAE", flag: "🇦🇪" },
-  { name: "Dallas, TX", country: "USA", flag: "🇺🇸" },
+export const hostCityDetails = [
+  { label: "City", value: "Butwal" },
+  { label: "Province", value: "Lumbini" },
+  { label: "Round", value: "Provincial qualifier" },
+  { label: "Date", value: "To be announced" },
+  { label: "Venue", value: "Partner institution · TBA" },
+  { label: "Registration", value: "Opening soon — pre-register now" },
 ];
 
 export const timeline = [
@@ -79,7 +73,7 @@ export const timeline = [
 export const steps = [
   { step: "01", title: "Register", description: "Form a team of 3 members" },
   { step: "02", title: "Choose Track", description: "Pick your track and draft your idea" },
-  { step: "03", title: "Build", description: "Develop your project in the city round" },
+  { step: "03", title: "Build", description: "Develop your project in the Butwal round" },
   { step: "04", title: "Present", description: "Pitch your final product to the jury" },
 ];
 
@@ -92,9 +86,9 @@ export const prizes = [
 
 export const faqs = [
   {
-    question: "What is CyberUtsav?",
+    question: "What is CyberUtsav Lumbini?",
     answer:
-      "CyberUtsav is Nepal's largest multi-domain hackathon series organized by Tech Gurkha Digital Services. It spans all 7 provinces of Nepal and 4 international cities, bringing together high school and university builders to solve real-world problems.",
+      "CyberUtsav Lumbini is the Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon series organized by Tech Gurkha Digital Services. This edition is hosted in Butwal and co-organized by ButwalHacks.",
   },
   {
     question: "Is it free to participate?",
@@ -113,7 +107,7 @@ export const faqs = [
   {
     question: "When and where is the Grand Finale?",
     answer:
-      "The Grand Finale takes place in Kathmandu, Nepal. City round winners will compete for the champion's trophy.",
+      "The Grand Finale takes place in Kathmandu, Nepal. Winning teams from the Butwal round advance directly to compete for the champion's trophy.",
   },
 ];
 

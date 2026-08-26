@@ -2,93 +2,70 @@
 
 import { useState } from "react";
 
+const links = [
+  { href: "#about", label: "About" },
+  { href: "#tracks", label: "Tracks" },
+  { href: "#schedule", label: "Schedule" },
+  { href: "#butwal", label: "Butwal Round" },
+];
+
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav
-      className="sticky top-0 z-50 bg-[#111111] border-b-2 border-[#00D4FF]"
-      role="navigation"
-      aria-label="Main navigation"
-    >
-      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <a href="/" className="flex items-center gap-3 group" aria-label="CyberUtsav Home">
-          <div className="w-10 h-10 bg-[#00D4FF] border-2 border-black flex items-center justify-center font-black text-black text-lg neo-shadow-sm">
-            C3
-          </div>
-          <div className="leading-tight">
-            <span className="font-black text-xl tracking-tight block">CYBER UTSAV</span>
-            <span className="text-[#00D4FF] font-bold text-xs tracking-[0.2em]">LUMBINI CHAPTER</span>
-          </div>
+    <>
+      <nav className="atlas-header" role="navigation" aria-label="Main navigation">
+        <a className="atlas-mark" href="/" aria-label="CyberUtsav Home">
+          <span className="atlas-mark-badge">C3</span>
+          <strong>CyberUtsav</strong>
         </a>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-bold">
-          <a href="#about" className="hover:text-[#00D4FF] transition-colors">ABOUT</a>
-          <a href="#tracks" className="hover:text-[#00D4FF] transition-colors">TRACKS</a>
-          <a href="#schedule" className="hover:text-[#00D4FF] transition-colors">SCHEDULE</a>
-          <a href="#cities" className="hover:text-[#00D4FF] transition-colors">CITIES</a>
-          <a
-            href="#register"
-            className="px-4 py-2 bg-[#00D4FF] text-black border-2 border-black neo-shadow-sm neo-hover font-black"
-          >
-            PRE-REGISTER
-          </a>
+        <div className="atlas-nav">
+          {links.map((link) => (
+            <a key={link.href} href={link.href}>
+              {link.label}
+            </a>
+          ))}
         </div>
 
-        {/* Mobile hamburger */}
+        <a href="#register" className="header-ticket">
+          Register Now
+        </a>
+
         <button
-          className="md:hidden w-10 h-10 bg-[#1A1A1A] border-2 border-[#333] flex flex-col items-center justify-center gap-1.5"
+          type="button"
+          className="menu-toggle"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
         >
-          <span
-            className={`block w-5 h-0.5 bg-[#00D4FF] transition-transform ${
-              open ? "rotate-45 translate-y-2" : ""
-            }`}
-          />
-          <span
-            className={`block w-5 h-0.5 bg-[#00D4FF] transition-opacity ${
-              open ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block w-5 h-0.5 bg-[#00D4FF] transition-transform ${
-              open ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          />
+          <svg style={{ width: 22, height: 22 }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            {open ? (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
         </button>
-      </div>
+      </nav>
 
-      {/* Mobile menu */}
       {open && (
-        <div id="mobile-menu" className="md:hidden border-t border-[#222] bg-[#0A0A0A]">
-          <div className="px-4 py-6 flex flex-col gap-4 text-sm font-bold">
-            <a href="#about" onClick={() => setOpen(false)} className="hover:text-[#00D4FF] py-2">
-              ABOUT
+        <div id="mobile-menu" className="atlas-mobile">
+          {links.map((link) => (
+            <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+              {link.label}
             </a>
-            <a href="#tracks" onClick={() => setOpen(false)} className="hover:text-[#00D4FF] py-2">
-              TRACKS
-            </a>
-            <a href="#schedule" onClick={() => setOpen(false)} className="hover:text-[#00D4FF] py-2">
-              SCHEDULE
-            </a>
-            <a href="#cities" onClick={() => setOpen(false)} className="hover:text-[#00D4FF] py-2">
-              CITIES
-            </a>
-            <a
-              href="#register"
-              onClick={() => setOpen(false)}
-              className="mt-2 px-4 py-3 bg-[#00D4FF] text-black border-2 border-black neo-shadow-sm text-center font-black"
-            >
-              PRE-REGISTER
-            </a>
-          </div>
+          ))}
+          <a
+            href="#register"
+            onClick={() => setOpen(false)}
+            className="atlas-button dark"
+          >
+            Register Now
+          </a>
         </div>
       )}
-    </nav>
+    </>
   );
 }

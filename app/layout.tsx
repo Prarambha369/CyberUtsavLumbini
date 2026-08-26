@@ -1,16 +1,30 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Archivo_Black, Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
+
+const archivoBlack = Archivo_Black({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-archivo",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space",
+  display: "swap",
+});
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "CyberUtsav Lumbini — Pre-Registration Portal",
+  title: "CyberUtsav 3.0 | Nepal's Biggest Student Hackathon",
   description:
-    "Cyber Utsav Lumbini: The International Provincial Chapter of Cyber Utsav 3.0. Co-organized by ButwalHacks. 5 countries, 12 host cities, free registration.",
+    "CyberUtsav 3.0 - Nepal's largest student hackathon & innovation platform. Empowering high school, A-levels, and graduate builders across all 7 provinces.",
   keywords: [
     "CyberUtsav",
     "Cyber Utsav 3.0",
@@ -23,19 +37,19 @@ export const metadata: Metadata = {
     "pre-registration",
   ],
   openGraph: {
-    title: "CyberUtsav Lumbini — Pre-Registration",
+    title: "CyberUtsav 3.0 — Lumbini Chapter",
     description:
-      "The International Provincial Chapter of Cyber Utsav 3.0. Co-organized by ButwalHacks.",
-    url: "https://cyberutsav-lumbini.vercel.app",
+      "Nepal's biggest student hackathon. Co-organized by ButwalHacks. Winners advance to Kathmandu Grand Finale.",
+    url: "https://lumbini.cyberutsav.com",
     siteName: "CyberUtsav Lumbini",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CyberUtsav Lumbini — Pre-Registration",
+    title: "CyberUtsav 3.0 — Lumbini Chapter",
     description:
-      "Nepal's biggest student hackathon — 5 countries, 12 host cities, free registration.",
+      "Nepal's biggest student hackathon — Lumbini Provincial Chapter in Butwal.",
   },
   robots: "index, follow",
 };
@@ -46,7 +60,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html
+      lang="en"
+      className={`${archivoBlack.variable} ${spaceGrotesk.variable} ${inter.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
