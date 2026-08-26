@@ -177,11 +177,10 @@ export default function CyberUtsavLumbini() {
           </div>
         </aside>
 
-        {/* Stats strip */}
-        <div className="hero-stat-strip">
+        {/* Stats strip */}          <div className="hero-stat-strip">
           {[
             { value: "6", label: "Competition tracks" },
-            { value: "1200+", label: "Estimated participation" },
+            { value: "150", label: "Max participants" },
             { value: "3", label: "Days of building" },
             { value: "Rs. 0", label: "Registration cost" },
           ].map((stat) => (
@@ -215,7 +214,7 @@ export default function CyberUtsavLumbini() {
               </p>
             </div>
             <ul className="manifesto-checklist">
-              {["1200+ Estimated Participants", "Hosted in Butwal, Lumbini Province", "Grand Finale in Kathmandu", "Free Registration"].map((item) => (
+              {["150 Max Participants", "Hosted in Butwal, Lumbini Province", "Grand Finale in Kathmandu", "Free Registration"].map((item) => (
                 <li key={item}>
                   <Icon name="check" /> {item}
                 </li>
@@ -244,7 +243,7 @@ export default function CyberUtsavLumbini() {
         </div>
 
         {/* Network / Build / Pitch panels */}
-        <div className="manifesto-panels">
+        <div className="manifesto-panels stagger-children">
           {[
             { title: "Network", desc: "Regional rounds make innovation local before it becomes national.", icon: "users" },
             { title: "Build", desc: "Teams move from idea to working prototype under real event pressure.", icon: "terminal" },
@@ -273,7 +272,7 @@ export default function CyberUtsavLumbini() {
             Build in the track that fits your idea. CyberUtsav welcomes projects across software, hardware, AI, web, cybersecurity, and impact-driven innovation.
           </p>
         </div>
-        <div className="track-posters">
+        <div className="track-posters stagger-children">
           {tracks.map((track, i) => (
             <div key={track.id} className="track-poster" style={{ "--accent": trackAccents[i % trackAccents.length] } as React.CSSProperties}>
               <div className="track-number">{`0${i + 1}`}</div>
@@ -311,7 +310,7 @@ export default function CyberUtsavLumbini() {
           ))}
         </div>
 
-        <div className="format-tickets">
+        <div className="format-tickets stagger-children">
           {timeline.map((t) => (
             <article key={t.phase}>
               <span>{t.phase}</span>

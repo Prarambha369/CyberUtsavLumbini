@@ -1498,11 +1498,249 @@ select:invalid:not(:placeholder-shown):not([value=""]) {
   transform: translateY(0);
 }
 
+/* Staggered children reveal */
+[data-reveal].revealed > .stagger-children > *:nth-child(1) { transition-delay: 0s; }
+[data-reveal].revealed > .stagger-children > *:nth-child(2) { transition-delay: 0.08s; }
+[data-reveal].revealed > .stagger-children > *:nth-child(3) { transition-delay: 0.16s; }
+[data-reveal].revealed > .stagger-children > *:nth-child(4) { transition-delay: 0.24s; }
+[data-reveal].revealed > .stagger-children > *:nth-child(5) { transition-delay: 0.32s; }
+[data-reveal].revealed > .stagger-children > *:nth-child(6) { transition-delay: 0.4s; }
+
+/* ───────────────────────── Hero Animations ───────────────────────── */
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroSlideRight {
+  from { opacity: 0; transform: translateX(-40px) rotate(2deg); }
+  to   { opacity: 1; transform: translateX(0) rotate(2deg); }
+}
+
+@keyframes heroStatPop {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ticketBounce {
+  0%   { transform: rotate(2deg) translateY(0); }
+  40%  { transform: rotate(1.5deg) translateY(-6px); }
+  100% { transform: rotate(2deg) translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(236, 63, 43, 0.3); }
+  50%      { box-shadow: 0 0 20px 4px rgba(236, 63, 43, 0.15); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.poster-hero > div:first-child {
+  animation: heroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.poster-hero .hero-meta {
+  animation: heroFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+
+.poster-hero .hero-cta-row {
+  animation: heroFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+.hero-ticket {
+  animation: heroSlideRight 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.hero-ticket:hover {
+  animation: ticketBounce 0.5s ease;
+}
+
+.hero-stat-strip article {
+  animation: heroStatPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-stat-strip article:nth-child(1) { animation-delay: 0.4s; }
+.hero-stat-strip article:nth-child(2) { animation-delay: 0.5s; }
+.hero-stat-strip article:nth-child(3) { animation-delay: 0.6s; }
+.hero-stat-strip article:nth-child(4) { animation-delay: 0.7s; }
+
+.hero-stat-strip strong {
+  animation: countUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ───────────────────────── Track Card Animations ───────────────────────── */
+
+@keyframes trackSlideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.track-poster {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.track-poster:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 12px 12px 0 rgba(16, 16, 20, 0.9);
+  z-index: 2;
+}
+
+.track-poster:nth-child(even):hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* ───────────────────────── Card & Panel Animations ───────────────────────── */
+
+.manifesto-panels article {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.manifesto-panels article:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+.route-board article {
+  transition: transform 0.25s ease, background 0.3s ease;
+}
+
+.route-board article:hover {
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.format-tickets article {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.format-tickets article:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.receipt {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.receipt:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 12px 12px 0 var(--ink);
+}
+
+.city-details-grid article {
+  transition: transform 0.25s ease, background 0.3s ease;
+}
+
+.city-details-grid article:hover {
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.past-event-card {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.past-event-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+/* ───────────────────────── Button & Link Animations ───────────────────────── */
+
+.atlas-button {
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+              background 0.2s ease;
+}
+
+.atlas-button:active {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.team-socials a {
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.event-link-card {
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ───────────────────────── FAQ Animation ───────────────────────── */
+
+.faq-stack details {
+  transition: box-shadow 0.2s ease;
+}
+
+.faq-stack details:hover {
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.faq-stack details[open] {
+  animation: faqOpen 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes faqOpen {
+  from { opacity: 0.8; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.faq-stack summary svg {
+  transition: rotate 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ───────────────────────── Section Label Pulse ───────────────────────── */
+
+.section-label span {
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+[data-reveal].revealed .section-label span {
+  animation: labelPop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes labelPop {
+  from { transform: scale(0.7); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* ───────────────────────── Stamp Wiggle ───────────────────────── */
+
+.stamp {
+  transition: transform 0.2s ease;
+}
+
+.stamp:hover {
+  transform: rotate(-2deg) scale(1.05);
+}
+
+/* ───────────────────────── Reduced Motion ───────────────────────── */
+
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .poster-hero > div:first-child,
+  .poster-hero .hero-meta,
+  .poster-hero .hero-cta-row,
+  .hero-ticket,
+  .hero-stat-strip article,
+  .hero-stat-strip strong,
+  .faq-stack details[open],
+  .section-label span {
+    animation: none;
   }
 }
 

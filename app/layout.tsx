@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | CyberUtsav Lumbini",
   },
   description:
-    "CyberUtsav Lumbini — the Lumbini Provincial Chapter of Nepal's biggest student hackathon. A 3-day selection round in Butwal where winning teams advance to the Kathmandu Grand Finale. Free registration, 6 tracks, Rs. 0 entry fee.",
+    "CyberUtsav Lumbini — the Lumbini Provincial Chapter of Nepal's biggest student hackathon. 150 max participants. A 3-day selection round in Butwal where winning teams advance to the Kathmandu Grand Finale. Free registration, 6 tracks.",
   keywords: [
     "CyberUtsav Lumbini",
     "CyberUtsav",
@@ -164,7 +164,7 @@ export default function RootLayout({
       "@type": "EducationalAudience",
       educationalRole: "student",
     },
-    maximumAttendeeCapacity: 1200,
+    maximumAttendeeCapacity: 150,
     performer: {
       "@type": "Organization",
       name: "CyberUtsav Lumbini Participants",

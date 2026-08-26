@@ -148,7 +148,7 @@ export const pastEvents = [
     type: "cyberutsav",
     description:
       "The second edition of Nepal's largest student hackathon. Teams from all provinces competed in Kathmandu for the national champion title.",
-    highlights: ["National championship", "Multi-province participation", "Industry mentorship"],
+    highlights: ["800+ participants", "7 province qualifiers", "Industry mentorship"],
   },
   {
     year: "2024",
@@ -168,7 +168,7 @@ export const pastEvents = [
     type: "cyberutsav",
     description:
       "The very first CyberUtsav hackathon that launched Nepal's student hackathon movement. Pioneering cybersecurity and innovation among students.",
-    highlights: ["First edition", "Cybersecurity focus", "Student innovation"],
+    highlights: ["300+ participants", "First edition", "Cybersecurity focus"],
   },
   {
     year: "2023",
