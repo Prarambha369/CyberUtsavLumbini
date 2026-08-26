@@ -4,7 +4,7 @@
 
 ### Pre-Registration Portal
 
-**The International Provincial Chapter of Cyber Utsav 3.0**
+**Provincial Chapter of CyberUtsav — Nepal's Biggest Student Hackathon**
 Co-organized by [ButwalHacks](https://butwalhacks.com)
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org)
@@ -18,12 +18,13 @@ Co-organized by [ButwalHacks](https://butwalhacks.com)
 
 ## 📋 About
 
-CyberUtsav Lumbini is the **Lumbini provincial chapter** of Nepal's largest student hackathon series. This portal handles pre-registration for the event happening **January–February 2027**.
+CyberUtsav Lumbini is the **Lumbini Provincial Chapter** of Nepal's largest student hackathon series. This portal handles pre-registration for the selection round happening in **Butwal City, Lumbini Province**.
 
-- 🌍 **5 Countries** — Nepal, India, Bangladesh, UAE, USA
-- 🏙️ **12 Host Cities** across 7 Nepalese provinces + 4 international
-- 👥 **1200+** estimated participants
+- 🎯 **150 Max Participants** — Limited capacity entry
+- 🏙️ **Host City: Butwal** — Lumbini Province, Nepal
+- 👥 **1200+** participants across all CyberUtsav editions
 - 💰 **Free** registration
+- 🏆 Winners advance to **Kathmandu Grand Finale**
 
 ## 🚀 Quick Start
 
@@ -46,15 +47,21 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ```
 CyberUtsavLumbini/
 ├── app/
-│   ├── globals.css          # Neo-Brutalist dark theme + Tailwind
-│   ├── layout.tsx           # Root layout, fonts, SEO metadata
-│   └── page.tsx             # Full landing page (all sections)
+│   ├── globals.css          # Design system + responsive + animations
+│   ├── layout.tsx           # Root layout, fonts, SEO, JSON-LD
+│   ├── page.tsx             # Full landing page (all sections)
+│   ├── robots.ts            # AI-friendly robots.txt
+│   ├── sitemap.ts           # Dynamic sitemap
+│   ├── icon.tsx             # Dynamic favicon
+│   └── opengraph-image.tsx  # Dynamic OG image
 ├── components/
 │   ├── Nav.tsx              # Sticky nav with mobile hamburger
 │   └── PreRegistrationForm.tsx  # 4-step multi-step form
 ├── lib/
-│   └── data.ts              # Tracks, cities, timeline, FAQ, prizes
-├── public/                  # Static assets (images, favicon)
+│   └── data.ts              # Tracks, timeline, FAQ, prizes, team, past events
+├── public/
+│   ├── llms.txt             # AI crawler friendly site description
+│   └── site.webmanifest     # PWA manifest
 ├── .gitignore
 ├── next.config.js
 ├── package.json
@@ -68,27 +75,31 @@ CyberUtsavLumbini/
 
 | Token | Color | Usage |
 |-------|-------|-------|
-| `#0A0A0A` | Black | Page background |
-| `#111111` | Surface | Cards, panels |
-| `#00D4FF` | Cyan | Primary accent, CTAs, borders |
-| `#F59E0B` | Amber | Secondary accent, badges |
-| `#E53E3E` | Red | Error states, required indicators |
-| `#00FF41` | Green | Success states |
+| `--ink` | `#101014` | Text, borders, shadows |
+| `--paper` | `#f3ead8` | Page background |
+| `--paper-2` | `#fff8e9` | Card backgrounds |
+| `--red` | `#ec3f2b` | ButwalHacks accent, primary CTA |
+| `--purple` | `#7c3aed` | CyberUtsav accent, focus states |
+| `--mint` | `#3dd6a3` | Secondary accent |
+| `--muted` | `#635f57` | Body text, descriptions |
 
-**Style:** Dark Neo-Brutalist — hard box-shadows, `border-2` borders, bold typography, sharp hover transitions.
+**Style:** Poster-Brutalist — hard box-shadows, bold uppercase typography, stamp badges, ticket motifs, dashed borders.
 
 ## 📄 Sections
 
 | # | Section | Description |
 |---|---------|-------------|
-| 01 | **Hero** | "Coming Soon • Jan–Feb 2027" badge, headline, stats strip |
-| 02 | **About** | Event description, Why Pre-Register, Network/Build/Pitch |
-| 03 | **Tracks** | 6 competition tracks with icons and examples |
-| 04 | **Schedule** | 4-step process + 3-phase timeline |
-| 05 | **Prizes** | 4 prize categories |
-| 06 | **Cities** | 12 host cities with flags |
-| 07 | **FAQ** | 5 expandable accordion items |
-| 08 | **Registration** | 4-step form with validation |
+| 01 | **About** | Event description, Why Pre-Register, Network/Build/Pitch |
+| 02 | **Tracks** | 6 competition tracks with icons and examples |
+| 03 | **Schedule** | 4-step process + 3-phase timeline |
+| 04 | **Prizes** | 4 prize categories |
+| 05 | **Butwal Round** | Host city details |
+| 06 | **Team** | ButwalHacks spotlight + placeholder team grid |
+| 07 | **Past Events** | ButwalHacks & CyberUtsav event history |
+| 08 | **Sponsors** | Tiered sponsor placeholders |
+| 09 | **Code of Conduct** | Commitment + event links |
+| 10 | **FAQ** | 5 expandable accordion items |
+| 11 | **Registration** | 4-step form with validation |
 
 ## 📝 Pre-Registration Form
 
@@ -101,12 +112,20 @@ The form follows a **4-step wizard** pattern:
 | 3. Event | Country, affiliation, track, experience | Required country, affiliation, track |
 | 4. Review | Summary, Code of Conduct, Privacy Policy | Must agree to both |
 
-**Features:**
-- Step indicator with progress
-- Inline error messages
-- Loading spinner on submit
-- Success screen with summary
-- Keyboard accessible (ARIA labels, focus states)
+## ✨ Features
+
+- **Scroll-reveal animations** with Intersection Observer
+- **Hero entrance animations** — staggered fade, slide, pop
+- **Hover micro-animations** on all cards, buttons, and links
+- **Staggered grid reveals** for track cards and past events
+- **Gradient shimmer** on CTA buttons
+- **Animated dashed borders** on format tickets
+- **Glow pulse** on hero stat numbers
+- **Typing cursor** on hero title
+- **Full responsive** — mobile, tablet, desktop
+- **Comprehensive SEO** — JSON-LD, OG images, sitemap, robots.txt, llms.txt
+- **AI-friendly** — explicit GPTBot/ClaudeBot/PerplexityBot rules
+- **Accessible** — ARIA labels, focus states, reduced motion support
 
 ## 🛠️ Development
 
@@ -126,13 +145,6 @@ npm run lint     # Run ESLint
 3. Import the repository
 4. Deploy — zero config needed
 
-### Manual
-
-```bash
-npm run build
-npx vercel
-```
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -143,7 +155,8 @@ npx vercel
 
 ## 📄 License
 
-© 2026 CyberUtsav — Organized by Tech Gurkha Digital Services.
+© 2026 CyberUtsav Lumbini — Provincial chapter of CyberUtsav.
+Organized by Tech Gurkha Digital Services.
 Co-organized by ButwalHacks. All rights reserved.
 
 ---

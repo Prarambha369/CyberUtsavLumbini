@@ -50,13 +50,8 @@ function useScrollReveal() {
 /* ─── Site Under Work Modal ─── */
 function SiteUnderWorkModal() {
   const [visible, setVisible] = useState(true);
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted || !visible) return null;
+  if (!visible) return null;
 
   return (
     <div
@@ -109,6 +104,10 @@ function SiteUnderWorkModal() {
    ═══════════════════════════════════════ */
 export default function CyberUtsavLumbini() {
   useScrollReveal();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, []);
 
   return (
     <>

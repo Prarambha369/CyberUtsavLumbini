@@ -6,13 +6,10 @@
   --paper-2: #fff8e9;
   --red: #ec3f2b;
   --purple: #7c3aed;
-  --lime: #c9ff45;
   --mint: #3dd6a3;
   --muted: #635f57;
-  --blue: #2047ff;
   --line: rgba(16, 16, 20, 0.18);
   --shadow-hard: 10px 10px 0 #101014;
-  --radius: 28px;
 }
 
 * {
@@ -826,6 +823,7 @@ button {
 }
 
 .format-tickets article {
+  position: relative;
   border: 3px dashed var(--ink);
   border-radius: 26px;
   padding: 28px;
@@ -1529,11 +1527,6 @@ select:invalid:not(:placeholder-shown):not([value=""]) {
   100% { transform: rotate(2deg) translateY(0); }
 }
 
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(236, 63, 43, 0.3); }
-  50%      { box-shadow: 0 0 20px 4px rgba(236, 63, 43, 0.15); }
-}
-
 @keyframes countUp {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -1574,11 +1567,6 @@ select:invalid:not(:placeholder-shown):not([value=""]) {
 
 /* ───────────────────────── Track Card Animations ───────────────────────── */
 
-@keyframes trackSlideUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 .track-poster {
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
               box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1588,10 +1576,6 @@ select:invalid:not(:placeholder-shown):not([value=""]) {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 12px 12px 0 rgba(16, 16, 20, 0.9);
   z-index: 2;
-}
-
-.track-poster:nth-child(even):hover {
-  transform: translateY(-6px) scale(1.02);
 }
 
 /* ───────────────────────── Card & Panel Animations ───────────────────────── */
@@ -2294,6 +2278,212 @@ select:invalid:not(:placeholder-shown):not([value=""]) {
   .city-details-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ───────────────────────── Visual Juice Animations ───────────────────────── */
+
+/* Gradient shimmer on CTA buttons */
+.atlas-button.light {
+  background-size: 200% 100%;
+  background-image: linear-gradient(
+    110deg,
+    var(--red) 0%,
+    var(--red) 40%,
+    #ff5f4d 50%,
+    var(--red) 60%,
+    var(--red) 100%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* Animated dashed borders on format tickets */
+.format-tickets article {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 8px,
+    rgba(16, 16, 20, 0.03) 8px,
+    rgba(16, 16, 20, 0.03) 16px
+  );
+}
+
+.format-tickets article::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 3px dashed var(--ink);
+  border-radius: 28px;
+  opacity: 0.25;
+  animation: dashMove 12s linear infinite;
+  pointer-events: none;
+}
+
+/* Glow pulse on hero stat numbers */
+.hero-stat-strip article {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-stat-strip article::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.hero-stat-strip article:hover::after {
+  opacity: 1;
+  animation: statGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes statGlow {
+  0%, 100% { transform: scale(0.9); opacity: 0.5; }
+  50%      { transform: scale(1.1); opacity: 1; }
+}
+
+/* Floating decorative dots on hero */
+.poster-hero::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--red);
+  opacity: 0.2;
+  animation: floatDot 4s ease-in-out infinite;
+  z-index: -1;
+}
+
+.poster-hero::after {
+  content: "";
+  position: absolute;
+  bottom: 25%;
+  left: 10%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--purple);
+  opacity: 0.25;
+  animation: floatDot 5s ease-in-out 1s infinite;
+  z-index: -1;
+}
+
+@keyframes floatDot {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-18px) scale(1.3); }
+}
+
+/* Section divider lines */
+.section-pad + .section-pad::before,
+.section-pad + .track-wall::before,
+.track-wall + .section-pad::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 0 auto 40px;
+  background: var(--red);
+  border-radius: 2px;
+  animation: dividerGrow 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes dividerGrow {
+  from { width: 0; opacity: 0; }
+  to   { width: 60px; opacity: 1; }
+}
+
+/* Typing cursor blink on hero title */
+.poster-hero h1::after {
+  content: "_";
+  display: inline;
+  color: var(--red);
+  font-weight: 400;
+  animation: blink 1s step-end infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* Stamp wiggle on hover */
+
+
+/* Pulsing ring on butwalhacks badge */
+.butwalhacks-spotlight-badge {
+  position: relative;
+}
+
+.butwalhacks-spotlight-badge::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 2px solid var(--red);
+  opacity: 0;
+  animation: ringPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%   { transform: scale(0.95); opacity: 0; }
+  50%  { transform: scale(1.1); opacity: 0.5; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+/* Footer brand glow */
+.atlas-footer-brand {
+  transition: text-shadow 0.3s ease;
+}
+
+.atlas-footer-brand:hover {
+  text-shadow: 0 0 20px rgba(236, 63, 43, 0.4);
+}
+
+/* Register poster animated bg */
+.register-poster {
+  position: relative;
+  overflow: hidden;
+}
+
+.register-poster::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 40%
+  );
+  animation: ctaGlow 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ctaGlow {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(10%, -5%); }
 }
 
 @media (prefers-reduced-motion: reduce) {

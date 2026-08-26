@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { countries, interests, teamRoles } from "@/lib/data";
 
 /* ─── SVG Icons ─── */
@@ -195,8 +195,6 @@ export default function PreRegistrationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [serverError, setServerError] = useState("");
-  const formRef = useRef<HTMLFormElement>(null);
-
   const totalSteps = 4;
 
   const update = useCallback(
@@ -303,7 +301,6 @@ export default function PreRegistrationForm() {
 
   return (
     <form
-      ref={formRef}
       onSubmit={handleSubmit}
       className="bg-[var(--paper-2)] border-2 border-[var(--purple)] p-6 md:p-12 neo-shadow-lg"
       noValidate
