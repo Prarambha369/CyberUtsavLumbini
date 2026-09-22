@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     "student hackathon Nepal",
     "cybersecurity competition Nepal",
     "Tech Gurkha Digital Services",
-    "pre-registration hackathon",
+    "hackathon registration",
     "Lumbini Province",
     "Kathmandu Grand Finale",
     "free hackathon Nepal",
@@ -155,7 +155,7 @@ export default function RootLayout({
       price: "0",
       priceCurrency: "NPR",
       availability: "https://schema.org/InStock",
-      url: `${baseUrl}#register`,
+      url: "https://registration.cyberutsav.com/butwal",
       validFrom: "2026-01-01",
     },
     eventStatus: "https://schema.org/EventScheduled",
@@ -177,7 +177,7 @@ export default function RootLayout({
     name: "CyberUtsav Lumbini",
     url: baseUrl,
     description:
-      "Official pre-registration portal for CyberUtsav Lumbini — the Lumbini Provincial Chapter of Nepal's biggest student hackathon.",
+      "Official registration hub for CyberUtsav Lumbini — the Lumbini Provincial Chapter of Nepal's biggest student hackathon. Free registration is open now.",
     publisher: {
       "@type": "Organization",
       name: "ButwalHacks",
@@ -203,8 +203,8 @@ export default function RootLayout({
       {
         "@type": "ListItem",
         position: 2,
-        name: "Pre-Register",
-        item: `${baseUrl}#register`,
+        name: "Register",
+        item: "https://registration.cyberutsav.com/butwal",
       },
     ],
   };

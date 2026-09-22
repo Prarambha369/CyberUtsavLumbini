@@ -55,8 +55,7 @@ CyberUtsavLumbini/
 │   ├── icon.tsx             # Dynamic favicon
 │   └── opengraph-image.tsx  # Dynamic OG image
 ├── components/
-│   ├── Nav.tsx              # Sticky nav with mobile hamburger
-│   └── PreRegistrationForm.tsx  # 4-step multi-step form
+│   └── Nav.tsx              # Sticky nav with mobile hamburger
 ├── lib/
 │   └── data.ts              # Tracks, timeline, FAQ, prizes, team, past events
 ├── public/
@@ -99,18 +98,7 @@ CyberUtsavLumbini/
 | 08 | **Sponsors** | Tiered sponsor placeholders |
 | 09 | **Code of Conduct** | Commitment + event links |
 | 10 | **FAQ** | 5 expandable accordion items |
-| 11 | **Registration** | 4-step form with validation |
-
-## 📝 Pre-Registration Form
-
-The form follows a **4-step wizard** pattern:
-
-| Step | Fields | Validation |
-|------|--------|-----------|
-| 1. Personal | First name, last name, email, phone | Required fields, email regex |
-| 2. Team | Team name, role, teammate names | Required team name + role |
-| 3. Event | Country, affiliation, track, experience | Required country, affiliation, track |
-| 4. Review | Summary, Code of Conduct, Privacy Policy | Must agree to both |
+| 11 | **Registration** | Free registration via external link |
 
 ## ✨ Features
 

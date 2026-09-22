@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, type JSX } from "react";
+import Image from "next/image";
 import Nav from "@/components/Nav";
-import PreRegistrationForm from "@/components/PreRegistrationForm";
 import { tracks, hostCityDetails, timeline, steps, prizes, faqs, team, pastEvents } from "@/lib/data";
 
 /* ─── SVG Icon helper ─── */
@@ -134,9 +134,13 @@ export default function CyberUtsavLumbini() {
             <span className="hero-org-tag">Co-organized by ButwalHacks</span>
           </p>
           <div className="hero-cta-row">
-            <a href="#register" className="atlas-button dark">
-              Pre-Register Now <Icon name="arrow" className="w-5 h-5" />
-            </a>
+<a
+            href="https://registration.cyberutsav.com/butwal"
+            target="_blank"
+            className="atlas-button dark"
+          >
+            Pre-Register Now <Icon name="arrow" className="w-5 h-5" />
+          </a>
             <a href="#tracks" className="atlas-button light">
               Explore Tracks
             </a>
@@ -231,9 +235,9 @@ export default function CyberUtsavLumbini() {
                 </article>
               ))}
             </div>
-            <a href="#register" className="atlas-button dark" style={{ marginTop: "30px" }}>
-              Pre-Register <Icon name="arrow" className="w-4 h-4" />
-            </a>
+<a href="https://registration.cyberutsav.com/butwal" target="_blank" rel="noreferrer" className="atlas-button dark" style={{ marginTop: "30px" }}>
+                Pre-Register <Icon name="arrow" className="w-4 h-4" />
+              </a>
           </div>
         </div>
 
@@ -417,10 +421,13 @@ export default function CyberUtsavLumbini() {
         <div className="team-grid" style={{ marginTop: "42px" }}>
           {team.map((member) => (
             <article key={member.name}>
-              <div style={{ display: "grid", placeItems: "center", height: "160px", borderBottom: "3px solid var(--ink)", background: "var(--paper-2)" }}>
+              <div style={{ position: "relative", display: "grid", placeItems: "center", height: "260px", borderBottom: "3px solid var(--ink)", background: "var(--paper-2)", overflow: "hidden" }}>
                 <span style={{ fontFamily: "var(--font-archivo), 'Archivo Black', Impact, sans-serif", fontSize: "52px", color: member.color }} aria-hidden="true">
                   {member.initials}
                 </span>
+                {member.photo ? (
+                  <Image src={member.photo} alt={member.name} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: "cover", objectPosition: "top center" }} />
+                ) : null}
               </div>
               <div style={{ padding: "22px" }}>
                 <h3 style={{ fontFamily: "var(--font-archivo), 'Archivo Black', Impact, sans-serif", fontSize: "clamp(22px, 2vw, 28px)", lineHeight: 0.92, textTransform: "uppercase", letterSpacing: "-0.05em" }}>
@@ -622,11 +629,10 @@ export default function CyberUtsavLumbini() {
             </div>
             <h2 className="poster-title">Secure Your Spot</h2>
             <p>
-              Complete the 4-step form below. Pre-registration is free and takes less than 2 minutes.
+              Pre-registration is free and takes less than 2 minutes.
             </p>
           </div>
-          <PreRegistrationForm />
-        </div>
+          </div>
       </section>
 
       {/* ═══ CTA BANNER ═══ */}
@@ -639,9 +645,13 @@ export default function CyberUtsavLumbini() {
             Form a team of 3 members and start shaping your CyberUtsav project idea. Registration opens soon.
           </p>
         </div>
-        <a href="#register" className="atlas-button paper">
-          Register Now <Icon name="arrow" className="w-4 h-4" />
-        </a>
+<a
+            href="https://registration.cyberutsav.com/butwal"
+            target="_blank"
+            className="atlas-button paper"
+          >
+            Register Now <Icon name="arrow" className="w-4 h-4" />
+          </a>
       </section>
 
       {/* ═══ FOOTER ═══ */}

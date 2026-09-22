@@ -28,7 +28,7 @@ export default function Nav() {
           ))}
         </div>
 
-        <a href="#register" className="header-ticket">
+        <a href="https://registration.cyberutsav.com/butwal" target="_blank" rel="noreferrer" className="header-ticket">
           Register Now
         </a>
 
@@ -57,13 +57,15 @@ export default function Nav() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#register"
-            onClick={() => setOpen(false)}
-            className="atlas-button dark"
-          >
-            Register Now
-          </a>
+<a
+                        href="https://registration.cyberutsav.com/butwal"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() => setOpen(false)}
+                        className="atlas-button dark"
+                    >
+                        Register Now
+                    </a>
         </div>
       )}
     </>
