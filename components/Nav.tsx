@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const links = [
   { href: "#about", label: "About" },
@@ -17,7 +18,7 @@ export default function Nav() {
     <>
       <nav className="atlas-header" role="navigation" aria-label="Main navigation">
         <Link className="atlas-mark" href="/" aria-label="CyberUtsav Home">
-          <span className="atlas-mark-badge">C3</span>
+          <Image src="/CUlogo.jpg" alt="CyberUtsav" width={34} height={34} style={{ borderRadius: "8px" }} />
           <strong>CyberUtsav</strong>
         </Link>
 

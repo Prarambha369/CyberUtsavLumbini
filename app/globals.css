@@ -1147,10 +1147,26 @@ button {
 
 .team-grid article {
   overflow: hidden;
-  border: 3px solid var(--paper);
+  border: 3px solid var(--ink);
   color: var(--ink);
   background: var(--paper);
   box-shadow: 8px 8px 0 rgba(243, 234, 216, 0.35);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+  position: relative;
+}
+
+.team-grid article:hover {
+  transform: translateY(-4px);
+  box-shadow: 12px 12px 0 var(--ink);
+}
+
+.team-grid article::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(236, 63, 43, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .team-grid figure {
@@ -1167,6 +1183,12 @@ button {
   object-position: center 22%;
   filter: saturate(1.08) contrast(1.06);
   transform: translateZ(0);
+  backdrop-filter: blur(0px);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.team-grid article:hover img {
+  transform: scale(1.05) translateZ(0);
 }
 
 .team-grid .team-fallback {

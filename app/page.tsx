@@ -334,18 +334,24 @@ export default function CyberUtsavLumbini() {
               Rewards for<br />Innovation
             </h2>
             <p style={{ color: "var(--muted)", fontSize: "17px", fontWeight: 650, lineHeight: 1.7, maxWidth: "560px" }}>
-              Cash prizes, professional mentorship, and career-boosting opportunities await the winning teams.
+              Cash prizes, professional mentorship, and career-boosting opportunities await the winning teams. Every participant gets Swags & Perks from our sponsors.
             </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "24px" }}>
+              <span className="stamp stamp-red">Grand Prize</span>
+              <span className="stamp stamp-blue">Track Winners</span>
+              <span className="stamp" style={{ color: "var(--mint)" }}>Swags & Perks</span>
+            </div>
           </div>
-          <div className="receipt">
-            <h3 style={{ fontSize: "26px" }}>Prize Ledger</h3>
-            <div className="receipt-lines">
-              {prizes.map((p) => (
-                <article key={p.title}>
-                  <Icon name="trophy" />
-                  <span>{p.title}</span>
-                  <strong>{p.value}</strong>
-                  <em>{p.note}</em>
+          <div>
+            <div style={{ display: "grid", gap: "18px" }}>
+              {prizes.map((p, i) => (
+                <article key={p.title} className="receipt" style={{ boxShadow: "7px 7px 0 var(--ink)", display: "flex", alignItems: "center", gap: "18px", padding: "18px 28px" }}>
+                  <span style={{ fontFamily: "var(--font-archivo), 'Archivo Black', Impact, sans-serif", fontSize: "20px", color: "var(--red)", minWidth: "36px" }}>{i + 1}</span>
+                  <div style={{ flex: 1 }}>
+                    <strong style={{ fontFamily: "var(--font-space), 'Space Grotesk', Inter, sans-serif", fontSize: "15px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.05em" }}>{p.title}</strong>
+                    <span style={{ display: "block", color: "var(--muted)", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.06em" }}>{p.value}</span>
+                  </div>
+                  <em style={{ color: "var(--purple)", fontFamily: "var(--font-archivo), 'Archivo Black', Impact, sans-serif", fontSize: "22px", fontStyle: "normal" }}>{p.note}</em>
                 </article>
               ))}
             </div>
@@ -360,21 +366,26 @@ export default function CyberUtsavLumbini() {
           <p>The Butwal Round</p>
         </div>
         <div className="passport-heading">
-          <h2 className="poster-title">
-            One Province.<br /><span style={{ color: "var(--red)" }}>One Host City.</span>
-          </h2>
-          <p>
-            The entire Lumbini chapter converges in Butwal — a 3-day provincial qualifier where winning teams advance directly to the Kathmandu Grand Finale.
-          </p>
-        </div>
-          <div className="city-details-grid">
-            {hostCityDetails.map((detail) => (
-              <article key={detail.label}>
-                <span>{detail.label}</span>
-                <strong>{detail.value}</strong>
-              </article>
-            ))}
+          <div style={{ position: "relative" }}>
+            <Image src="/cyberutsav-poster.jpg" alt="CyberUtsav Butwal" width={400} height={300} style={{ borderRadius: "18px", border: "3px solid var(--ink)", boxShadow: "var(--shadow-hard)" }} />
           </div>
+          <div>
+            <h2 className="poster-title">
+              One Province.<br /><span style={{ color: "var(--red)" }}>One Host City.</span>
+            </h2>
+            <p>
+              The entire Lumbini chapter converges in Butwal — a 3-day provincial qualifier where winning teams advance directly to the Kathmandu Grand Finale. Butwal isn&apos;t just a city; it&apos;s the heart of Nepal&apos;s western tech ecosystem.
+            </p>
+          </div>
+        </div>
+        <div className="city-details-grid">
+          {hostCityDetails.map((detail) => (
+            <article key={detail.label}>
+              <span>{detail.label}</span>
+              <strong>{detail.value}</strong>
+            </article>
+          ))}
+        </div>
       </section>
 
       {/* ═══ ORGANIZING TEAM ═══ */}
@@ -395,7 +406,7 @@ export default function CyberUtsavLumbini() {
         {/* ButwalHacks spotlight */}
         <div className="butwalhacks-spotlight">
           <div className="butwalhacks-spotlight-badge">
-            <Icon name="bolt" className="w-8 h-8" />
+            <Image src="/BHlogo.jpg" alt="ButwalHacks" width={48} height={48} style={{ borderRadius: "8px" }} />
           </div>
           <div>
             <span className="stamp stamp-blue" style={{ transform: "rotate(-1deg)" }}>Co-Organizer</span>
@@ -411,8 +422,10 @@ export default function CyberUtsavLumbini() {
               <a href="https://github.com/butwalhacks" target="_blank" rel="noopener noreferrer" className="team-socials-link">
                 <Icon name="github" /> GitHub
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="team-socials-link">
-                <svg style={{ width: 14, height: 14 }} fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <a href="https://butwalhacks.com" target="_blank" rel="noopener noreferrer" className="team-socials-link">
+                <Icon name="globe" /> Website
+              </a>
+              <a href="https://www.linkedin.com/company/butwalhacks" target="_blank" rel="noopener noreferrer" className="team-socials-link">
                 LinkedIn
               </a>
             </div>
@@ -424,18 +437,19 @@ export default function CyberUtsavLumbini() {
           {team.map((member) => (
             <article key={member.name}>
               <div style={{ position: "relative", display: "grid", placeItems: "center", height: "260px", borderBottom: "3px solid var(--ink)", background: "var(--paper-2)", overflow: "hidden" }}>
-                <span style={{ fontFamily: "var(--font-archivo), 'Archivo Black', Impact, sans-serif", fontSize: "52px", color: member.color }} aria-hidden="true">
+                <span style={{ fontFamily: "var(--font-archivo), 'Archivo Black', Impact, sans-serif", fontSize: "52px", color: member.color, opacity: 0.15, zIndex: 0 }} aria-hidden="true">
                   {member.initials}
                 </span>
                 {member.photo ? (
                   <Image src={member.photo} alt={member.name} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: "cover", objectPosition: "top center" }} />
                 ) : null}
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 40%, rgba(16,16,20,0.6) 100%)", zIndex: 1, pointerEvents: "none" }} />
               </div>
-              <div style={{ padding: "22px" }}>
-                <h3 style={{ fontFamily: "var(--font-archivo), 'Archivo Black', Impact, sans-serif", fontSize: "clamp(22px, 2vw, 28px)", lineHeight: 0.92, textTransform: "uppercase", letterSpacing: "-0.05em" }}>
+              <div style={{ padding: "22px", background: "var(--ink)", color: "var(--paper)" }}>
+                <h3 style={{ fontFamily: "var(--font-archivo), 'Archivo Black', Impact, sans-serif", fontSize: "clamp(22px, 2vw, 28px)", lineHeight: 0.92, textTransform: "uppercase", letterSpacing: "-0.05em", color: "var(--paper)" }}>
                   {member.name}
                 </h3>
-                <p className="team-role">
+                <p className="team-role" style={{ color: "var(--paper)", opacity: 0.8 }}>
                   <Icon name="mapPin" /> {member.role}
                 </p>
                 <span style={{ display: "inline-block", marginTop: "10px", color: "var(--muted)", fontFamily: "var(--font-space), 'Space Grotesk', Inter, sans-serif", fontSize: "12px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.08em" }}>
@@ -505,8 +519,8 @@ export default function CyberUtsavLumbini() {
             <span className="stamp stamp-red" style={{ transform: "rotate(-1deg)" }}>Title Sponsor</span>
             <div className="sponsor-placeholder-grid">
               {[1].map((i) => (
-                <div key={i} className="sponsor-card sponsor-card-lg">
-                  <span className="sponsor-card-label">Your Brand Here</span>
+                <div key={i} className="sponsor-card sponsor-card-lg" style={{ background: "var(--ink)", borderColor: "var(--ink)" }}>
+                  <span className="sponsor-card-label" style={{ color: "var(--paper)", opacity: 1 }}>Your Brand Here</span>
                 </div>
               ))}
             </div>
@@ -516,8 +530,8 @@ export default function CyberUtsavLumbini() {
             <span className="stamp stamp-blue" style={{ transform: "rotate(-1deg)" }}>Gold Partners</span>
             <div className="sponsor-placeholder-grid">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="sponsor-card">
-                  <span className="sponsor-card-label">Partner {i}</span>
+                <div key={i} className="sponsor-card" style={{ background: "var(--paper-2)", borderColor: "var(--purple)" }}>
+                  <span className="sponsor-card-label" style={{ color: "var(--purple)", opacity: 1 }}>Partner {i}</span>
                 </div>
               ))}
             </div>
@@ -527,8 +541,8 @@ export default function CyberUtsavLumbini() {
             <span className="stamp" style={{ transform: "rotate(-1deg)", color: "var(--mint)" }}>Community Partners</span>
             <div className="sponsor-placeholder-grid">
               {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="sponsor-card sponsor-card-sm">
-                  <span className="sponsor-card-label">Community {i}</span>
+                <div key={i} className="sponsor-card sponsor-card-sm" style={{ background: "var(--paper-2)", borderColor: "var(--mint)" }}>
+                  <span className="sponsor-card-label" style={{ color: "var(--mint)", opacity: 1 }}>Community {i}</span>
                 </div>
               ))}
             </div>
@@ -557,35 +571,47 @@ export default function CyberUtsavLumbini() {
             <div className="receipt" style={{ boxShadow: "7px 7px 0 var(--ink)" }}>
               <h3 style={{ fontSize: "22px" }}>Our Commitment</h3>
               <p style={{ color: "var(--muted)", fontWeight: 700, lineHeight: 1.7, marginTop: "16px" }}>
-                CyberUtsav Lumbini is dedicated to providing a harassment-free
-                experience for everyone. We do not tolerate harassment of
-                participants in any form.
+                CyberUtsav Lumbini is dedicated to providing a harassment-free experience for everyone. We do not tolerate harassment of participants in any form.
               </p>
+              <div style={{ marginTop: "24px", display: "grid", gap: "16px" }}>
+                <div style={{ borderLeft: "3px solid var(--red)", paddingLeft: "16px" }}>
+                  <h4 style={{ fontFamily: "var(--font-archivo), 'Archivo Black', Impact, sans-serif", fontSize: "16px", textTransform: "uppercase", letterSpacing: "-0.03em" }}>Code of Conduct</h4>
+                  <p style={{ color: "var(--muted)", fontWeight: 600, lineHeight: 1.6, marginTop: "8px", fontSize: "14px" }}>
+                    All participants, speakers, sponsors, and volunteers are expected to abide by the CyberUtsav Code of Conduct. Harassment, discrimination, or disruptive behavior will result in immediate removal from the event. We foster an inclusive environment where every builder feels safe and respected.
+                  </p>
+                </div>
+                <div style={{ borderLeft: "3px solid var(--purple)", paddingLeft: "16px" }}>
+                  <h4 style={{ fontFamily: "var(--font-archivo), 'Archivo Black', Impact, sans-serif", fontSize: "16px", textTransform: "uppercase", letterSpacing: "-0.03em" }}>Privacy Policy</h4>
+                  <p style={{ color: "var(--muted)", fontWeight: 600, lineHeight: 1.6, marginTop: "8px", fontSize: "14px" }}>
+                    Your personal data is protected under our Privacy Policy. Registration information is used solely for event coordination, communication, and prize delivery. We never share your data with third parties without consent. You may request data deletion at any time by contacting prarambha@butwalhacks.com.
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="receipt" style={{ boxShadow: "7px 7px 0 var(--ink)" }}>
               <h3 style={{ fontSize: "22px" }}>Event Links</h3>
               <div style={{ display: "grid", gap: "12px", marginTop: "20px" }}>
-                <a href="https://butwalhacks.com" target="_blank" rel="noopener noreferrer" className="event-link-card">
-                  <Icon name="bolt" className="w-5 h-5" style={{ color: "var(--red)" }} />
-                  <div>
-                    <strong>ButwalHacks</strong>
-                    <span>Community &amp; Co-Organizer</span>
-                  </div>
-                </a>
-                <a href="https://cyberutsav.com" target="_blank" rel="noopener noreferrer" className="event-link-card">
-                  <Icon name="shield" className="w-5 h-5" style={{ color: "var(--red)" }} />
-                  <div>
-                    <strong>CyberUtsav</strong>
-                    <span>Parent Event — National Series</span>
-                  </div>
-                </a>
-                <a href="https://github.com/Prarambha369/CyberUtsavLumbini" target="_blank" rel="noopener noreferrer" className="event-link-card">
-                  <Icon name="github" className="w-5 h-5" />
-                  <div>
-                    <strong>GitHub Repo</strong>
-                    <span>Open source project code</span>
-                  </div>
-                </a>
+<a href="https://butwalhacks.com" target="_blank" rel="noopener noreferrer" className="event-link-card">
+                    <Image src="/BHlogo.jpg" alt="ButwalHacks" width={24} height={24} style={{ borderRadius: "6px" }} />
+                    <div>
+                      <strong>ButwalHacks</strong>
+                      <span>Community &amp; Co-Organizer</span>
+                    </div>
+                  </a>
+                  <a href="https://cyberutsav.com" target="_blank" rel="noopener noreferrer" className="event-link-card">
+                    <Image src="/CUlogo.jpg" alt="CyberUtsav" width={24} height={24} style={{ borderRadius: "6px" }} />
+                    <div>
+                      <strong>CyberUtsav</strong>
+                      <span>Parent Event — National Series</span>
+                    </div>
+                  </a>
+                  <a href="https://github.com/Prarambha369/CyberUtsavLumbini" target="_blank" rel="noopener noreferrer" className="event-link-card">
+                    <Icon name="github" className="w-5 h-5" />
+                    <div>
+                      <strong>GitHub Repo</strong>
+                      <span>Open source project code</span>
+                    </div>
+                  </a>
               </div>
             </div>
           </div>
@@ -670,7 +696,7 @@ export default function CyberUtsavLumbini() {
       <footer className="atlas-footer">
         <div>
           <div className="atlas-footer-brand" style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-            <Image src="/cyberutsav-logo.jpg" alt="CyberUtsav Logo" width={48} height={48} style={{ borderRadius: "8px" }} />
+            <Image src="/CUlogo.jpg" alt="CyberUtsav Logo" width={48} height={48} style={{ borderRadius: "8px" }} />
             CYBER UTSAV <em>LUMBINI</em>
           </div>
           <p>
@@ -679,8 +705,11 @@ export default function CyberUtsavLumbini() {
         </div>
         <div>
           <h3>Organizers</h3>
-          <p style={{ marginTop: "12px", fontWeight: 750 }}>Tech Gurkha Digital Services</p>
-          <p style={{ color: "var(--red)", marginTop: "8px", fontWeight: 900 }}>ButwalHacks (Co-Organizer)</p>
+<p style={{ marginTop: "12px", fontWeight: 750 }}>Tech Gurkha Digital Services</p>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "8px" }}>
+            <Image src="/BHlogo.jpg" alt="ButwalHacks Logo" width={24} height={24} style={{ borderRadius: "6px" }} />
+            <p style={{ color: "var(--red)", marginTop: 0, fontWeight: 900 }}>ButwalHacks (Co-Organizer)</p>
+          </div>
         </div>
         <div>
           <h3>Links</h3>
