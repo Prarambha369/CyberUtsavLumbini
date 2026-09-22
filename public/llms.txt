@@ -27,9 +27,10 @@ CyberUtsav Lumbini is NOT CyberUtsav 3.0. It is a provincial chapter — a regio
 - Email: prarambha@butwalhacks.com
 
 ## Pages
-- Home page with hero, about, tracks, schedule, prizes, host city details, team, sponsors, FAQ, and pre-registration form
-- Pre-registration is free and takes less than 2 minutes
-- Full schedule, venue map, and registration will open soon
+- Home page with hero, about, tracks, schedule, prizes, host city details, team, sponsors, FAQ, and registration links
+- Registration is free and takes less than 2 minutes
+- Full schedule and venue map will open soon
+- Pre-registration is open at https://registration.cyberutsav.com/butwal
 
 ## Organizers
 - **Tech Gurkha Digital Services** — National organizer of CyberUtsav

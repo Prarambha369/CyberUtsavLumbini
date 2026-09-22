@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+/** Generates the sitemap for the CyberUtsav Lumbini portal, including all section anchors and the external registration URL. */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://lumbini.cyberutsav.com";
   const now = new Date();
@@ -54,7 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}#register`,
+      url: "https://registration.cyberutsav.com/butwal",
       lastModified: now,
       changeFrequency: "weekly",
       priority: 1,

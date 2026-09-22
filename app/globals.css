@@ -1391,33 +1391,9 @@ button {
   line-height: 1.7;
 }
 
-/* Legacy form helpers kept for PreRegistrationForm */
-.neo-shadow {
-  box-shadow: 10px 10px 0 var(--ink);
-}
-
-.neo-shadow-lg {
-  box-shadow: 12px 12px 0 var(--ink);
-}
-
-.neo-shadow-sm {
-  box-shadow: 4px 4px 0 var(--ink);
-}
-
-.neo-hover:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--ink);
-}
-
-input:invalid:not(:placeholder-shown),
-select:invalid:not(:placeholder-shown):not([value=""]) {
-  outline-color: var(--red);
-}
-
 .form-section {
   overflow: hidden;
 }
-
 /* ───────────────────────── Footer ───────────────────────── */
 
 .atlas-footer {

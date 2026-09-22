@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const links = [
   { href: "#about", label: "About" },
@@ -15,10 +16,10 @@ export default function Nav() {
   return (
     <>
       <nav className="atlas-header" role="navigation" aria-label="Main navigation">
-        <a className="atlas-mark" href="/" aria-label="CyberUtsav Home">
+        <Link className="atlas-mark" href="/" aria-label="CyberUtsav Home">
           <span className="atlas-mark-badge">C3</span>
           <strong>CyberUtsav</strong>
-        </a>
+        </Link>
 
         <div className="atlas-nav">
           {links.map((link) => (
@@ -28,7 +29,7 @@ export default function Nav() {
           ))}
         </div>
 
-        <a href="#register" className="header-ticket">
+        <a href="https://registration.cyberutsav.com/butwal" target="_blank" rel="noopener noreferrer" className="header-ticket">
           Register Now
         </a>
 
@@ -57,13 +58,15 @@ export default function Nav() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#register"
-            onClick={() => setOpen(false)}
-            className="atlas-button dark"
-          >
-            Register Now
-          </a>
+<a
+                        href="https://registration.cyberutsav.com/butwal"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setOpen(false)}
+                        className="atlas-button dark"
+                    >
+                        Register Now
+        </a>
         </div>
       )}
     </>
