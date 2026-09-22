@@ -75,7 +75,7 @@ function SiteUnderWorkModal() {
           The official pre-registration portal for the Lumbini Provincial Chapter
           (Hosted in Butwal City, co-organized by ButwalHacks &amp; Tech Gurkha Digital
           Services) is currently being finalized. Full schedule, venue map, and
-          registration will open soon!
+          pre-registration is open!
         </p>
         <ul className="space-y-2 text-sm mb-6" style={{ color: "var(--muted)" }}>
           <li className="flex items-center gap-2">
@@ -134,13 +134,14 @@ export default function CyberUtsavLumbini() {
             <span className="hero-org-tag">Co-organized by ButwalHacks</span>
           </p>
           <div className="hero-cta-row">
-<a
-            href="https://registration.cyberutsav.com/butwal"
-            target="_blank"
-            className="atlas-button dark"
-          >
-            Pre-Register Now <Icon name="arrow" className="w-5 h-5" />
-          </a>
+            <a
+              href="https://registration.cyberutsav.com/butwal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="atlas-button dark"
+            >
+              Pre-Register Now <Icon name="arrow" className="w-5 h-5" />
+            </a>
             <a href="#tracks" className="atlas-button light">
               Explore Tracks
             </a>
@@ -235,7 +236,7 @@ export default function CyberUtsavLumbini() {
                 </article>
               ))}
             </div>
-<a href="https://registration.cyberutsav.com/butwal" target="_blank" rel="noreferrer" className="atlas-button dark" style={{ marginTop: "30px" }}>
+<a href="https://registration.cyberutsav.com/butwal" target="_blank" rel="noopener noreferrer" className="atlas-button dark" style={{ marginTop: "30px" }}>
                 Pre-Register <Icon name="arrow" className="w-4 h-4" />
               </a>
           </div>
@@ -631,8 +632,17 @@ export default function CyberUtsavLumbini() {
             <p>
               Pre-registration is free and takes less than 2 minutes.
             </p>
+            <a
+              href="https://registration.cyberutsav.com/butwal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="atlas-button dark"
+              style={{ marginTop: "28px" }}
+            >
+              Pre-Register Now <Icon name="arrow" className="w-5 h-5" />
+            </a>
           </div>
-          </div>
+        </div>
       </section>
 
       {/* ═══ CTA BANNER ═══ */}
@@ -642,16 +652,17 @@ export default function CyberUtsavLumbini() {
           <span className="stamp">Limited Capacity</span>
           <h2 className="poster-title">Ready to Pick Your Track?</h2>
           <p>
-            Form a team of 3 members and start shaping your CyberUtsav project idea. Registration opens soon.
+            Form a team of 3 members and start shaping your CyberUtsav project idea. Pre-registration is open.
           </p>
         </div>
-<a
-            href="https://registration.cyberutsav.com/butwal"
-            target="_blank"
-            className="atlas-button paper"
-          >
-            Register Now <Icon name="arrow" className="w-4 h-4" />
-          </a>
+            <a
+              href="https://registration.cyberutsav.com/butwal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="atlas-button paper"
+            >
+              Register Now <Icon name="arrow" className="w-4 h-4" />
+            </a>
       </section>
 
       {/* ═══ FOOTER ═══ */}

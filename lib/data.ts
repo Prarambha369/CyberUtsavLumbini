@@ -49,7 +49,7 @@ export const hostCityDetails = [
   { label: "Round", value: "Provincial qualifier" },
   { label: "Date", value: "To be announced" },
   { label: "Venue", value: "Partner institution · TBA" },
-  { label: "Registration", value: "Opening soon — pre-register now" },
+  { label: "Registration", value: "Pre-registration open — register now" },
 ];
 
 export const timeline = [

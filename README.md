@@ -18,7 +18,7 @@ Co-organized by [ButwalHacks](https://butwalhacks.com)
 
 ## 📋 About
 
-CyberUtsav Lumbini is the **Lumbini Provincial Chapter** of Nepal's largest student hackathon series. This portal handles pre-registration for the selection round happening in **Butwal City, Lumbini Province**.
+CyberUtsav Lumbini is the **Lumbini Provincial Chapter** of Nepal's largest student hackathon series. This portal handles pre-registration for the selection round happening in **Butwal City, Lumbini Province**. Pre-registration is open at [registration.cyberutsav.com/butwal](https://registration.cyberutsav.com/butwal).
 
 - 🎯 **150 Max Participants** — Limited capacity entry
 - 🏙️ **Host City: Butwal** — Lumbini Province, Nepal
@@ -60,8 +60,10 @@ CyberUtsavLumbini/
 │   └── data.ts              # Tracks, timeline, FAQ, prizes, team, past events
 ├── public/
 │   ├── llms.txt             # AI crawler friendly site description
+│   ├── photos/              # Team member photos
 │   └── site.webmanifest     # PWA manifest
 ├── .gitignore
+├── eslint.config.mjs
 ├── next.config.js
 ├── package.json
 ├── postcss.config.mjs
@@ -93,12 +95,12 @@ CyberUtsavLumbini/
 | 03 | **Schedule** | 4-step process + 3-phase timeline |
 | 04 | **Prizes** | 4 prize categories |
 | 05 | **Butwal Round** | Host city details |
-| 06 | **Team** | ButwalHacks spotlight + placeholder team grid |
+| 06 | **Team** | ButwalHacks spotlight + team photo grid |
 | 07 | **Past Events** | ButwalHacks & CyberUtsav event history |
 | 08 | **Sponsors** | Tiered sponsor placeholders |
 | 09 | **Code of Conduct** | Commitment + event links |
 | 10 | **FAQ** | 5 expandable accordion items |
-| 11 | **Registration** | Free registration via external link |
+| 11 | **Pre-Registration** | Free pre-registration via external link |
 
 ## ✨ Features
 
@@ -122,6 +124,7 @@ npm run dev      # Start dev server
 npm run build    # Production build
 npm run start    # Start production server
 npm run lint     # Run ESLint
+npx tsc --noEmit # Type check
 ```
 
 ## 🚢 Deployment
