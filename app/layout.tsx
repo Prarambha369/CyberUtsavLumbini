@@ -114,6 +114,7 @@ export const metadata: Metadata = {
   },
 };
 
+/** The root layout wrapping all pages with metadata, JSON-LD structured data, and font configuration. */
 export default function RootLayout({
   children,
 }: Readonly<{

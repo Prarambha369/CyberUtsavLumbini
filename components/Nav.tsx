@@ -19,7 +19,7 @@ export default function Nav() {
         <Link className="atlas-mark" href="/" aria-label="CyberUtsav Home">
           <span className="atlas-mark-badge">C3</span>
           <strong>CyberUtsav</strong>
-        </a>
+        </Link>
 
         <div className="atlas-nav">
           {links.map((link) => (
@@ -66,7 +66,7 @@ export default function Nav() {
                         className="atlas-button dark"
                     >
                         Register Now
-        </Link>
+        </a>
         </div>
       )}
     </>

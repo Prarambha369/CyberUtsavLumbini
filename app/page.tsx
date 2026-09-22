@@ -102,6 +102,7 @@ function SiteUnderWorkModal() {
 /* ═══════════════════════════════════════
    MAIN PAGE
    ═══════════════════════════════════════ */
+/** The main home page for CyberUtsav Lumbini, featuring hero, tracks, schedule, team, FAQ, and registration CTAs. */
 export default function CyberUtsavLumbini() {
   useScrollReveal();
 

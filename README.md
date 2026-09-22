@@ -90,7 +90,7 @@ CyberUtsavLumbini/
 
 | # | Section | Description |
 |---|---------|-------------|
-| 01 | **About** | Event description, Why Pre-Register, Network/Build/Pitch |
+| 01 | **About** | Event description, Why Participate, Network/Build/Pitch |
 | 02 | **Tracks** | 6 competition tracks with icons and examples |
 | 03 | **Schedule** | 4-step process + 3-phase timeline |
 | 04 | **Prizes** | 4 prize categories |
@@ -100,7 +100,7 @@ CyberUtsavLumbini/
 | 08 | **Sponsors** | Tiered sponsor placeholders |
 | 09 | **Code of Conduct** | Commitment + event links |
 | 10 | **FAQ** | 5 expandable accordion items |
-| 11 | **Pre-Registration** | Free pre-registration via external link |
+| 11 | **Registration** | Free registration via external link |
 
 ## ✨ Features
 
