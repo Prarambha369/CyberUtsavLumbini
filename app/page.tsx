@@ -669,7 +669,8 @@ export default function CyberUtsavLumbini() {
       {/* ═══ FOOTER ═══ */}
       <footer className="atlas-footer">
         <div>
-          <div className="atlas-footer-brand">
+          <div className="atlas-footer-brand" style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+            <Image src="/cyberutsav-logo.jpg" alt="CyberUtsav Logo" width={48} height={48} style={{ borderRadius: "8px" }} />
             CYBER UTSAV <em>LUMBINI</em>
           </div>
           <p>
