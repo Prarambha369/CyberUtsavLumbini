@@ -214,6 +214,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${archivoBlack.variable} ${spaceGrotesk.variable} ${inter.variable}`}
+      suppressHydrationWarning
     >
       <head>
         <link rel="canonical" href={baseUrl} />
@@ -223,6 +224,17 @@ export default function RootLayout({
         <meta
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var saved = localStorage.getItem('theme');
+                var dark = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+              })();
+            `,
+          }}
         />
         <script
           type="application/ld+json"
