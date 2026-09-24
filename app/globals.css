@@ -12,6 +12,15 @@
   --shadow-hard: 10px 10px 0 #101014;
 }
 
+[data-theme="dark"] {
+  --ink: #f3ead8;
+  --paper: #0e0e12;
+  --paper-2: #1a1a24;
+  --muted: #b0a898;
+  --line: rgba(243, 234, 216, 0.12);
+  --shadow-hard: 10px 10px 0 #f3ead8;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -39,8 +48,8 @@ body {
       rgba(124, 58, 237, 0.14),
     transparent 20rem
     ),
-    linear-gradient(90deg, rgba(16, 16, 20, 0.05) 1px, transparent 1px),
-    linear-gradient(rgba(16, 16, 20, 0.04) 1px, transparent 1px), var(--paper);
+    linear-gradient(90deg, rgba(243, 234, 216, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(243, 234, 216, 0.04) 1px, transparent 1px), var(--paper);
   background-size:
     auto,
     auto,
@@ -105,6 +114,12 @@ button {
   box-shadow: 6px 6px 0 rgba(16, 16, 20, 0.96);
   backdrop-filter: blur(18px);
   transform: translateX(-50%);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .atlas-header {
+  background: rgba(14, 14, 18, 0.86);
+  box-shadow: 6px 6px 0 rgba(243, 234, 216, 0.15);
 }
 
 .atlas-mark {
@@ -169,6 +184,25 @@ button {
   color: var(--ink);
   background: transparent;
   cursor: pointer;
+}
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .atlas-mobile {
@@ -378,7 +412,7 @@ button {
 .hero-lede {
   max-width: min(650px, 100%);
   margin-top: 28px;
-  color: #34312c;
+  color: var(--ink);
   font-size: clamp(17px, 1.55vw, 21px);
   font-weight: 650;
   line-height: 1.58;
@@ -468,10 +502,24 @@ button {
 }
 
 .hero-ticket-row em {
-  color: var(--red);
-  font-style: normal;
-  font-weight: 900;
-  font-size: 13px;
+   color: var(--red);
+   font-style: normal;
+   font-weight: 900;
+   font-size: 13px;
+}
+
+.hero-ticket-tbd {
+   color: var(--red);
+   font-style: normal;
+   font-weight: 900;
+   font-size: 13px;
+   text-decoration: underline;
+   text-underline-offset: 2px;
+}
+
+.hero-ticket-tbd:hover {
+   color: var(--ink);
+   text-decoration: none;
 }
 
 .hero-ticket-foot {
@@ -655,6 +703,14 @@ button {
   line-height: 1.7;
 }
 
+[data-theme="dark"] .wall-heading p {
+  color: rgba(243, 234, 216, 0.75);
+}
+
+:root .wall-heading p {
+  color: rgba(14, 14, 18, 0.75);
+}
+
 .track-posters {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -712,7 +768,7 @@ button {
 .track-poster > p {
   position: relative;
   margin-top: 16px;
-  color: #3e3a34;
+  color: var(--muted);
   font-weight: 700;
   line-height: 1.55;
 }
@@ -1060,24 +1116,33 @@ button {
 
 /* ButwalHacks spotlight */
 .butwalhacks-spotlight {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 36px;
-  align-items: start;
-  border: 3px solid var(--red);
-  padding: 40px;
-  background: rgba(201, 255, 69, 0.06);
-  box-shadow: 12px 12px 0 rgba(201, 255, 69, 0.25);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 36px;
+    align-items: start;
+    border: 3px solid var(--red);
+    padding: 40px;
+    background: rgba(201, 255, 69, 0.06);
+    box-shadow: 12px 12px 0 rgba(201, 255, 69, 0.25);
+}
+
+[data-theme="dark"] .butwalhacks-spotlight {
+    background: rgba(201, 255, 69, 0.04);
+    box-shadow: 12px 12px 0 rgba(201, 255, 69, 0.12);
 }
 
 .butwalhacks-spotlight-badge {
-  display: grid;
-  place-items: center;
-  width: 80px;
-  height: 80px;
-  border: 3px solid var(--red);
-  color: var(--red);
-  background: rgba(201, 255, 69, 0.12);
+    display: grid;
+    place-items: center;
+    width: 80px;
+    height: 80px;
+    border: 3px solid var(--red);
+    color: var(--red);
+    background: rgba(201, 255, 69, 0.12);
+}
+
+[data-theme="dark"] .butwalhacks-spotlight-badge {
+    background: rgba(201, 255, 69, 0.08);
 }
 
 .team-socials-link {
@@ -1095,9 +1160,7 @@ button {
   font-weight: 950;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  transition:
-    transform 0.18s ease,
-    background 0.18s ease;
+  transition: transform 0.18s ease, background 0.18s ease;
 }
 
 .team-socials-link:hover {
@@ -1137,6 +1200,14 @@ button {
   color: rgba(243, 234, 216, 0.72);
   font-weight: 650;
   line-height: 1.7;
+}
+
+[data-theme="dark"] .team-roster-head p {
+  color: rgba(243, 234, 216, 0.72);
+}
+
+:root .team-roster-head p {
+  color: rgba(14, 14, 18, 0.72);
 }
 
 .team-grid {
@@ -1244,9 +1315,7 @@ button {
   font-weight: 950;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  transition:
-    transform 0.18s ease,
-    background 0.18s ease;
+  transition: transform 0.18s ease, background 0.18s ease;
 }
 
 .team-socials a:hover {
@@ -1401,8 +1470,8 @@ button {
   grid-template-columns: 1.2fr repeat(3, 0.7fr);
   gap: 34px;
   padding: 70px max(24px, calc((100vw - 1180px) / 2));
-  color: var(--paper);
-  background: var(--ink);
+  color: var(--ink);
+  background: var(--paper);
 }
 
 .atlas-footer-brand {
@@ -1424,6 +1493,14 @@ button {
   line-height: 1.7;
 }
 
+[data-theme="dark"] .atlas-footer > div > p {
+  color: rgba(243, 234, 216, 0.72);
+}
+
+:root .atlas-footer > div > p {
+  color: rgba(14, 14, 18, 0.72);
+}
+
 .atlas-footer h3 {
   color: var(--red);
   font-family: var(--font-space), "Space Grotesk", Inter, sans-serif;
@@ -1440,6 +1517,14 @@ button {
   font-weight: 750;
 }
 
+[data-theme="dark"] .atlas-footer a:not(.footer-github) {
+  color: rgba(243, 234, 216, 0.72);
+}
+
+:root .atlas-footer a:not(.footer-github) {
+  color: rgba(14, 14, 18, 0.72);
+}
+
 .atlas-footer a:not(.footer-github):hover {
   color: var(--red);
 }
@@ -1451,9 +1536,106 @@ button {
   text-align: center;
 }
 
+:root .footer-rights {
+  border-top-color: rgba(14, 14, 18, 0.18);
+}
+
+[data-theme="dark"] .footer-rights {
+  border-top-color: rgba(243, 234, 216, 0.18);
+}
+
 .footer-rights p {
   color: rgba(243, 234, 216, 0.72);
   font-size: 13px;
+}
+
+[data-theme="dark"] .footer-rights p {
+  color: rgba(243, 234, 216, 0.72);
+}
+
+:root .footer-rights p {
+  color: rgba(14, 14, 18, 0.72);
+}
+
+/* ───────────────────────── Dark-mode text fixes ───────────────────────── */
+
+[data-theme="dark"] .poster-word {
+  color: rgba(243, 234, 216, 0.05);
+}
+
+[data-theme="dark"] .hero-lede {
+  color: var(--ink);
+}
+
+[data-theme="dark"] .track-poster > p {
+  color: var(--muted);
+}
+
+[data-theme="dark"] .hero-ticket-row {
+  border-bottom-color: rgba(243, 234, 216, 0.2);
+}
+
+[data-theme="dark"] .receipt {
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+[data-theme="dark"] .receipt h3,
+[data-theme="dark"] .receipt h2 {
+  color: var(--ink);
+}
+
+[data-theme="dark"] .receipt-lines article {
+  border-top-color: var(--line);
+}
+
+
+/* ───────────────────────── Better Slideshow ───────────────────────── */
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 5px 5px 0 var(--ink);
+  border: 3px solid var(--ink);
+}
+
+.slideshow-container .slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.slideshow-container .slide-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.slideshow-container .slide-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.slideshow-container .slide-dot.active {
+  background: var(--red);
+  transform: scale(1.3);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .slideshow-container {
+  box-shadow: 5px 5px 0 var(--ink);
 }
 
 /* ───────────────────────── Scroll Reveal ───────────────────────── */
@@ -1461,8 +1643,7 @@ button {
 [data-reveal] {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 [data-reveal].revealed {
@@ -1761,15 +1942,23 @@ button {
 }
 
 .badge-bwh {
-  color: var(--red);
-  border-color: var(--red);
-  background: rgba(236, 63, 43, 0.08);
+    color: var(--red);
+    border-color: var(--red);
+    background: rgba(236, 63, 43, 0.08);
+}
+
+[data-theme="dark"] .badge-bwh {
+    background: rgba(236, 63, 43, 0.15);
 }
 
 .badge-cu {
-  color: var(--purple);
-  border-color: var(--purple);
-  background: rgba(124, 58, 237, 0.08);
+    color: var(--purple);
+    border-color: var(--purple);
+    background: rgba(124, 58, 237, 0.08);
+}
+
+[data-theme="dark"] .badge-cu {
+    background: rgba(124, 58, 237, 0.15);
 }
 
 .past-event-title {
@@ -1821,8 +2010,12 @@ button {
 }
 
 .past-event-butwalhacks .past-event-highlights li {
-  border-color: var(--red);
-  background: rgba(236, 63, 43, 0.06);
+    border-color: var(--red);
+    background: rgba(236, 63, 43, 0.06);
+}
+
+[data-theme="dark"] .past-event-butwalhacks .past-event-highlights li {
+    background: rgba(236, 63, 43, 0.12);
 }
 
 /* ───────────────────────── Sponsor section ───────────────────────── */
@@ -2280,8 +2473,18 @@ button {
     0deg,
     transparent,
     transparent 8px,
-    rgba(16, 16, 20, 0.03) 8px,
-    rgba(16, 16, 20, 0.03) 16px
+    rgba(243, 234, 216, 0.03) 8px,
+    rgba(243, 234, 216, 0.03) 16px
+  );
+}
+
+[data-theme="dark"] .format-tickets article {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 8px,
+    rgba(243, 234, 216, 0.07) 8px,
+    rgba(243, 234, 216, 0.07) 16px
   );
 }
 
@@ -2297,6 +2500,10 @@ button {
   opacity: 0.25;
   animation: dashMove 12s linear infinite;
   pointer-events: none;
+}
+
+[data-theme="dark"] .format-tickets article::before {
+  opacity: 0.15;
 }
 
 /* Glow pulse on hero stat numbers */
@@ -2320,6 +2527,10 @@ button {
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
+}
+
+[data-theme="dark"] .hero-stat-strip article:hover::after {
+  opacity: 1;
 }
 
 .hero-stat-strip article:hover::after {
@@ -2365,6 +2576,17 @@ button {
   0%, 100% { transform: translateY(0) scale(1); }
   50%      { transform: translateY(-18px) scale(1.3); }
 }
+
+@keyframes slideshowFade {
+  0%, 18%   { opacity: 1; }
+  20%, 100% { opacity: 0; }
+}
+
+.slide-0 { animation: slideshowFade 15s infinite; animation-delay: 0s; }
+.slide-1 { animation: slideshowFade 15s infinite; animation-delay: 3s; }
+.slide-2 { animation: slideshowFade 15s infinite; animation-delay: 6s; }
+.slide-3 { animation: slideshowFade 15s infinite; animation-delay: 9s; }
+.slide-4 { animation: slideshowFade 15s infinite; animation-delay: 12s; }
 
 /* Section divider lines */
 .section-pad + .section-pad::before,
@@ -2421,6 +2643,53 @@ button {
   0%   { transform: scale(0.95); opacity: 0; }
   50%  { transform: scale(1.1); opacity: 0.5; }
   100% { transform: scale(0.95); opacity: 0; }
+}
+
+/* Sponsor card image sizing */
+.sponsor-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.sponsor-card a {
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Event link card image sizing */
+.event-link-card img {
+  flex-shrink: 0;
+  border-radius: 6px;
+}
+
+/* ButwalHacks spotlight badge image sizing */
+.butwalhacks-spotlight-badge img {
+  border-radius: 8px;
+}
+
+/* ButwalHacks spotlight social links */
+.butwalhacks-spotlight .team-socials-link {
+  border-color: rgba(243, 234, 216, 0.5);
+}
+
+[data-theme="dark"] .butwalhacks-spotlight .team-socials-link {
+  border-color: rgba(243, 234, 216, 0.5);
+}
+
+:root .butwalhacks-spotlight .team-socials-link {
+  border-color: rgba(14, 14, 18, 0.5);
+}
+.butwalhacks-spotlight .team-socials-link:hover {
+  border-color: var(--red);
+  background: var(--red);
+  color: var(--ink);
+}
+
+/* Footer brand logo sizing */
+.atlas-footer-brand img {
+  border-radius: 8px;
 }
 
 /* Footer brand glow */
