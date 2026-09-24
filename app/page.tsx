@@ -28,6 +28,22 @@ function Icon({ name, className = "w-6 h-6", style }: { name: string; className?
 
 const trackAccents = ["var(--red)", "var(--mint)", "var(--purple)", "var(--red)", "var(--mint)", "var(--purple)"];
 
+/* ─── Slideshow Hook ─── */
+function useSlideshow(interval = 3000) {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setActive((prev) => (prev + 1) % 5), interval);
+    return () => clearInterval(id);
+  }, [interval]);
+
+  function goTo(i: number) {
+    setActive(i);
+  }
+
+  return { active, goTo };
+}
+
 /* ─── Scroll Reveal Hook ─── */
 function useScrollReveal() {
   useEffect(() => {
@@ -105,6 +121,7 @@ function SiteUnderWorkModal() {
 /** The main home page for CyberUtsav Lumbini, featuring hero, tracks, schedule, team, FAQ, and registration CTAs. */
 export default function CyberUtsavLumbini() {
   useScrollReveal();
+  const { active, goTo } = useSlideshow(3000);
 
   return (
     <>
@@ -373,21 +390,21 @@ export default function CyberUtsavLumbini() {
               Cash prizes, professional mentorship, and career-boosting opportunities await the winning teams.
             </p>
 <div className="slideshow-container">
-               {[
-                 "/Slideshow/winner.jpg",
-                 "/Slideshow/winner2.jpg",
-                 "/Slideshow/winner3.png",
-                 "/Slideshow/winner4.png",
-                 "/Slideshow/winner5.png",
-               ].map((src, i) => (
-                 <div key={i} className={`slide slide-${i}`} style={{ backgroundImage: `url(${src})` }} />
-               ))}
-               <div className="slide-dots">
-                 {[0, 1, 2, 3, 4].map((i) => (
-                   <span key={i} className={`slide-dot${i === 0 ? " active" : ""}`} />
-                 ))}
-               </div>
-             </div>
+              {[
+                "/Slideshow/winner.jpg",
+                "/Slideshow/winner2.jpg",
+                "/Slideshow/winner3.png",
+                "/Slideshow/winner4.png",
+                "/Slideshow/winner5.png",
+              ].map((src, i) => (
+                <div key={i} className={`slide slide-${i}${i === active ? " slide-active" : ""}`} style={{ backgroundImage: `url(${src})`, opacity: i === active ? 1 : 0 }} />
+              ))}
+              <div className="slide-dots">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <span key={i} className={`slide-dot${i === active ? " active" : ""}`} onClick={() => goTo(i)} role="button" aria-label={`Go to slide ${i + 1}`} tabIndex={0} />
+                ))}
+              </div>
+            </div>
           </div>
           <div className="receipt">
             <h3 style={{ fontSize: "26px" }}>Prize Ledger</h3>
