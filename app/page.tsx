@@ -202,12 +202,12 @@ export default function CyberUtsavLumbini() {
               </div>
             </div>
             <div className="receipt">
-              <h3 style={{ fontSize: "26px" }}>Why Register Early?</h3>
+              <h3 style={{ fontSize: "26px" }}>Why Register Now?</h3>
               <ol className="receipt-lines numbered" style={{ listStyle: "none", padding: 0, margin: "34px 0 0" }}>
                 {[
-                  { num: "01", text: "Early access to workshop schedules and mentor matching." },
-                  { num: "02", text: "Priority seating for limited-capacity technical sessions." },
-                  { num: "03", text: "Exclusive digital certificate of interest upon registration." },
+                  { num: "01", text: "Only 150 seats — lock in your team of 3 for Jan 15–17 in Butwal." },
+                  { num: "02", text: "Join the online workshops: hackathon basics, idea building, Git/GitHub and pitching." },
+                  { num: "03", text: "Win the Butwal round and go straight to the Kathmandu Grand Finale." },
                 ].map((item) => (
                   <li key={item.num}>
                     <article>
