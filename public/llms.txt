@@ -1,6 +1,6 @@
 # CyberUtsav Lumbini
 
-> CyberUtsav Lumbini is a free, 3-day student hackathon in Butwal, Nepal, held January 15–17, 2027 — the Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon series. Teams of 3 compete across 6 tracks, and winning teams advance to the CyberUtsav Grand Finale in Kathmandu. Pre-registration is open and free: https://registration.cyberutsav.com/butwal
+> CyberUtsav Lumbini is a free, 3-day student hackathon in Butwal, Nepal, held January 15–17, 2027 — the Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon series. Teams of 3 compete across 6 tracks, and winning teams advance to the CyberUtsav Grand Finale in Kathmandu. Registration is open and free: https://registration.cyberutsav.com/butwal
 
 ## Key facts
 - **Event:** CyberUtsav Lumbini (Lumbini Provincial Chapter of CyberUtsav)
@@ -22,7 +22,7 @@
 ## Frequently asked questions
 
 ### How do I register?
-Pre-register at https://registration.cyberutsav.com/butwal. It is free and takes less than 2 minutes. Register as a team of 3.
+Register at https://registration.cyberutsav.com/butwal. It is free and takes less than 2 minutes. Register as a team of 3.
 
 ### Is it free?
 Yes. There is no registration fee.
@@ -44,7 +44,7 @@ No. CyberUtsav 3.0 is the current edition of the national series; CyberUtsav Lum
 
 ## Links
 - Website: https://lumbini.cyberutsav.com
-- Pre-register: https://registration.cyberutsav.com/butwal
+- Register: https://registration.cyberutsav.com/butwal
 - Parent series: https://cyberutsav.com
 - Co-organizer: https://butwalhacks.com
 - Source code: https://github.com/Prarambha369/CyberUtsavLumbini

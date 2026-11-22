@@ -50,7 +50,7 @@ export default function StickyCta() {
         className="atlas-button dark"
         tabIndex={show ? 0 : -1}
       >
-        Pre-Register
+        Register
         <span className="sr-only"> (opens in a new tab)</span>
       </a>
     </div>

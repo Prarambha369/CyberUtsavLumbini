@@ -2,7 +2,7 @@
 
 # 🛡️ CyberUtsav Lumbini
 
-### Pre-Registration Portal
+### Registration Portal
 
 **Provincial Chapter of CyberUtsav — Nepal's Biggest Student Hackathon**
 Co-organized by [ButwalHacks](https://butwalhacks.com)
@@ -18,7 +18,7 @@ Co-organized by [ButwalHacks](https://butwalhacks.com)
 
 ## 📋 About
 
-CyberUtsav Lumbini is the **Lumbini Provincial Chapter** of Nepal's largest student hackathon series. This portal handles pre-registration for the selection round happening in **Butwal City, Lumbini Province**. Pre-registration is open at [registration.cyberutsav.com/butwal](https://registration.cyberutsav.com/butwal).
+CyberUtsav Lumbini is the **Lumbini Provincial Chapter** of Nepal's largest student hackathon series. This portal handles registration for the selection round happening in **Butwal City, Lumbini Province**. Registration is open at [registration.cyberutsav.com/butwal](https://registration.cyberutsav.com/butwal).
 
 - 🎯 **150 Max Participants** — Limited capacity entry
 - 🏙️ **Host City: Butwal** — Lumbini Province, Nepal

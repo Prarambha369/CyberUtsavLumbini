@@ -12,7 +12,7 @@ export function registerUrl(placement: string) {
   const params = new URLSearchParams({
     utm_source: "lumbini.cyberutsav.com",
     utm_medium: "website",
-    utm_campaign: "lumbini_preregistration",
+    utm_campaign: "lumbini_registration",
     utm_content: placement,
   });
   return `${REGISTER_URL}?${params}`;
@@ -125,7 +125,7 @@ export const faqs = [
   {
     question: "How do I register for CyberUtsav Lumbini?",
     answer:
-      "Pre-register online at registration.cyberutsav.com/butwal. It is free and takes less than 2 minutes. Register as a team of 3: one team leader and two members.",
+      "Register online at registration.cyberutsav.com/butwal. It is free and takes less than 2 minutes. Register as a team of 3: one team leader and two members.",
   },
   {
     question: "Is it free to participate?",
@@ -139,7 +139,7 @@ export const faqs = [
   {
     question: "When and where is CyberUtsav Lumbini?",
     answer:
-      "CyberUtsav Lumbini takes place January 15–17, 2027, in Butwal, Lumbini Province, Nepal, at a partner institution. The exact venue will be announced soon — pre-registered teams are notified first.",
+      "CyberUtsav Lumbini takes place January 15–17, 2027, in Butwal, Lumbini Province, Nepal, at a partner institution. The exact venue will be announced soon — registered teams are notified first.",
   },
   {
     question: "How long is the hackathon?",

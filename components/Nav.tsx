@@ -99,7 +99,7 @@ export default function Nav() {
         </div>
 
         <a href={registerUrl("nav")} target="_blank" rel="noopener noreferrer" className="header-ticket">
-          Pre-Register
+          Register
           <span className="sr-only"> (opens in a new tab)</span>
         </a>
 
@@ -155,7 +155,7 @@ export default function Nav() {
             onClick={() => setOpen(false)}
             className="atlas-button dark"
           >
-            Pre-Register
+            Register
           </a>
         </div>
       )}

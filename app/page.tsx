@@ -110,7 +110,7 @@ export default function CyberUtsavLumbini() {
           </p>
           <div className="hero-cta-row">
             <RegisterLink placement="hero" className="atlas-button dark">
-              Pre-Register Free <Icon name="arrow" className="w-5 h-5" />
+              Register Free <Icon name="arrow" className="w-5 h-5" />
             </RegisterLink>
             <a href="#tracks" className="atlas-button light">
               Explore Tracks
@@ -118,7 +118,7 @@ export default function CyberUtsavLumbini() {
           </div>
           <p className="hero-status">
             <span className="live-dot" aria-hidden="true" />
-            Pre-registration open · Free · Takes 2 min · Venue TBA
+            Registration open · Free · Takes 2 min · Venue TBA
           </p>
         </div>
 
@@ -202,7 +202,7 @@ export default function CyberUtsavLumbini() {
               </div>
             </div>
             <div className="receipt">
-              <h3 style={{ fontSize: "26px" }}>Why Pre-Register?</h3>
+              <h3 style={{ fontSize: "26px" }}>Why Register Early?</h3>
               <ol className="receipt-lines numbered" style={{ listStyle: "none", padding: 0, margin: "34px 0 0" }}>
                 {[
                   { num: "01", text: "Early access to workshop schedules and mentor matching." },
@@ -218,7 +218,7 @@ export default function CyberUtsavLumbini() {
                 ))}
               </ol>
               <RegisterLink placement="about_perks" className="atlas-button dark" style={{ marginTop: "30px" }}>
-                Pre-Register Free <Icon name="arrow" className="w-4 h-4" />
+                Register Free <Icon name="arrow" className="w-4 h-4" />
               </RegisterLink>
             </div>
           </div>
@@ -269,10 +269,10 @@ export default function CyberUtsavLumbini() {
           </div>
           <div className="inline-cta">
             <p>
-              <strong>Found your track?</strong> Lock in your team of 3 — pre-registration is free and takes 2 minutes.
+              <strong>Found your track?</strong> Lock in your team of 3 — registration is free and takes 2 minutes.
             </p>
             <RegisterLink placement="after_tracks" className="atlas-button paper">
-              Pre-Register Your Team <Icon name="arrow" className="w-4 h-4" />
+              Register Your Team <Icon name="arrow" className="w-4 h-4" />
             </RegisterLink>
           </div>
         </section>
@@ -597,11 +597,11 @@ export default function CyberUtsavLumbini() {
             <span className="stamp">Limited to 150 participants</span>
             <h2 id="register-title" className="poster-title">Ready to Pick Your Track?</h2>
             <p>
-              Butwal · {EVENT_DATES}. Form a team of 3 and secure your spot — pre-registration is free and takes less than 2 minutes.
+              Butwal · {EVENT_DATES}. Form a team of 3 and secure your spot — registration is free and takes less than 2 minutes.
             </p>
           </div>
           <RegisterLink placement="final_banner" className="atlas-button paper">
-            Pre-Register Free <Icon name="arrow" className="w-4 h-4" />
+            Register Free <Icon name="arrow" className="w-4 h-4" />
           </RegisterLink>
         </section>
       </main>
