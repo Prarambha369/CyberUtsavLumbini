@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import ScrollReveal from "@/components/ScrollReveal";
 import Slideshow from "@/components/Slideshow";
 import StickyCta from "@/components/StickyCta";
-import { tracks, hostCityDetails, timeline, steps, prizes, faqs, team, keyFacts, registerUrl, CONTACT_EMAIL, SITE_URL } from "@/lib/data";
+import { tracks, hostCityDetails, timeline, steps, prizes, faqs, team, keyFacts, registerUrl, CONTACT_EMAIL, SITE_URL, EVENT_DATES } from "@/lib/data";
 
 /* ─── SVG Icon helper ─── */
 function Icon({ name, className = "w-6 h-6", style }: { name: string; className?: string; style?: React.CSSProperties }) {
@@ -94,13 +94,16 @@ export default function CyberUtsavLumbini() {
           <div className="hero-meta">
             <span className="stamp stamp-red">Lumbini Provincial Chapter</span>
             <span className="stamp stamp-blue">Host City: Butwal</span>
+            <span className="stamp stamp-ink">
+              <time dateTime="2027-01-15/2027-01-17">{EVENT_DATES}</time>
+            </span>
           </div>
           <h1 className="poster-title">
             CyberUtsav<br />
             <span style={{ color: "var(--red)" }}>Lumbini</span>
           </h1>
           <p className="hero-lede">
-            A free, 3-day student hackathon in Butwal — the Lumbini Provincial Chapter
+            A free, 3-day student hackathon in Butwal, January 15–17, 2027 — the Lumbini Provincial Chapter
             of Nepal&apos;s biggest student hackathon. Winning teams get direct entry to
             the Kathmandu Grand Finale.
             <span className="hero-org-tag">Co-organized by ButwalHacks</span>
@@ -115,7 +118,7 @@ export default function CyberUtsavLumbini() {
           </div>
           <p className="hero-status">
             <span className="live-dot" aria-hidden="true" />
-            Pre-registration open · Free · Takes 2 min · Dates &amp; venue TBA
+            Pre-registration open · Free · Takes 2 min · Venue TBA
           </p>
         </div>
 
@@ -134,7 +137,7 @@ export default function CyberUtsavLumbini() {
             <div className="hero-ticket-row">
               <strong>3 Days</strong>
               <span>Format &mdash; 12 hrs of building</span>
-              <em>On-site</em>
+              <em>Jan 15&ndash;17</em>
             </div>
             <div className="hero-ticket-row">
               <strong>Team of 3</strong>
@@ -410,7 +413,7 @@ export default function CyberUtsavLumbini() {
             <div className="receipt info-card">
               <h3><Icon name="calendar" /> Format</h3>
               <p>
-                A 3-day hackathon with 12 total hours of project building. Teams of 3 will develop, pitch, and compete for the championship title.
+                A 3-day hackathon, January 15–17, 2027, with 12 total hours of project building. Teams of 3 will develop, pitch, and compete for the championship title.
               </p>
             </div>
             <div className="receipt info-card">
@@ -594,7 +597,7 @@ export default function CyberUtsavLumbini() {
             <span className="stamp">Limited to 150 participants</span>
             <h2 id="register-title" className="poster-title">Ready to Pick Your Track?</h2>
             <p>
-              Form a team of 3 and secure your spot. Pre-registration is free and takes less than 2 minutes.
+              Butwal · {EVENT_DATES}. Form a team of 3 and secure your spot — pre-registration is free and takes less than 2 minutes.
             </p>
           </div>
           <RegisterLink placement="final_banner" className="atlas-button paper">
