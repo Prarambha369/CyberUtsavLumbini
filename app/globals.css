@@ -2751,6 +2751,156 @@ button {
   50%      { transform: translate(10%, -5%); }
 }
 
+/* ───────────────────────── Conversion & answer blocks ───────────────────────── */
+
+/* "At a glance" facts: short, quotable answers */
+.key-facts {
+  margin-top: 32px;
+  border: 3px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.key-facts h3 {
+  padding: 12px 18px;
+  border-bottom: 3px solid var(--ink);
+  color: var(--paper-2);
+  background: var(--ink);
+  font-family: var(--font-space), "Space Grotesk", Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.key-facts dl {
+  margin: 0;
+}
+
+.key-facts dl > div {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 12px;
+  padding: 11px 18px;
+  border-top: 1px dashed var(--line);
+}
+
+.key-facts dl > div:first-child {
+  border-top: 0;
+}
+
+.key-facts dt {
+  color: var(--red-text);
+  font-family: var(--font-space), "Space Grotesk", Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-top: 2px;
+}
+
+.key-facts dd {
+  margin: 0;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+/* Inline CTA strip (after tracks) */
+.inline-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 28px;
+  margin-top: 72px;
+  padding: 24px 28px;
+  border: 3px dashed color-mix(in srgb, var(--paper) 55%, transparent);
+  border-radius: 24px;
+}
+
+.inline-cta p {
+  max-width: 620px;
+  color: color-mix(in srgb, var(--paper) 85%, transparent);
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.inline-cta strong {
+  color: var(--paper);
+  font-weight: 900;
+}
+
+/* Sticky mobile CTA */
+.sticky-cta {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .sticky-cta {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 10px 10px 18px;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    background: var(--paper-2);
+    box-shadow: 5px 5px 0 var(--ink);
+    transform: translateY(160%);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .sticky-cta.is-visible {
+    transform: translateY(0);
+  }
+
+  .sticky-cta-copy {
+    display: grid;
+    line-height: 1.2;
+    min-width: 0;
+  }
+
+  .sticky-cta-copy strong {
+    font-family: var(--font-archivo), "Archivo Black", Impact, sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .sticky-cta-copy span {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .sticky-cta .atlas-button {
+    flex-shrink: 0;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .inline-cta {
+    margin-top: 56px;
+    padding: 22px;
+  }
+
+  .inline-cta .atlas-button {
+    width: 100%;
+  }
+
+  .key-facts dl > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+
 /* ───────────────────────── UX fixes ───────────────────────── */
 
 /* Numbered perk list: number in the gutter, text beside it */

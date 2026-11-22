@@ -1,37 +1,50 @@
 # CyberUtsav Lumbini
 
-## What is this site?
-CyberUtsav Lumbini is the official pre-registration portal for the Lumbini Provincial Chapter of CyberUtsav — Nepal's largest student hackathon series. This provincial selection round is hosted in Butwal City, Lumbini Province, and co-organized by ButwalHacks and Tech Gurkha Digital Services.
+> CyberUtsav Lumbini is a free, 3-day student hackathon in Butwal, Nepal — the Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon series. Teams of 3 compete across 6 tracks, and winning teams advance to the CyberUtsav Grand Finale in Kathmandu. Pre-registration is open and free: https://registration.cyberutsav.com/butwal
 
-## Key Facts
-- **Event Name:** CyberUtsav Lumbini (Provincial Chapter)
-- **Parent Event:** CyberUtsav (national series organized by Tech Gurkha Digital Services)
-- **Host City:** Butwal, Lumbini Province, Nepal
-- **Co-Organizer:** ButwalHacks (butwalhacks.com)
-- **Format:** 3-day on-site hackathon, 12 hours of building
-- **Team Size:** 3 members per team
+## Key facts
+- **Event:** CyberUtsav Lumbini (Lumbini Provincial Chapter of CyberUtsav)
+- **Parent series:** CyberUtsav, organized by Tech Gurkha Digital Services (https://cyberutsav.com)
+- **Co-organizer:** ButwalHacks, Butwal's student developer community (https://butwalhacks.com)
+- **Location:** Butwal, Lumbini Province, Nepal — venue is a partner institution, to be announced
+- **Dates:** To be announced. Pre-registered teams are notified first.
+- **Format:** 3 days on-site, 12 total hours of project building, then team pitches to a jury
+- **Team size:** Exactly 3 members (one team leader + two members)
 - **Eligibility:** High school students, A-Levels students, and recent graduates
-- **Cost:** Free registration
-- **Tracks:** 6 competition tracks — Cybersecurity, AI/ML, IoT & Hardware, Web Development, Social Impact, Open Innovation
-- **Prizes:** Cash prizes, mentorship, career opportunities
-- **Advancement:** Winning teams from Butwal advance directly to the Kathmandu Grand Finale
+- **Capacity:** Up to 150 participants
+- **Cost:** Free (Rs. 0)
+- **Tracks:** Cybersecurity, AI/ML, IoT & Hardware, Web Development, Social Impact, Open Innovation
+- **Advancement:** Winners advance directly to the Kathmandu Grand Finale
+- **Prizes:** Grand prize, per-track prizes, swag for every participant and career opportunities — amounts to be announced
+- **Status:** Pre-registration open
 
-## Important Distinction
-CyberUtsav Lumbini is NOT CyberUtsav 3.0. It is a provincial chapter — a regional selection round under the broader CyberUtsav national series. CyberUtsav 3.0 refers to the current edition of the national event, of which CyberUtsav Lumbini is one chapter.
+## Frequently asked questions
+
+### How do I register?
+Pre-register at https://registration.cyberutsav.com/butwal. It is free and takes less than 2 minutes. Register as a team of 3.
+
+### Is it free?
+Yes. There is no registration fee.
+
+### Who can participate?
+High school students, A-Levels students, and recent graduates, in teams of exactly 3.
+
+### When is it?
+Dates and venue are to be announced. The event takes place in Butwal, Lumbini Province, Nepal.
+
+### How long is it?
+3 days on-site with 12 total hours of building.
+
+### What do winners get?
+Direct entry to the CyberUtsav Grand Finale in Kathmandu. Lumbini prize details will be announced once confirmed with sponsors.
+
+### Is CyberUtsav Lumbini the same as CyberUtsav 3.0?
+No. CyberUtsav 3.0 is the current edition of the national series; CyberUtsav Lumbini is one provincial chapter of it — a regional selection round in Butwal whose winners go on to the national Grand Finale in Kathmandu.
 
 ## Links
 - Website: https://lumbini.cyberutsav.com
-- Parent Event: https://cyberutsav.com
-- Co-Organizer: https://butwalhacks.com
-- GitHub: https://github.com/Prarambha369/CyberUtsavLumbini
-- Email: prarambha@butwalhacks.com
-
-## Pages
-- Home page with hero, about, tracks, schedule, prizes, host city details, team, sponsors, FAQ, and registration links
-- Registration is free and takes less than 2 minutes
-- Full schedule and venue map will open soon
-- Pre-registration is open at https://registration.cyberutsav.com/butwal
-
-## Organizers
-- **Tech Gurkha Digital Services** — National organizer of CyberUtsav
-- **ButwalHacks** — Co-organizer and local community driving the Lumbini Chapter
+- Pre-register: https://registration.cyberutsav.com/butwal
+- Parent series: https://cyberutsav.com
+- Co-organizer: https://butwalhacks.com
+- Source code: https://github.com/Prarambha369/CyberUtsavLumbini
+- Contact: prarambha@butwalhacks.com
