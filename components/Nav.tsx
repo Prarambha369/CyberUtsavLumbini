@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { REGISTER_URL } from "@/lib/data";
+import { registerUrl } from "@/lib/data";
 
 const links = [
   { href: "#about", label: "About" },
@@ -98,7 +98,7 @@ export default function Nav() {
           ))}
         </div>
 
-        <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" className="header-ticket">
+        <a href={registerUrl("nav")} target="_blank" rel="noopener noreferrer" className="header-ticket">
           Pre-Register
           <span className="sr-only"> (opens in a new tab)</span>
         </a>
@@ -149,7 +149,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href={REGISTER_URL}
+            href={registerUrl("nav_mobile")}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}

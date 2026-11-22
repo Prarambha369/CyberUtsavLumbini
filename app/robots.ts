@@ -1,50 +1,32 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/data";
 
+/**
+ * Everything is crawlable — including /_next/ (CSS, JS, optimized images), which
+ * Google needs to render the page. Search and AI answer engines are explicitly
+ * welcomed so the event can be cited; Bytespider stays blocked.
+ */
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://lumbini.cyberutsav.com";
+  const answerEngines = [
+    "Googlebot",
+    "Bingbot",
+    "GPTBot",
+    "OAI-SearchBot",
+    "ChatGPT-User",
+    "Google-Extended",
+    "PerplexityBot",
+    "ClaudeBot",
+    "Claude-SearchBot",
+    "Applebot-Extended",
+  ];
 
   return {
     rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-        disallow: ["/api/", "/admin/", "/_next/", "/photos/"],
-      },
-      {
-        userAgent: "GPTBot",
-        allow: "/",
-        disallow: ["/api/", "/admin/"],
-      },
-      {
-        userAgent: "ChatGPT-User",
-        allow: "/",
-        disallow: ["/api/", "/admin/"],
-      },
-      {
-        userAgent: "Google-Extended",
-        allow: "/",
-        disallow: ["/api/", "/admin/"],
-      },
-      {
-        userAgent: "PerplexityBot",
-        allow: "/",
-        disallow: ["/api/", "/admin/"],
-      },
-      {
-        userAgent: "ClaudeBot",
-        allow: "/",
-        disallow: ["/api/", "/admin/"],
-      },
-      {
-        userAgent: "Anthropic-ai",
-        allow: "/",
-        disallow: ["/api/", "/admin/"],
-      },
-      {
-        userAgent: "Bytespider",
-        disallow: "/",
-      },
+      { userAgent: "*", allow: "/", disallow: ["/api/"] },
+      { userAgent: answerEngines, allow: "/", disallow: ["/api/"] },
+      { userAgent: "Bytespider", disallow: "/" },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

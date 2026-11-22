@@ -26,11 +26,11 @@ const baseUrl = "https://lumbini.cyberutsav.com";
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "CyberUtsav Lumbini | Provincial Hackathon Chapter — Butwal",
+    default: "CyberUtsav Lumbini — Free Student Hackathon in Butwal, Nepal",
     template: "%s | CyberUtsav Lumbini",
   },
   description:
-    "CyberUtsav Lumbini — the Lumbini Provincial Chapter of Nepal's biggest student hackathon. 150 max participants. A 3-day selection round in Butwal where winning teams advance to the Kathmandu Grand Finale. Free registration, 6 tracks.",
+    "CyberUtsav Lumbini is a free 3-day student hackathon in Butwal, Nepal. Teams of 3 build across 6 tracks; winners advance to the Kathmandu Grand Finale. 150 seats — pre-register in 2 minutes.",
   keywords: [
     "CyberUtsav Lumbini",
     "CyberUtsav",
@@ -73,9 +73,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: baseUrl,
     siteName: "CyberUtsav Lumbini",
-    title: "CyberUtsav Lumbini — Provincial Hackathon Chapter",
+    title: "CyberUtsav Lumbini — Free Student Hackathon in Butwal",
     description:
-      "The Lumbini Provincial Chapter of CyberUtsav. 3-day hackathon in Butwal. 6 tracks, free registration, winners advance to Kathmandu Grand Finale. Co-organized by ButwalHacks.",
+      "Free 3-day student hackathon in Butwal, Nepal. Teams of 3, 6 tracks, 150 seats. Winners advance to the Kathmandu Grand Finale. Pre-register in 2 minutes.",
     images: [
       {
         url: `${baseUrl}/opengraph-image`,
@@ -88,9 +88,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CyberUtsav Lumbini — Provincial Hackathon Chapter",
+    title: "CyberUtsav Lumbini — Free Student Hackathon in Butwal",
     description:
-      "The Lumbini Provincial Chapter of CyberUtsav — 3-day hackathon in Butwal. 6 tracks, free entry, winners advance to Kathmandu Grand Finale.",
+      "Free 3-day student hackathon in Butwal, Nepal. Teams of 3, 6 tracks, 150 seats. Winners advance to the Kathmandu Grand Finale.",
     images: [`${baseUrl}/opengraph-image`],
     creator: "@butwalhacks",
   },
@@ -131,7 +131,15 @@ export default function RootLayout({
     name: "CyberUtsav Lumbini",
     alternateName: "CyberUtsav Lumbini Provincial Chapter",
     description:
-      "The Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon. A 3-day selection round in Butwal where winning teams advance to the Kathmandu Grand Finale.",
+      "A free 3-day student hackathon in Butwal, Nepal — the Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon series. Teams of 3 compete across 6 tracks; winners advance to the Kathmandu Grand Finale.",
+    isAccessibleForFree: true,
+    inLanguage: "en",
+    keywords: "student hackathon, Butwal, Lumbini Province, Nepal, cybersecurity, AI/ML, IoT, web development, social impact",
+    superEvent: {
+      "@type": "EventSeries",
+      name: "CyberUtsav",
+      url: "https://cyberutsav.com",
+    },
     url: baseUrl,
     image: `${baseUrl}/opengraph-image`,
     organizer: [

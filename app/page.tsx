@@ -1,9 +1,10 @@
-"use client";
-
-import { useState, useEffect, type JSX } from "react";
+import type { JSX } from "react";
 import Image from "next/image";
 import Nav from "@/components/Nav";
-import { tracks, hostCityDetails, timeline, steps, prizes, faqs, team, REGISTER_URL, CONTACT_EMAIL } from "@/lib/data";
+import ScrollReveal from "@/components/ScrollReveal";
+import Slideshow from "@/components/Slideshow";
+import StickyCta from "@/components/StickyCta";
+import { tracks, hostCityDetails, timeline, steps, prizes, faqs, team, keyFacts, registerUrl, CONTACT_EMAIL, SITE_URL } from "@/lib/data";
 
 /* ─── SVG Icon helper ─── */
 function Icon({ name, className = "w-6 h-6", style }: { name: string; className?: string; style?: React.CSSProperties }) {
@@ -39,64 +40,48 @@ const slides = [
 ];
 
 /** Opens in a new tab; announces that to screen readers. */
-function RegisterLink({ className, children, style }: { className: string; children: React.ReactNode; style?: React.CSSProperties }) {
+function RegisterLink({ placement, className, children, style }: { placement: string; className: string; children: React.ReactNode; style?: React.CSSProperties }) {
   return (
-    <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" className={className} style={style}>
+    <a href={registerUrl(placement)} target="_blank" rel="noopener noreferrer" className={className} style={style}>
       {children}
       <span className="sr-only"> (opens in a new tab)</span>
     </a>
   );
 }
 
-/* ─── Slideshow Hook ─── */
-function useSlideshow(count: number, interval = 4000) {
-  const [active, setActive] = useState(0);
-  // Hover and keyboard focus pause independently; rotate only when neither applies.
-  const [hovered, setHovered] = useState(false);
-  const [focused, setFocused] = useState(false);
-  const paused = hovered || focused;
+/** FAQPage + Organization structured data so search and answer engines can quote the FAQ directly. */
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
 
-  useEffect(() => {
-    if (paused) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    // Re-created whenever `active` changes, so a manual pick restarts the timer.
-    const id = setTimeout(() => setActive((prev) => (prev + 1) % count), interval);
-    return () => clearTimeout(id);
-  }, [active, paused, count, interval]);
-
-  return { active, goTo: setActive, setHovered, setFocused };
-}
-
-/* ─── Scroll Reveal Hook ─── */
-function useScrollReveal() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.05, rootMargin: "0px 0px -20px 0px" }
-    );
-    document.querySelectorAll("[data-reveal]").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-}
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ButwalHacks",
+  url: "https://butwalhacks.com",
+  logo: `${SITE_URL}/BHlogo.jpg`,
+  email: CONTACT_EMAIL,
+  sameAs: ["https://github.com/butwalhacks", "https://www.linkedin.com/company/butwalhacks"],
+  address: { "@type": "PostalAddress", addressLocality: "Butwal", addressRegion: "Lumbini Province", addressCountry: "NP" },
+};
 
 /* ═══════════════════════════════════════
    MAIN PAGE
    ═══════════════════════════════════════ */
 /** The main home page for CyberUtsav Lumbini, featuring hero, tracks, schedule, team, FAQ, and registration CTAs. */
 export default function CyberUtsavLumbini() {
-  useScrollReveal();
-  const { active, goTo, setHovered, setFocused } = useSlideshow(slides.length);
-
   return (
     <>
       <a href="#main" className="skip-link">Skip to content</a>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
+      <ScrollReveal />
       <Nav />
 
       {/* ═══ HERO POSTER ═══ */}
@@ -115,13 +100,13 @@ export default function CyberUtsavLumbini() {
             <span style={{ color: "var(--red)" }}>Lumbini</span>
           </h1>
           <p className="hero-lede">
-            The Lumbini Provincial Chapter of Nepal&apos;s biggest student hackathon.
-            A selection round where regional winning teams secure direct entry to the
-            Kathmandu Grand Finale.
+            A free, 3-day student hackathon in Butwal — the Lumbini Provincial Chapter
+            of Nepal&apos;s biggest student hackathon. Winning teams get direct entry to
+            the Kathmandu Grand Finale.
             <span className="hero-org-tag">Co-organized by ButwalHacks</span>
           </p>
           <div className="hero-cta-row">
-            <RegisterLink className="atlas-button dark">
+            <RegisterLink placement="hero" className="atlas-button dark">
               Pre-Register Free <Icon name="arrow" className="w-5 h-5" />
             </RegisterLink>
             <a href="#tracks" className="atlas-button light">
@@ -130,7 +115,7 @@ export default function CyberUtsavLumbini() {
           </div>
           <p className="hero-status">
             <span className="live-dot" aria-hidden="true" />
-            Pre-registration is open · Dates &amp; venue announced soon
+            Pre-registration open · Free · Takes 2 min · Dates &amp; venue TBA
           </p>
         </div>
 
@@ -201,13 +186,17 @@ export default function CyberUtsavLumbini() {
                   to build, pitch, and earn a direct route to the Kathmandu Grand Finale.
                 </p>
               </div>
-              <ul className="manifesto-checklist">
-                {["150 Max Participants", "Hosted in Butwal, Lumbini Province", "Grand Finale in Kathmandu", "Free Registration"].map((item) => (
-                  <li key={item}>
-                    <Icon name="check" /> {item}
-                  </li>
-                ))}
-              </ul>
+              <div className="key-facts">
+                <h3>At a glance</h3>
+                <dl>
+                  {keyFacts.map((f) => (
+                    <div key={f.label}>
+                      <dt>{f.label}</dt>
+                      <dd>{f.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
             </div>
             <div className="receipt">
               <h3 style={{ fontSize: "26px" }}>Why Pre-Register?</h3>
@@ -225,7 +214,7 @@ export default function CyberUtsavLumbini() {
                   </li>
                 ))}
               </ol>
-              <RegisterLink className="atlas-button dark" style={{ marginTop: "30px" }}>
+              <RegisterLink placement="about_perks" className="atlas-button dark" style={{ marginTop: "30px" }}>
                 Pre-Register Free <Icon name="arrow" className="w-4 h-4" />
               </RegisterLink>
             </div>
@@ -274,6 +263,14 @@ export default function CyberUtsavLumbini() {
                 </ul>
               </article>
             ))}
+          </div>
+          <div className="inline-cta">
+            <p>
+              <strong>Found your track?</strong> Lock in your team of 3 — pre-registration is free and takes 2 minutes.
+            </p>
+            <RegisterLink placement="after_tracks" className="atlas-button paper">
+              Pre-Register Your Team <Icon name="arrow" className="w-4 h-4" />
+            </RegisterLink>
           </div>
         </section>
 
@@ -363,41 +360,7 @@ export default function CyberUtsavLumbini() {
               <p style={{ marginTop: "20px", color: "var(--muted)", fontSize: "17px", fontWeight: 650, lineHeight: 1.7, maxWidth: "560px" }}>
                 Cash prizes, professional mentorship, and career-boosting opportunities await the winning teams.
               </p>
-              <div
-                className="slideshow-container"
-                role="region"
-                aria-roledescription="carousel"
-                aria-label="Winners from previous CyberUtsav rounds"
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-                onFocus={() => setFocused(true)}
-                onBlur={(e) => {
-                  // Stay paused while focus moves between photo buttons.
-                  if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setFocused(false);
-                }}
-              >
-                {slides.map((slide, i) => (
-                  <div
-                    key={slide.src}
-                    className={`slide${i === active ? " slide-active" : ""}`}
-                    aria-hidden={i !== active}
-                  >
-                    <Image src={slide.src} alt={slide.alt} fill sizes="(max-width: 980px) 100vw, 640px" />
-                  </div>
-                ))}
-                <div className="slide-dots">
-                  {slides.map((slide, i) => (
-                    <button
-                      key={slide.src}
-                      type="button"
-                      className="slide-dot"
-                      onClick={() => goTo(i)}
-                      aria-label={`Show photo ${i + 1} of ${slides.length}`}
-                      aria-current={i === active}
-                    />
-                  ))}
-                </div>
-              </div>
+              <Slideshow slides={slides} label="Winners from previous CyberUtsav rounds" />
             </div>
             <div className="receipt">
               <h3 style={{ fontSize: "26px" }}>Prize Ledger</h3>
@@ -634,7 +597,7 @@ export default function CyberUtsavLumbini() {
               Form a team of 3 and secure your spot. Pre-registration is free and takes less than 2 minutes.
             </p>
           </div>
-          <RegisterLink className="atlas-button paper">
+          <RegisterLink placement="final_banner" className="atlas-button paper">
             Pre-Register Free <Icon name="arrow" className="w-4 h-4" />
           </RegisterLink>
         </section>
@@ -675,6 +638,7 @@ export default function CyberUtsavLumbini() {
           </p>
         </div>
       </footer>
+      <StickyCta />
     </>
   );
 }

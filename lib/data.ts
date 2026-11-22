@@ -1,5 +1,29 @@
+export const SITE_URL = "https://lumbini.cyberutsav.com";
 export const REGISTER_URL = "https://registration.cyberutsav.com/butwal";
 export const CONTACT_EMAIL = "prarambha@butwalhacks.com";
+
+/** Registration link tagged with UTM params so sign-ups can be attributed to the CTA that drove them. */
+export function registerUrl(placement: string) {
+  const params = new URLSearchParams({
+    utm_source: "lumbini.cyberutsav.com",
+    utm_medium: "website",
+    utm_campaign: "lumbini_preregistration",
+    utm_content: placement,
+  });
+  return `${REGISTER_URL}?${params}`;
+}
+
+/** Short, answer-first facts. Shown on the page and reused in structured data / llms.txt. */
+export const keyFacts = [
+  { label: "What", value: "Free 3-day student hackathon — Lumbini Provincial Chapter of CyberUtsav" },
+  { label: "Where", value: "Butwal, Lumbini Province, Nepal (venue TBA)" },
+  { label: "When", value: "Dates to be announced — pre-registered teams hear first" },
+  { label: "Who", value: "High school, A-Levels students & recent graduates" },
+  { label: "Team", value: "3 members per team" },
+  { label: "Cost", value: "Free — Rs. 0 registration" },
+  { label: "Capacity", value: "Up to 150 participants" },
+  { label: "Reward", value: "Winners advance to the Kathmandu Grand Finale" },
+];
 
 export const tracks = [
   {
@@ -91,26 +115,50 @@ export const faqs = [
   {
     question: "What is CyberUtsav Lumbini?",
     answer:
-      "CyberUtsav Lumbini is the Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon series organized by Tech Gurkha Digital Services. This edition is hosted in Butwal and co-organized by ButwalHacks.",
+      "CyberUtsav Lumbini is a free, 3-day student hackathon in Butwal, Nepal. It is the Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon series organized by Tech Gurkha Digital Services, and is co-organized by ButwalHacks. Winning teams advance to the Kathmandu Grand Finale.",
+  },
+  {
+    question: "How do I register for CyberUtsav Lumbini?",
+    answer:
+      "Pre-register online at registration.cyberutsav.com/butwal. It is free and takes less than 2 minutes. Register as a team of 3: one team leader and two members.",
   },
   {
     question: "Is it free to participate?",
-    answer: "Yes! CyberUtsav is completely free to participate in. There is no registration fee.",
+    answer: "Yes. CyberUtsav Lumbini is completely free — there is no registration fee.",
   },
   {
     question: "Who can participate?",
     answer:
-      "High school students, A-Levels students, and recent graduates. Teams of 3 members are required.",
+      "High school students, A-Levels students, and recent graduates can participate. Every team must have exactly 3 members.",
+  },
+  {
+    question: "When and where is CyberUtsav Lumbini?",
+    answer:
+      "The event is held in Butwal, Lumbini Province, Nepal, at a partner institution. Exact dates and the venue will be announced soon — pre-registered teams are notified first.",
+  },
+  {
+    question: "How long is the hackathon?",
+    answer:
+      "The Butwal round runs over 3 days on-site, with 12 total hours of project building, followed by team pitches to the jury.",
+  },
+  {
+    question: "How many participants can join?",
+    answer: "CyberUtsav Lumbini is limited to a maximum of 150 participants (50 teams of 3).",
   },
   {
     question: "What are the competition tracks?",
     answer:
-      "CyberUtsav has 6 tracks: AI/ML, Cybersecurity, IoT & Hardware, Web Development, Social Impact, and Open Innovation.",
+      "There are 6 tracks: Cybersecurity, AI/ML, IoT & Hardware, Web Development, Social Impact, and Open Innovation.",
   },
   {
-    question: "When and where is the Grand Finale?",
+    question: "What do the winners get?",
     answer:
-      "The Grand Finale takes place in Kathmandu, Nepal. Winning teams from the Butwal round advance directly to compete for the champion's trophy.",
+      "Winning teams from the Butwal round advance directly to the CyberUtsav Grand Finale in Kathmandu to compete for the champion trophy. Prize details for the Lumbini round will be announced once confirmed with sponsors.",
+  },
+  {
+    question: "Is CyberUtsav Lumbini the same as CyberUtsav 3.0?",
+    answer:
+      "No. CyberUtsav 3.0 is the current edition of the national CyberUtsav series. CyberUtsav Lumbini is one provincial chapter of it — a regional selection round held in Butwal whose winners go on to the national Grand Finale in Kathmandu.",
   },
 ];
 
