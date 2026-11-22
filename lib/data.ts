@@ -93,7 +93,7 @@ export const timeline = [
   {
     phase: "Phase 2",
     title: "City Rounds",
-    description: "3-day hackathons with 12 total hours of project building.",
+    description: "3-day hackathons with 13 total hours of project building.",
   },
   {
     phase: "Phase 3",
@@ -107,6 +107,50 @@ export const steps = [
   { step: "02", title: "Choose Track", description: "Pick your track and draft your idea" },
   { step: "03", title: "Build", description: "Develop your project in the Butwal round" },
   { step: "04", title: "Present", description: "Pitch your final product to the jury" },
+];
+
+/** Official CyberUtsav 3.0 city-round schedule (cyberutsav.com/schedule), with the Butwal dates. */
+export const dailySchedule = [
+  {
+    day: "Day 1",
+    date: "Fri, Jan 15",
+    iso: "2027-01-15",
+    title: "Opening & Build Sprint",
+    items: [
+      { time: "09:00 – 09:30", what: "Registration & check-in" },
+      { time: "09:30 – 10:30", what: "Opening ceremony & event overview" },
+      { time: "10:30 – 10:55", what: "High tea" },
+      { time: "11:00 – 17:00", what: "Hackathon sprint — 6 hours", highlight: true },
+      { time: "13:00 – 14:00", what: "Lunch served during the build" },
+    ],
+  },
+  {
+    day: "Day 2",
+    date: "Sat, Jan 16",
+    iso: "2027-01-16",
+    title: "Build & Mentorship",
+    items: [
+      { time: "09:00 – 09:30", what: "Check-in" },
+      { time: "09:30 – 09:55", what: "High tea" },
+      { time: "10:00 – 17:00", what: "Hackathon continues — 7 hours", highlight: true },
+      { time: "13:00 – 14:00", what: "Lunch served during the build" },
+    ],
+  },
+  {
+    day: "Day 3",
+    date: "Sun, Jan 17",
+    iso: "2027-01-17",
+    title: "Judgement & Awards",
+    items: [
+      { time: "09:00 – 09:30", what: "Check-in" },
+      { time: "09:30 – 10:00", what: "High tea" },
+      { time: "10:00 – 13:00", what: "Judging begins", highlight: true },
+      { time: "13:00 – 14:00", what: "Lunch" },
+      { time: "14:00 – 16:00", what: "Judging continues" },
+      { time: "16:00 – 16:30", what: "Networking break" },
+      { time: "16:30 – 17:30", what: "Award ceremony", highlight: true },
+    ],
+  },
 ];
 
 export const prizes = [
@@ -144,7 +188,16 @@ export const faqs = [
   {
     question: "How long is the hackathon?",
     answer:
-      "The Butwal round runs for 3 days on-site, January 15–17, 2027, with 12 total hours of project building followed by team pitches to the jury.",
+      "The Butwal round runs for 3 days on-site, January 15–17, 2027: a 6-hour build sprint on Day 1, a 7-hour sprint on Day 2 (13 hours of building in total), and judging plus the award ceremony on Day 3.",
+  },
+  {
+    question: "What is the daily schedule?",
+    answer:
+      "Each day starts with check-in at 9:00 AM. Day 1 (Jan 15) has the opening ceremony and a 6-hour build sprint from 11:00 AM to 5:00 PM. Day 2 (Jan 16) is a 7-hour sprint from 10:00 AM to 5:00 PM. Day 3 (Jan 17) is judging from 10:00 AM, a networking break, and the award ceremony from 4:30 to 5:30 PM.",
+  },
+  {
+    question: "Is food provided?",
+    answer: "Yes. High tea and lunch are served on all three days — lunch is served while the hackathon continues.",
   },
   {
     question: "How many participants can join?",

@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import ScrollReveal from "@/components/ScrollReveal";
 import Slideshow from "@/components/Slideshow";
 import StickyCta from "@/components/StickyCta";
-import { tracks, hostCityDetails, timeline, steps, prizes, faqs, team, keyFacts, registerUrl, CONTACT_EMAIL, SITE_URL, EVENT_DATES } from "@/lib/data";
+import { tracks, hostCityDetails, timeline, steps, prizes, faqs, team, keyFacts, dailySchedule, registerUrl, CONTACT_EMAIL, SITE_URL, EVENT_DATES } from "@/lib/data";
 
 /* ─── SVG Icon helper ─── */
 function Icon({ name, className = "w-6 h-6", style }: { name: string; className?: string; style?: React.CSSProperties }) {
@@ -136,7 +136,7 @@ export default function CyberUtsavLumbini() {
             </div>
             <div className="hero-ticket-row">
               <strong>3 Days</strong>
-              <span>Format &mdash; 12 hrs of building</span>
+              <span>Format &mdash; 13 hrs of building</span>
               <em>Jan 15&ndash;17</em>
             </div>
             <div className="hero-ticket-row">
@@ -308,6 +308,35 @@ export default function CyberUtsavLumbini() {
               </article>
             ))}
           </div>
+
+          <div className="day-schedule">
+            <div className="day-schedule-head">
+              <h3>Butwal round · Day by day</h3>
+              <p>
+                Plan the idea, build the prototype, then present the final solution. Times are local (NPT).{" "}
+                <a href="https://cyberutsav.com/schedule" target="_blank" rel="noopener noreferrer" className="inline-link">Official schedule</a>
+              </p>
+            </div>
+            <div className="day-schedule-grid">
+              {dailySchedule.map((d) => (
+                <article key={d.day} className="day-card">
+                  <header>
+                    <span>{d.day}</span>
+                    <time dateTime={d.iso}>{d.date}</time>
+                  </header>
+                  <h4>{d.title}</h4>
+                  <ol>
+                    {d.items.map((it) => (
+                      <li key={it.time + it.what} className={it.highlight ? "is-key" : undefined}>
+                        <time>{it.time}</time>
+                        <span>{it.what}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </article>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* ═══ SPONSORS ═══ */}
@@ -413,7 +442,7 @@ export default function CyberUtsavLumbini() {
             <div className="receipt info-card">
               <h3><Icon name="calendar" /> Format</h3>
               <p>
-                A 3-day hackathon, January 15–17, 2027, with 12 total hours of project building. Teams of 3 will develop, pitch, and compete for the championship title.
+                A 3-day hackathon, January 15–17, 2027: a 6-hour sprint on Day 1, a 7-hour sprint on Day 2, then judging and awards on Day 3. Teams of 3 develop, pitch, and compete for the championship title.
               </p>
             </div>
             <div className="receipt info-card">
@@ -631,6 +660,7 @@ export default function CyberUtsavLumbini() {
         <div>
           <h3>National Series</h3>
           <a href="https://cyberutsav.com" target="_blank" rel="noopener noreferrer">CyberUtsav (Parent)</a>
+          <a href="https://cyberutsav.com/cities/butwal" target="_blank" rel="noopener noreferrer">Butwal on cyberutsav.com</a>
           <a href="https://github.com/Prarambha369/CyberUtsavLumbini" target="_blank" rel="noopener noreferrer" className="footer-github" style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginTop: "16px" }}>
             <Icon name="github" className="w-5 h-5" /> GitHub
           </a>

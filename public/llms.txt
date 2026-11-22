@@ -8,7 +8,8 @@
 - **Co-organizer:** ButwalHacks, Butwal's student developer community (https://butwalhacks.com)
 - **Location:** Butwal, Lumbini Province, Nepal — venue is a partner institution, to be announced
 - **Dates:** January 15–17, 2027 (3 days)
-- **Format:** 3 days on-site, 12 total hours of project building, then team pitches to a jury
+- **Format:** 3 days on-site — 6-hour build sprint (Day 1), 7-hour sprint (Day 2), judging and award ceremony (Day 3); 13 hours of building in total
+- **Food:** High tea and lunch served all three days
 - **Team size:** Exactly 3 members (one team leader + two members)
 - **Eligibility:** High school students, A-Levels students, and recent graduates
 - **Capacity:** Up to 150 participants
@@ -34,7 +35,15 @@ High school students, A-Levels students, and recent graduates, in teams of exact
 January 15–17, 2027, in Butwal, Lumbini Province, Nepal. The exact venue (a partner institution) will be announced soon.
 
 ### How long is it?
-3 days on-site (January 15–17, 2027) with 12 total hours of building.
+3 days on-site (January 15–17, 2027) with 13 hours of building in total.
+
+### What is the daily schedule?
+- **Day 1 — Fri, Jan 15 (Opening & Build Sprint):** 09:00 check-in · 09:30 opening ceremony · 10:30 high tea · 11:00–17:00 hackathon sprint (6 hours), lunch 13:00–14:00 served during the build
+- **Day 2 — Sat, Jan 16 (Build & Mentorship):** 09:00 check-in · 09:30 high tea · 10:00–17:00 hackathon (7 hours), lunch 13:00–14:00 served during the build
+- **Day 3 — Sun, Jan 17 (Judgement & Awards):** 09:00 check-in · 09:30 high tea · 10:00–13:00 judging · 13:00 lunch · 14:00–16:00 judging continues · 16:00 networking · 16:30–17:30 award ceremony
+
+### Is food provided?
+Yes. High tea and lunch are served on all three days.
 
 ### What do winners get?
 Direct entry to the CyberUtsav Grand Finale in Kathmandu. Lumbini prize details will be announced once confirmed with sponsors.

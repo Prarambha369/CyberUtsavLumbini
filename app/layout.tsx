@@ -132,8 +132,9 @@ export default function RootLayout({
     alternateName: "CyberUtsav Lumbini Provincial Chapter",
     description:
       "A free 3-day student hackathon in Butwal, Nepal — the Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon series. Teams of 3 compete across 6 tracks; winners advance to the Kathmandu Grand Finale.",
-    startDate: "2027-01-15",
-    endDate: "2027-01-17",
+    startDate: "2027-01-15T09:00:00+05:45",
+    endDate: "2027-01-17T17:30:00+05:45",
+    doorTime: "09:00:00+05:45",
     isAccessibleForFree: true,
     inLanguage: "en",
     keywords: "student hackathon, Butwal, Lumbini Province, Nepal, cybersecurity, AI/ML, IoT, web development, social impact",
