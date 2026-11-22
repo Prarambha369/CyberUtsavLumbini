@@ -1,42 +1,92 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { REGISTER_URL } from "@/lib/data";
 
 const links = [
   { href: "#about", label: "About" },
   { href: "#tracks", label: "Tracks" },
   { href: "#schedule", label: "Schedule" },
   { href: "#butwal", label: "Butwal Round" },
+  { href: "#faq", label: "FAQ" },
 ];
+
+type Theme = "light" | "dark";
+
+function readStoredTheme(): Theme | null {
+  try {
+    const saved = localStorage.getItem("theme");
+    return saved === "dark" || saved === "light" ? saved : null;
+  } catch {
+    return null;
+  }
+}
+
+function applyTheme(theme: Theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+}
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window === "undefined") return false;
-    const saved = localStorage.getItem("theme");
-    return saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches);
-  });
+  // Start as null so server and first client render match; the real value is
+  // read from <html data-theme> (set by the inline script in layout) after mount.
+  const [theme, setTheme] = useState<Theme | null>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const handler = (e: MediaQueryListEvent) => setIsDark(e.matches);
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", handler);
-    return () => window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", handler);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- sync with pre-hydration theme script
+    setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
+
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const onSystemChange = (e: MediaQueryListEvent) => {
+      // Follow the OS only when the visitor hasn't picked a theme themselves.
+      if (readStoredTheme()) return;
+      const next: Theme = e.matches ? "dark" : "light";
+      applyTheme(next);
+      setTheme(next);
+    };
+    mq.addEventListener("change", onSystemChange);
+    return () => mq.removeEventListener("change", onSystemChange);
   }, []);
 
+  // Close the mobile menu on Escape or when resizing up to desktop.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      // If focus is inside the menu it's about to be removed — hand it back to the toggle.
+      if (document.activeElement?.closest("#mobile-menu")) toggleRef.current?.focus();
+      setOpen(false);
+    };
+    const onResize = () => window.innerWidth > 980 && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [open]);
+
   function toggleTheme() {
-    const next = !isDark;
-    setIsDark(next);
-    document.documentElement.setAttribute("data-theme", next ? "dark" : "light");
-    localStorage.setItem("theme", next ? "dark" : "light");
+    const next: Theme = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    applyTheme(next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch {
+      /* storage unavailable — theme still applies for this visit */
+    }
   }
+
+  const isDark = theme === "dark";
 
   return (
     <>
-      <nav className="atlas-header" role="navigation" aria-label="Main navigation">
-        <Link className="atlas-mark" href="/" aria-label="CyberUtsav Home">
-          <Image src="/CUlogo.jpg" alt="CyberUtsav Logo" width={34} height={34} style={{ borderRadius: "9px" }} />
+      <nav className="atlas-header" aria-label="Main navigation">
+        <Link className="atlas-mark" href="/" aria-label="CyberUtsav Lumbini — home">
+          <Image src="/CUlogo.jpg" alt="" width={34} height={34} style={{ borderRadius: "9px" }} priority />
           <strong>CyberUtsav</strong>
         </Link>
 
@@ -48,23 +98,32 @@ export default function Nav() {
           ))}
         </div>
 
-        <a href="https://registration.cyberutsav.com/butwal" target="_blank" rel="noopener noreferrer" className="header-ticket">
-          Register Now
+        <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" className="header-ticket">
+          Pre-Register
+          <span className="sr-only"> (opens in a new tab)</span>
         </a>
 
-        <button type="button" className="theme-toggle" onClick={toggleTheme} aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}>
-          {isDark ? (
-            <svg style={{ width: 18, height: 18 }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+          title={isDark ? "Light mode" : "Dark mode"}
+        >
+          {/* Render nothing until mounted to avoid a wrong icon flash / hydration mismatch */}
+          {theme === null ? null : isDark ? (
+            <svg aria-hidden="true" style={{ width: 18, height: 18 }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
           ) : (
-            <svg style={{ width: 18, height: 18 }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg aria-hidden="true" style={{ width: 18, height: 18 }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
             </svg>
           )}
         </button>
 
         <button
+          ref={toggleRef}
           type="button"
           className="menu-toggle"
           onClick={() => setOpen(!open)}
@@ -72,7 +131,7 @@ export default function Nav() {
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
         >
-          <svg style={{ width: 22, height: 22 }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <svg aria-hidden="true" style={{ width: 22, height: 22 }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             {open ? (
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -90,13 +149,13 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="https://registration.cyberutsav.com/butwal"
+            href={REGISTER_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="atlas-button dark"
           >
-            Register Now
+            Pre-Register
           </a>
         </div>
       )}

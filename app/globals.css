@@ -10,6 +10,20 @@
   --muted: #635f57;
   --line: rgba(16, 16, 20, 0.18);
   --shadow-hard: 10px 10px 0 #101014;
+  /* Fixed (non-flipping) text colours for use on red / purple surfaces */
+  --on-accent: #fff8e9;
+  --on-accent-dark: #101014;
+  /* Slightly deeper red for red surfaces that carry cream text (≥4.5:1) */
+  --red-deep: #d1341f;
+  /* Text-only shades of the brand colours that meet WCAG AA on this theme's
+     surfaces. "-inv" is for the inverted (ink-background) sections. */
+  --red-text-base: #b92d1b;
+  --red-text-inv: #f25a45;
+  --purple-text-base: #6d28d9;
+  --purple-text-inv: #a78bfa;
+  --red-text: var(--red-text-base);
+  --purple-text: var(--purple-text-base);
+  --mint-text: #097050;
 }
 
 [data-theme="dark"] {
@@ -19,6 +33,26 @@
   --muted: #b0a898;
   --line: rgba(243, 234, 216, 0.12);
   --shadow-hard: 10px 10px 0 #f3ead8;
+  --red-text-base: #f25a45;
+  --red-text-inv: #b92d1b;
+  --purple-text-base: #a78bfa;
+  --purple-text-inv: #6d28d9;
+  --red-text: var(--red-text-base);
+  --purple-text: var(--purple-text-base);
+  --mint-text: #3dd6a3;
+}
+
+/* Inverted sections flip the text shades; cards inside them flip back */
+.track-wall,
+.team-roster {
+  --red-text: var(--red-text-inv);
+  --purple-text: var(--purple-text-inv);
+}
+
+.track-poster,
+.team-grid article {
+  --red-text: var(--red-text-base);
+  --purple-text: var(--purple-text-base);
 }
 
 * {
@@ -138,7 +172,7 @@ button {
   border: 2px solid var(--ink);
   border-radius: 9px;
   background: var(--ink);
-  color: var(--red);
+  color: var(--red-text);
   font-family: var(--font-archivo), "Archivo Black", Impact, sans-serif;
   font-size: 13px;
 }
@@ -263,7 +297,7 @@ button {
 }
 
 .atlas-button.light {
-  color: var(--ink);
+  color: var(--on-accent-dark);
   background: var(--red);
 }
 
@@ -301,11 +335,11 @@ button {
 }
 
 .stamp-red {
-  color: var(--red);
+  color: var(--red-text);
 }
 
 .stamp-blue {
-  color: var(--purple);
+  color: var(--purple-text);
 }
 
 /* ───────────────────────── Layout ───────────────────────── */
@@ -351,6 +385,7 @@ button {
   letter-spacing: -0.08em;
   line-height: 0.86;
   text-wrap: balance;
+  font-size: clamp(40px, 6vw, 88px);
 }
 
 .card-brutalist {
@@ -421,7 +456,7 @@ button {
 .hero-org-tag {
   display: block;
   margin-top: 14px;
-  color: var(--red);
+  color: var(--red-text);
   font-family: var(--font-space), "Space Grotesk", Inter, sans-serif;
   font-size: 14px;
   font-weight: 900;
@@ -453,6 +488,7 @@ button {
   gap: 12px;
   border-bottom: 3px solid var(--ink);
   padding: 14px 20px;
+  color: var(--on-accent-dark);
   background: var(--red);
   font-family: var(--font-space), "Space Grotesk", Inter, sans-serif;
   font-size: 12px;
@@ -469,7 +505,7 @@ button {
 .hero-ticket-row {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  align-items: baseline;
+  align-items: center;
   gap: 16px;
   border-bottom: 2px dashed rgba(16, 16, 20, 0.35);
   padding: 16px 20px;
@@ -487,9 +523,7 @@ button {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.35;
   min-width: 0;
 }
 
@@ -502,14 +536,14 @@ button {
 }
 
 .hero-ticket-row em {
-   color: var(--red);
+   color: var(--red-text);
    font-style: normal;
    font-weight: 900;
    font-size: 13px;
 }
 
 .hero-ticket-tbd {
-   color: var(--red);
+   color: var(--red-text);
    font-style: normal;
    font-weight: 900;
    font-size: 13px;
@@ -549,21 +583,22 @@ button {
 
 .hero-stat-strip article {
   padding: 24px;
-  color: var(--ink);
+  color: var(--on-accent-dark);
   background: var(--red);
 }
 
 .hero-stat-strip article:nth-child(2) {
+  color: var(--ink);
   background: var(--paper-2);
 }
 
 .hero-stat-strip article:nth-child(3) {
-  color: var(--paper-2);
-  background: var(--red);
+  color: var(--on-accent);
+  background: var(--red-deep);
 }
 
 .hero-stat-strip article:nth-child(4) {
-  color: var(--paper-2);
+  color: var(--on-accent);
   background: var(--purple);
 }
 
@@ -621,7 +656,7 @@ button {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--red);
+  color: var(--red-text);
   font-family: var(--font-space), "Space Grotesk", Inter, sans-serif;
   font-size: 14px;
   font-weight: 900;
@@ -653,7 +688,7 @@ button {
 .manifesto-panels svg {
   width: 34px;
   height: 34px;
-  color: var(--red);
+  color: var(--red-text);
 }
 
 .manifesto-panels h3 {
@@ -684,7 +719,7 @@ button {
 }
 
 .track-wall .section-label span {
-  color: var(--ink);
+  color: var(--on-accent-dark);
   background: var(--red);
   border-color: var(--paper);
 }
@@ -698,17 +733,9 @@ button {
 }
 
 .wall-heading p {
-  color: rgba(243, 234, 216, 0.75);
+  color: color-mix(in srgb, var(--paper) 78%, transparent);
   font-weight: 650;
   line-height: 1.7;
-}
-
-[data-theme="dark"] .wall-heading p {
-  color: rgba(243, 234, 216, 0.75);
-}
-
-:root .wall-heading p {
-  color: rgba(14, 14, 18, 0.75);
 }
 
 .track-posters {
@@ -726,7 +753,7 @@ button {
   padding: 24px;
   color: var(--ink);
   background: var(--paper);
-  box-shadow: 8px 8px 0 rgba(243, 234, 216, 0.35);
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--paper) 35%, transparent);
 }
 
 .track-poster:nth-child(even) {
@@ -834,17 +861,18 @@ button {
 }
 
 .route-board article:nth-child(2) {
+  color: var(--on-accent-dark);
   background: var(--red);
 }
 
 .route-board article:nth-child(3) {
-  color: var(--paper-2);
+  color: var(--on-accent);
   background: var(--purple);
 }
 
 .route-board article:nth-child(4) {
-  color: var(--paper-2);
-  background: var(--red);
+  color: var(--on-accent);
+  background: var(--red-deep);
 }
 
 .route-board > article > span {
@@ -886,7 +914,7 @@ button {
 
 .format-tickets span {
   display: block;
-  color: var(--red);
+  color: var(--red-text);
   font-family: var(--font-space), "Space Grotesk", Inter, sans-serif;
   font-size: 12px;
   font-weight: 900;
@@ -955,7 +983,7 @@ button {
   grid-row: 1 / span 3;
   width: 26px;
   height: 26px;
-  color: var(--red);
+  color: var(--red-text);
 }
 
 .receipt-lines span,
@@ -979,7 +1007,7 @@ button {
 }
 
 .receipt-lines em {
-  color: var(--purple);
+  color: var(--purple-text);
   font-family: var(--font-archivo), "Archivo Black", Impact, sans-serif;
   font-size: 24px;
   font-style: normal;
@@ -1051,7 +1079,7 @@ button {
   position: absolute;
   right: 8px;
   bottom: 8px;
-  color: var(--red);
+  color: var(--red-text);
   border: 2px solid currentColor;
   border-radius: 999px;
   padding: 3px 8px;
@@ -1083,15 +1111,27 @@ button {
   background: var(--paper-2);
 }
 
-.city-details-grid article:nth-child(2),
-.city-details-grid article:nth-child(4),
-.city-details-grid article:nth-child(6) {
+.city-details-grid article:nth-child(even) {
+  color: var(--on-accent-dark);
   background: var(--red);
+}
+
+.city-details-grid article:nth-child(even) span {
+  color: var(--on-accent-dark);
+}
+
+.city-details-grid .is-tba {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.city-details-grid article:nth-child(even) .is-tba {
+  color: var(--on-accent-dark);
 }
 
 .city-details-grid span {
   display: block;
-  color: var(--red);
+  color: var(--red-text);
   font-family: var(--font-space), "Space Grotesk", Inter, sans-serif;
   font-size: 12px;
   font-weight: 950;
@@ -1122,13 +1162,23 @@ button {
     align-items: start;
     border: 3px solid var(--red);
     padding: 40px;
-    background: rgba(201, 255, 69, 0.06);
-    box-shadow: 12px 12px 0 rgba(201, 255, 69, 0.25);
+    color: var(--paper);
+    background: color-mix(in srgb, var(--paper) 5%, transparent);
+    box-shadow: 12px 12px 0 color-mix(in srgb, var(--red) 45%, transparent);
 }
 
-[data-theme="dark"] .butwalhacks-spotlight {
-    background: rgba(201, 255, 69, 0.04);
-    box-shadow: 12px 12px 0 rgba(201, 255, 69, 0.12);
+.butwalhacks-spotlight-title {
+    margin-top: 16px;
+    color: color-mix(in srgb, var(--red) 82%, var(--paper));
+    font-size: clamp(30px, 3.4vw, 48px);
+}
+
+.butwalhacks-spotlight-copy {
+    max-width: 680px;
+    margin-top: 12px;
+    color: color-mix(in srgb, var(--paper) 82%, transparent);
+    font-weight: 650;
+    line-height: 1.7;
 }
 
 .butwalhacks-spotlight-badge {
@@ -1137,12 +1187,8 @@ button {
     width: 80px;
     height: 80px;
     border: 3px solid var(--red);
-    color: var(--red);
-    background: rgba(201, 255, 69, 0.12);
-}
-
-[data-theme="dark"] .butwalhacks-spotlight-badge {
-    background: rgba(201, 255, 69, 0.08);
+    color: var(--red-text);
+    background: var(--paper-2);
 }
 
 .team-socials-link {
@@ -1165,7 +1211,7 @@ button {
 
 .team-socials-link:hover {
   background: var(--red);
-  color: var(--ink);
+  color: var(--on-accent-dark);
   transform: translateY(-2px);
 }
 
@@ -1179,7 +1225,7 @@ button {
 }
 
 .team-roster .section-label span {
-  color: var(--ink);
+  color: var(--on-accent-dark);
   background: var(--red);
   border-color: var(--paper);
 }
@@ -1197,22 +1243,15 @@ button {
 }
 
 .team-roster-head p {
-  color: rgba(243, 234, 216, 0.72);
+  color: color-mix(in srgb, var(--paper) 78%, transparent);
   font-weight: 650;
   line-height: 1.7;
 }
 
-[data-theme="dark"] .team-roster-head p {
-  color: rgba(243, 234, 216, 0.72);
-}
-
-:root .team-roster-head p {
-  color: rgba(14, 14, 18, 0.72);
-}
-
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  /* at most 3 per row so the 6-person team splits evenly */
+  grid-template-columns: repeat(auto-fit, minmax(max(240px, calc((100% - 48px) / 3)), 1fr));
   gap: 24px;
 }
 
@@ -1221,7 +1260,7 @@ button {
   border: 3px solid var(--paper);
   color: var(--ink);
   background: var(--paper);
-  box-shadow: 8px 8px 0 rgba(243, 234, 216, 0.35);
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--paper) 35%, transparent);
 }
 
 .team-grid figure {
@@ -1261,7 +1300,7 @@ button {
   border: 2px solid var(--ink);
   border-radius: 999px;
   padding: 0 12px;
-  color: var(--purple);
+  color: var(--purple-text);
   font-family: var(--font-archivo), "Archivo Black", Impact, sans-serif;
   font-size: 15px;
   line-height: 1;
@@ -1289,7 +1328,7 @@ button {
 .team-grid .team-role svg {
   width: 16px;
   height: 16px;
-  color: var(--red);
+  color: var(--red-text);
   flex-shrink: 0;
 }
 
@@ -1319,6 +1358,7 @@ button {
 }
 
 .team-socials a:hover {
+  color: var(--on-accent-dark);
   background: var(--red);
   transform: translateY(-2px);
 }
@@ -1372,7 +1412,7 @@ button {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  color: var(--red);
+  color: var(--red-text);
   transition: rotate 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -1397,8 +1437,8 @@ button {
   margin: 0 max(24px, calc((100vw - 1180px) / 2)) 110px;
   border: 3px solid var(--ink);
   padding: clamp(28px, 4vw, 54px);
-  color: var(--paper-2);
-  background: var(--red);
+  color: var(--on-accent);
+  background: var(--red-deep);
   box-shadow: var(--shadow-hard);
   overflow: hidden;
 }
@@ -1409,7 +1449,7 @@ button {
 }
 
 .register-poster .stamp {
-  color: var(--paper-2);
+  color: var(--on-accent);
 }
 
 .register-poster h2 {
@@ -1420,7 +1460,8 @@ button {
 
 .register-poster p {
   margin-top: 12px;
-  color: rgba(255, 248, 233, 0.82);
+  color: var(--on-accent);
+  font-weight: 650;
   text-wrap: pretty;
 }
 
@@ -1482,27 +1523,19 @@ button {
 }
 
 .atlas-footer-brand em {
-  color: var(--red);
+  color: var(--red-text);
   font-style: normal;
 }
 
 .atlas-footer > div > p {
   max-width: 360px;
   margin-top: 18px;
-  color: rgba(243, 234, 216, 0.72);
+  color: color-mix(in srgb, var(--ink) 75%, transparent);
   line-height: 1.7;
 }
 
-[data-theme="dark"] .atlas-footer > div > p {
-  color: rgba(243, 234, 216, 0.72);
-}
-
-:root .atlas-footer > div > p {
-  color: rgba(14, 14, 18, 0.72);
-}
-
 .atlas-footer h3 {
-  color: var(--red);
+  color: var(--red-text);
   font-family: var(--font-space), "Space Grotesk", Inter, sans-serif;
   font-size: 12px;
   font-weight: 900;
@@ -1513,48 +1546,27 @@ button {
 .atlas-footer a:not(.footer-github) {
   display: block;
   margin-top: 12px;
-  color: rgba(243, 234, 216, 0.72);
+  color: color-mix(in srgb, var(--ink) 75%, transparent);
   font-weight: 750;
-}
-
-[data-theme="dark"] .atlas-footer a:not(.footer-github) {
-  color: rgba(243, 234, 216, 0.72);
-}
-
-:root .atlas-footer a:not(.footer-github) {
-  color: rgba(14, 14, 18, 0.72);
+  width: fit-content;
 }
 
 .atlas-footer a:not(.footer-github):hover {
-  color: var(--red);
+  color: var(--red-text);
 }
 
 .footer-rights {
   grid-column: 1 / -1;
-  border-top: 2px solid rgba(243, 234, 216, 0.18);
+  border-top: 2px solid var(--line);
   padding-top: 26px;
   text-align: center;
 }
 
-:root .footer-rights {
-  border-top-color: rgba(14, 14, 18, 0.18);
-}
-
-[data-theme="dark"] .footer-rights {
-  border-top-color: rgba(243, 234, 216, 0.18);
-}
-
-.footer-rights p {
-  color: rgba(243, 234, 216, 0.72);
+.atlas-footer .footer-rights p {
+  max-width: none;
+  margin: 0;
+  color: color-mix(in srgb, var(--ink) 70%, transparent);
   font-size: 13px;
-}
-
-[data-theme="dark"] .footer-rights p {
-  color: rgba(243, 234, 216, 0.72);
-}
-
-:root .footer-rights p {
-  color: rgba(14, 14, 18, 0.72);
 }
 
 /* ───────────────────────── Dark-mode text fixes ───────────────────────── */
@@ -1589,74 +1601,89 @@ button {
 }
 
 
-/* ───────────────────────── Better Slideshow ───────────────────────── */
+/* ───────────────────────── Slideshow ───────────────────────── */
 
 .slideshow-container {
   position: relative;
   width: 100%;
   max-width: 640px;
-  height: 320px;
+  aspect-ratio: 16 / 10;
+  margin-top: 28px;
+  border: 3px solid var(--ink);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 5px 5px 0 var(--ink);
-  border: 3px solid var(--ink);
+  background: var(--paper-2);
+  box-shadow: 6px 6px 0 var(--ink);
 }
 
 .slideshow-container .slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  background-size: cover;
-  background-position: center;
+  transition: opacity 0.6s ease;
+}
+
+.slideshow-container .slide.slide-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slideshow-container .slide img {
+  object-fit: cover;
 }
 
 .slideshow-container .slide-dots {
   position: absolute;
-  bottom: 12px;
+  bottom: 10px;
   left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
   z-index: 2;
+  display: flex;
+  gap: 2px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(16, 16, 20, 0.55);
+  transform: translateX(-50%);
 }
 
 .slideshow-container .slide-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--muted);
-  transition: background 0.3s ease, transform 0.3s ease;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: transparent;
   cursor: pointer;
 }
 
-.slideshow-container .slide-dot:hover {
-  background: var(--ink);
+.slideshow-container .slide-dot::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 248, 233, 0.6);
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.slideshow-container .slide-dot.active {
+.slideshow-container .slide-dot:hover::before {
+  background: #fff8e9;
+}
+
+.slideshow-container .slide-dot[aria-current="true"]::before {
   background: var(--red);
   transform: scale(1.3);
 }
 
-.slide-active {
-  opacity: 1 !important;
-  z-index: 1;
-}
-
-/* Dark mode adjustments */
-[data-theme="dark"] .slideshow-container {
-  box-shadow: 5px 5px 0 var(--ink);
-}
-
 /* ───────────────────────── Scroll Reveal ───────────────────────── */
 
-[data-reveal] {
+/* Only hide reveal targets when JS is running, so content never stays invisible */
+.js [data-reveal] {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-[data-reveal].revealed {
+.js [data-reveal].revealed {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1952,7 +1979,7 @@ button {
 }
 
 .badge-bwh {
-    color: var(--red);
+    color: var(--red-text);
     border-color: var(--red);
     background: rgba(236, 63, 43, 0.08);
 }
@@ -1962,7 +1989,7 @@ button {
 }
 
 .badge-cu {
-    color: var(--purple);
+    color: var(--purple-text);
     border-color: var(--purple);
     background: rgba(124, 58, 237, 0.08);
 }
@@ -2035,9 +2062,31 @@ button {
   gap: 42px;
 }
 
+.sponsor-tiers {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
 .sponsor-tier {
   display: grid;
-  gap: 20px;
+  gap: 16px;
+  align-content: start;
+}
+
+.sponsor-tier .stamp {
+  justify-self: start;
+}
+
+.sponsor-card {
+  padding: 20px;
+  text-align: center;
+}
+
+.sponsor-card p {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.5;
 }
 
 .sponsor-placeholder-grid {
@@ -2458,24 +2507,6 @@ button {
 
 /* ───────────────────────── Visual Juice Animations ───────────────────────── */
 
-/* Gradient shimmer on CTA buttons */
-.atlas-button.light {
-  background-size: 200% 100%;
-  background-image: linear-gradient(
-    110deg,
-    var(--red) 0%,
-    var(--red) 40%,
-    #ff5f4d 50%,
-    var(--red) 60%,
-    var(--red) 100%
-  );
-  animation: shimmer 3s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0%   { background-position: 200% center; }
-  100% { background-position: -200% center; }
-}
 
 /* Animated dashed borders on format tickets */
 .format-tickets article {
@@ -2610,7 +2641,7 @@ button {
 .poster-hero h1::after {
   content: "_";
   display: inline;
-  color: var(--red);
+  color: var(--red-text);
   font-weight: 400;
   animation: blink 1s step-end infinite;
   margin-left: 4px;
@@ -2670,20 +2701,13 @@ button {
 
 /* ButwalHacks spotlight social links */
 .butwalhacks-spotlight .team-socials-link {
-  border-color: rgba(243, 234, 216, 0.5);
+  border-color: color-mix(in srgb, var(--paper) 55%, transparent);
 }
 
-[data-theme="dark"] .butwalhacks-spotlight .team-socials-link {
-  border-color: rgba(243, 234, 216, 0.5);
-}
-
-:root .butwalhacks-spotlight .team-socials-link {
-  border-color: rgba(14, 14, 18, 0.5);
-}
 .butwalhacks-spotlight .team-socials-link:hover {
   border-color: var(--red);
   background: var(--red);
-  color: var(--ink);
+  color: var(--on-accent-dark);
 }
 
 /* Footer brand logo sizing */
@@ -2725,6 +2749,194 @@ button {
 @keyframes ctaGlow {
   0%, 100% { transform: translate(0, 0); }
   50%      { transform: translate(10%, -5%); }
+}
+
+/* ───────────────────────── UX fixes ───────────────────────── */
+
+/* Numbered perk list: number in the gutter, text beside it */
+.receipt-lines.numbered article {
+  grid-template-columns: 44px 1fr;
+  align-items: baseline;
+}
+
+.receipt-lines.numbered em {
+  grid-column: 1;
+  grid-row: 1;
+  color: var(--purple-text);
+  font-size: 22px;
+}
+
+.receipt-lines.numbered strong {
+  grid-row: 1;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.receipt-lines .is-tba {
+  color: var(--muted);
+  font-family: var(--font-space), "Space Grotesk", Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.receipt-note {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.6;
+}
+
+.receipt-note a,
+.inline-link {
+  color: var(--red-text);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Info cards (Butwal round) */
+.info-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.info-card h3 svg {
+  width: 22px;
+  height: 22px;
+  color: var(--red-text);
+  flex-shrink: 0;
+}
+
+.info-card p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* Hero status line */
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-family: var(--font-space), "Space Grotesk", Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.hero-status .live-dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--mint);
+  flex-shrink: 0;
+}
+
+.hero-status .live-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--mint);
+  opacity: 0;
+  animation: ringPulse 2s ease-out infinite;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 200;
+  padding: 12px 18px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  color: var(--paper-2);
+  background: var(--ink);
+  font-weight: 900;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Section headings that are centred */
+.section-intro-center {
+  max-width: 640px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.section-intro-center p {
+  margin-top: 16px;
+  color: var(--muted);
+  font-weight: 650;
+  line-height: 1.7;
+}
+
+.register-poster .register-sub {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+/* Hard shadow on hover should read in both themes and never shift layout on touch */
+@media (hover: none) {
+  .header-ticket:hover,
+  .atlas-button:hover,
+  .event-link-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.header-ticket,
+.atlas-button {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+@media (max-width: 980px) {
+  .theme-toggle {
+    justify-self: end;
+  }
+
+  .sponsor-tiers {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .slideshow-container {
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero-stat-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-stat-strip strong {
+    font-size: 40px;
+  }
+
+  .hero-ticket-row {
+    grid-template-columns: 1fr auto;
+    gap: 4px 12px;
+  }
+
+  .hero-ticket-row span {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

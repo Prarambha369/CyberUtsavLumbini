@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo_Black, Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -94,17 +94,14 @@ export const metadata: Metadata = {
     images: [`${baseUrl}/opengraph-image`],
     creator: "@butwalhacks",
   },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
   manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: "CyberUtsav Lumbini",
+    statusBarStyle: "black-translucent",
+  },
   other: {
-    "theme-color": "#101014",
     "msapplication-TileColor": "#101014",
-    "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "black-translucent",
     "application-name": "CyberUtsav Lumbini",
     "og:latitude": "27.6967",
     "og:longitude": "83.4930",
@@ -112,6 +109,14 @@ export const metadata: Metadata = {
     "og:region": "Lumbini Province",
     "og:country-name": "Nepal",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f3ead8" },
+    { media: "(prefers-color-scheme: dark)", color: "#0e0e12" },
+  ],
+  colorScheme: "light dark",
 };
 
 /** The root layout wrapping all pages with metadata, JSON-LD structured data, and font configuration. */
@@ -184,31 +189,8 @@ export default function RootLayout({
       name: "ButwalHacks",
       url: "https://butwalhacks.com",
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${baseUrl}/?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: baseUrl,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Register",
-        item: "https://registration.cyberutsav.com/butwal",
-      },
-    ],
-  };
 
   return (
     <html
@@ -217,21 +199,15 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <link rel="canonical" href={baseUrl} />
-        <meta name="theme-color" content="#101014" />
-        <meta name="msapplication-TileColor" content="#101014" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                var saved = localStorage.getItem('theme');
-                var dark = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+                var d = document.documentElement, saved = null;
+                d.classList.add('js');
+                try { saved = localStorage.getItem('theme'); } catch (e) {}
+                var dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                d.setAttribute('data-theme', dark ? 'dark' : 'light');
               })();
             `,
           }}
@@ -244,12 +220,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteJsonLd),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(breadcrumbJsonLd),
           }}
         />
       </head>

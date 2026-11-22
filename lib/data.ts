@@ -1,3 +1,6 @@
+export const REGISTER_URL = "https://registration.cyberutsav.com/butwal";
+export const CONTACT_EMAIL = "prarambha@butwalhacks.com";
+
 export const tracks = [
   {
     id: "cybersecurity",
@@ -49,7 +52,7 @@ export const hostCityDetails = [
   { label: "Round", value: "Provincial qualifier" },
   { label: "Date", value: "To be announced" },
   { label: "Venue", value: "Partner institution · TBA" },
-  { label: "Registration", value: "Pre-registration open — register now" },
+  { label: "Registration", value: "Open now · free" },
 ];
 
 export const timeline = [
@@ -78,10 +81,10 @@ export const steps = [
 ];
 
 export const prizes = [
-  { title: "Overall Champion", value: "Grand Prize", note: "TBD" },
-  { title: "Track Winners", value: "Per-Track Prize", note: "TBD" },
-  { title: "Every Participant", value: "Swags & Perks", note: "TBD" },
-  { title: "Career Growth", value: "Beyond Cash", note: "TBD" },
+  { title: "Overall Champion", value: "Grand Prize", note: "To be announced" },
+  { title: "Track Winners", value: "Per-Track Prize", note: "To be announced" },
+  { title: "Every Participant", value: "Swags & Perks", note: "To be announced" },
+  { title: "Career Growth", value: "Beyond Cash", note: "To be announced" },
 ];
 
 export const faqs = [
