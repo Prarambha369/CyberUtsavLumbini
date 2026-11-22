@@ -342,6 +342,10 @@ button {
   color: var(--purple-text);
 }
 
+.stamp-ink {
+  color: var(--ink);
+}
+
 /* ───────────────────────── Layout ───────────────────────── */
 
 .section-pad {

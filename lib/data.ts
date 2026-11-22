@@ -2,6 +2,11 @@ export const SITE_URL = "https://lumbini.cyberutsav.com";
 export const REGISTER_URL = "https://registration.cyberutsav.com/butwal";
 export const CONTACT_EMAIL = "prarambha@butwalhacks.com";
 
+/** Confirmed Butwal round dates (ISO for structured data, plus display text). */
+export const EVENT_START = "2027-01-15";
+export const EVENT_END = "2027-01-17";
+export const EVENT_DATES = "Jan 15–17, 2027";
+
 /** Registration link tagged with UTM params so sign-ups can be attributed to the CTA that drove them. */
 export function registerUrl(placement: string) {
   const params = new URLSearchParams({
@@ -17,7 +22,7 @@ export function registerUrl(placement: string) {
 export const keyFacts = [
   { label: "What", value: "Free 3-day student hackathon — Lumbini Provincial Chapter of CyberUtsav" },
   { label: "Where", value: "Butwal, Lumbini Province, Nepal (venue TBA)" },
-  { label: "When", value: "Dates to be announced — pre-registered teams hear first" },
+  { label: "When", value: "January 15–17, 2027 (3 days)" },
   { label: "Who", value: "High school, A-Levels students & recent graduates" },
   { label: "Team", value: "3 members per team" },
   { label: "Cost", value: "Free — Rs. 0 registration" },
@@ -73,10 +78,10 @@ export const tracks = [
 export const hostCityDetails = [
   { label: "City", value: "Butwal" },
   { label: "Province", value: "Lumbini" },
-  { label: "Round", value: "Provincial qualifier" },
-  { label: "Date", value: "To be announced" },
+  { label: "Round", value: "Provincial city qualifier" },
+  { label: "Date", value: "Jan 15 – Jan 17, 2027" },
   { label: "Venue", value: "Partner institution · TBA" },
-  { label: "Registration", value: "Open now · free" },
+  { label: "Registration", value: "Open now" },
 ];
 
 export const timeline = [
@@ -115,7 +120,7 @@ export const faqs = [
   {
     question: "What is CyberUtsav Lumbini?",
     answer:
-      "CyberUtsav Lumbini is a free, 3-day student hackathon in Butwal, Nepal. It is the Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon series organized by Tech Gurkha Digital Services, and is co-organized by ButwalHacks. Winning teams advance to the Kathmandu Grand Finale.",
+      "CyberUtsav Lumbini is a free, 3-day student hackathon in Butwal, Nepal, running January 15–17, 2027. It is the Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon series organized by Tech Gurkha Digital Services, and is co-organized by ButwalHacks. Winning teams advance to the Kathmandu Grand Finale.",
   },
   {
     question: "How do I register for CyberUtsav Lumbini?",
@@ -134,12 +139,12 @@ export const faqs = [
   {
     question: "When and where is CyberUtsav Lumbini?",
     answer:
-      "The event is held in Butwal, Lumbini Province, Nepal, at a partner institution. Exact dates and the venue will be announced soon — pre-registered teams are notified first.",
+      "CyberUtsav Lumbini takes place January 15–17, 2027, in Butwal, Lumbini Province, Nepal, at a partner institution. The exact venue will be announced soon — pre-registered teams are notified first.",
   },
   {
     question: "How long is the hackathon?",
     answer:
-      "The Butwal round runs over 3 days on-site, with 12 total hours of project building, followed by team pitches to the jury.",
+      "The Butwal round runs for 3 days on-site, January 15–17, 2027, with 12 total hours of project building followed by team pitches to the jury.",
   },
   {
     question: "How many participants can join?",

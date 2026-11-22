@@ -40,8 +40,8 @@ export default function StickyCta() {
   return (
     <div className={`sticky-cta${show ? " is-visible" : ""}`} aria-hidden={!show}>
       <div className="sticky-cta-copy">
-        <strong>Free · 150 seats</strong>
-        <span>Team of 3 · takes 2 min</span>
+        <strong>Jan 15–17 · Free</strong>
+        <span>150 seats · team of 3</span>
       </div>
       <a
         href={registerUrl("sticky_mobile")}

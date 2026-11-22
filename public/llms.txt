@@ -1,13 +1,13 @@
 # CyberUtsav Lumbini
 
-> CyberUtsav Lumbini is a free, 3-day student hackathon in Butwal, Nepal — the Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon series. Teams of 3 compete across 6 tracks, and winning teams advance to the CyberUtsav Grand Finale in Kathmandu. Pre-registration is open and free: https://registration.cyberutsav.com/butwal
+> CyberUtsav Lumbini is a free, 3-day student hackathon in Butwal, Nepal, held January 15–17, 2027 — the Lumbini Provincial Chapter of CyberUtsav, Nepal's largest student hackathon series. Teams of 3 compete across 6 tracks, and winning teams advance to the CyberUtsav Grand Finale in Kathmandu. Pre-registration is open and free: https://registration.cyberutsav.com/butwal
 
 ## Key facts
 - **Event:** CyberUtsav Lumbini (Lumbini Provincial Chapter of CyberUtsav)
 - **Parent series:** CyberUtsav, organized by Tech Gurkha Digital Services (https://cyberutsav.com)
 - **Co-organizer:** ButwalHacks, Butwal's student developer community (https://butwalhacks.com)
 - **Location:** Butwal, Lumbini Province, Nepal — venue is a partner institution, to be announced
-- **Dates:** To be announced. Pre-registered teams are notified first.
+- **Dates:** January 15–17, 2027 (3 days)
 - **Format:** 3 days on-site, 12 total hours of project building, then team pitches to a jury
 - **Team size:** Exactly 3 members (one team leader + two members)
 - **Eligibility:** High school students, A-Levels students, and recent graduates
@@ -16,7 +16,8 @@
 - **Tracks:** Cybersecurity, AI/ML, IoT & Hardware, Web Development, Social Impact, Open Innovation
 - **Advancement:** Winners advance directly to the Kathmandu Grand Finale
 - **Prizes:** Grand prize, per-track prizes, swag for every participant and career opportunities — amounts to be announced
-- **Status:** Pre-registration open
+- **Round:** Provincial city qualifier
+- **Status:** Registration open now
 
 ## Frequently asked questions
 
@@ -30,10 +31,10 @@ Yes. There is no registration fee.
 High school students, A-Levels students, and recent graduates, in teams of exactly 3.
 
 ### When is it?
-Dates and venue are to be announced. The event takes place in Butwal, Lumbini Province, Nepal.
+January 15–17, 2027, in Butwal, Lumbini Province, Nepal. The exact venue (a partner institution) will be announced soon.
 
 ### How long is it?
-3 days on-site with 12 total hours of building.
+3 days on-site (January 15–17, 2027) with 12 total hours of building.
 
 ### What do winners get?
 Direct entry to the CyberUtsav Grand Finale in Kathmandu. Lumbini prize details will be announced once confirmed with sponsors.
