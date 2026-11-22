@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { REGISTER_URL } from "@/lib/data";
@@ -33,6 +33,7 @@ export default function Nav() {
   // Start as null so server and first client render match; the real value is
   // read from <html data-theme> (set by the inline script in layout) after mount.
   const [theme, setTheme] = useState<Theme | null>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- sync with pre-hydration theme script
@@ -53,7 +54,12 @@ export default function Nav() {
   // Close the mobile menu on Escape or when resizing up to desktop.
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      // If focus is inside the menu it's about to be removed — hand it back to the toggle.
+      if (document.activeElement?.closest("#mobile-menu")) toggleRef.current?.focus();
+      setOpen(false);
+    };
     const onResize = () => window.innerWidth > 980 && setOpen(false);
     window.addEventListener("keydown", onKey);
     window.addEventListener("resize", onResize);
@@ -117,6 +123,7 @@ export default function Nav() {
         </button>
 
         <button
+          ref={toggleRef}
           type="button"
           className="menu-toggle"
           onClick={() => setOpen(!open)}

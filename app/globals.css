@@ -1118,7 +1118,6 @@ button {
 
 .city-details-grid article:nth-child(even) span {
   color: var(--on-accent-dark);
-  opacity: 0.75;
 }
 
 .city-details-grid .is-tba {
@@ -1212,7 +1211,7 @@ button {
 
 .team-socials-link:hover {
   background: var(--red);
-  color: var(--ink);
+  color: var(--on-accent-dark);
   transform: translateY(-2px);
 }
 
@@ -1359,6 +1358,7 @@ button {
 }
 
 .team-socials a:hover {
+  color: var(--on-accent-dark);
   background: var(--red);
   transform: translateY(-2px);
 }
@@ -2707,7 +2707,7 @@ button {
 .butwalhacks-spotlight .team-socials-link:hover {
   border-color: var(--red);
   background: var(--red);
-  color: var(--on-accent);
+  color: var(--on-accent-dark);
 }
 
 /* Footer brand logo sizing */

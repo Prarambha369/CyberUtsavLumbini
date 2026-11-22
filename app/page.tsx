@@ -51,7 +51,10 @@ function RegisterLink({ className, children, style }: { className: string; child
 /* ─── Slideshow Hook ─── */
 function useSlideshow(count: number, interval = 4000) {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
+  // Hover and keyboard focus pause independently; rotate only when neither applies.
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const paused = hovered || focused;
 
   useEffect(() => {
     if (paused) return;
@@ -61,7 +64,7 @@ function useSlideshow(count: number, interval = 4000) {
     return () => clearTimeout(id);
   }, [active, paused, count, interval]);
 
-  return { active, goTo: setActive, setPaused };
+  return { active, goTo: setActive, setHovered, setFocused };
 }
 
 /* ─── Scroll Reveal Hook ─── */
@@ -89,7 +92,7 @@ function useScrollReveal() {
 /** The main home page for CyberUtsav Lumbini, featuring hero, tracks, schedule, team, FAQ, and registration CTAs. */
 export default function CyberUtsavLumbini() {
   useScrollReveal();
-  const { active, goTo, setPaused } = useSlideshow(slides.length);
+  const { active, goTo, setHovered, setFocused } = useSlideshow(slides.length);
 
   return (
     <>
@@ -365,10 +368,13 @@ export default function CyberUtsavLumbini() {
                 role="region"
                 aria-roledescription="carousel"
                 aria-label="Winners from previous CyberUtsav rounds"
-                onMouseEnter={() => setPaused(true)}
-                onMouseLeave={() => setPaused(false)}
-                onFocus={() => setPaused(true)}
-                onBlur={() => setPaused(false)}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                onFocus={() => setFocused(true)}
+                onBlur={(e) => {
+                  // Stay paused while focus moves between photo buttons.
+                  if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setFocused(false);
+                }}
               >
                 {slides.map((slide, i) => (
                   <div
