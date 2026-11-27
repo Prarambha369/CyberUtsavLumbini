@@ -145,7 +145,7 @@ export default function OGImage() {
               letterSpacing: "0.1em",
             }}
           >
-            lumbini.cyberutsav.com
+            cyberutsavlumbini.butwalhacks.com
           </div>
         </div>
       </div>

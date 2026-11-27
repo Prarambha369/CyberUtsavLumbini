@@ -135,8 +135,8 @@ The site is a **fully static export** (`output: "export"` in `next.config.ts`) h
 - **Production:** https://cyberutsavlumbini.butwalhacks.com (CNAME → `cyberutsav-lumbini.pages.dev`, DNS at Porkbun)
 - **Pages URL:** https://cyberutsav-lumbini.pages.dev
 - **Canonical URL in metadata:** `SITE_URL` in `lib/data.ts` / `baseUrl` in `app/layout.tsx` is
-  `https://lumbini.cyberutsav.com`. That host's DNS still points at Vercel, so point it at
-  `cyberutsav-lumbini.pages.dev` too (and add it as a Pages custom domain), or change those constants.
+  `https://cyberutsavlumbini.butwalhacks.com`. The old host `lumbini.cyberutsav.com` is redirected
+  here by the CyberUtsav team.
 - **Deploys:** `.github/workflows/deploy-pages.yml` builds and uploads `out/` on every push to `main`
   (and on manual `workflow_dispatch`). It needs the repo secret `CLOUDFLARE_API_TOKEN`
   (Pages Write only) and the repo variable `CLOUDFLARE_ACCOUNT_ID`.
