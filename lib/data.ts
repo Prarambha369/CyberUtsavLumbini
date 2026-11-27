@@ -1,4 +1,4 @@
-export const SITE_URL = "https://lumbini.cyberutsav.com";
+export const SITE_URL = "https://cyberutsavlumbini.butwalhacks.com";
 export const REGISTER_URL = "https://registration.cyberutsav.com/butwal";
 export const CONTACT_EMAIL = "prarambha@butwalhacks.com";
 
@@ -10,7 +10,7 @@ export const EVENT_DATES = "Jan 15–17, 2027";
 /** Registration link tagged with UTM params so sign-ups can be attributed to the CTA that drove them. */
 export function registerUrl(placement: string) {
   const params = new URLSearchParams({
-    utm_source: "lumbini.cyberutsav.com",
+    utm_source: "cyberutsavlumbini.butwalhacks.com",
     utm_medium: "website",
     utm_campaign: "lumbini_registration",
     utm_content: placement,

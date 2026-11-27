@@ -21,7 +21,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const baseUrl = "https://lumbini.cyberutsav.com";
+const baseUrl = "https://cyberutsavlumbini.butwalhacks.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
