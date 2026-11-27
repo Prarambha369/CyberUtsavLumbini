@@ -122,7 +122,7 @@ CyberUtsavLumbini/
 ```bash
 npm run dev      # Start dev server
 npm run build    # Static export to out/
-npx serve out    # Preview the static build locally
+npm run start    # Serve out/ locally (static preview)
 npm run lint     # Run ESLint
 npx tsc --noEmit # Type check
 ```
@@ -134,6 +134,9 @@ The site is a **fully static export** (`output: "export"` in `next.config.ts`) h
 
 - **Production:** https://cyberutsavlumbini.butwalhacks.com (CNAME → `cyberutsav-lumbini.pages.dev`, DNS at Porkbun)
 - **Pages URL:** https://cyberutsav-lumbini.pages.dev
+- **Canonical URL in metadata:** `SITE_URL` in `lib/data.ts` / `baseUrl` in `app/layout.tsx` is
+  `https://lumbini.cyberutsav.com`. That host's DNS still points at Vercel, so point it at
+  `cyberutsav-lumbini.pages.dev` too (and add it as a Pages custom domain), or change those constants.
 - **Deploys:** `.github/workflows/deploy-pages.yml` builds and uploads `out/` on every push to `main`
   (and on manual `workflow_dispatch`). It needs the repo secret `CLOUDFLARE_API_TOKEN`
   (Pages Write only) and the repo variable `CLOUDFLARE_ACCOUNT_ID`.
