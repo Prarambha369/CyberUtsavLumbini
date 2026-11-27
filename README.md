@@ -10,7 +10,7 @@ Co-organized by [ButwalHacks](https://butwalhacks.com)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
-[![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com)
+[![Cloudflare Pages](https://img.shields.io/badge/Hosted-Cloudflare%20Pages-f38020?logo=cloudflare)](https://pages.cloudflare.com)
 
 </div>
 
@@ -51,24 +51,24 @@ CyberUtsavLumbini/
 │   ├── layout.tsx           # Root layout, fonts, SEO, JSON-LD
 │   ├── page.tsx             # Full landing page (all sections)
 │   ├── robots.ts            # AI-friendly robots.txt
-│   ├── sitemap.ts           # Dynamic sitemap
-│   ├── icon.tsx             # Dynamic favicon
-│   └── opengraph-image.tsx  # Dynamic OG image
+│   ├── sitemap.ts           # Sitemap (generated at build time)
+│   ├── icon.png             # Favicon
+│   └── opengraph-image.tsx  # OG image (rendered to PNG at build time)
 ├── components/
 │   └── Nav.tsx              # Sticky nav with mobile hamburger
 ├── lib/
 │   └── data.ts              # Tracks, timeline, FAQ, prizes, team, past events
 ├── public/
+│   ├── _headers             # Security headers (Cloudflare Pages)
 │   ├── llms.txt             # AI crawler friendly site description
 │   ├── photos/              # Team member photos
 │   └── site.webmanifest     # PWA manifest
 ├── .gitignore
 ├── eslint.config.mjs
-├── next.config.js
+├── next.config.ts           # output: "export" (fully static)
 ├── package.json
 ├── postcss.config.mjs
 ├── tsconfig.json
-├── vercel.json              # Security headers + deployment config
 └── README.md
 ```
 
@@ -121,20 +121,38 @@ CyberUtsavLumbini/
 
 ```bash
 npm run dev      # Start dev server
-npm run build    # Production build
-npm run start    # Start production server
+npm run build    # Static export to out/
+npx serve out    # Preview the static build locally
 npm run lint     # Run ESLint
 npx tsc --noEmit # Type check
 ```
 
-## 🚢 Deployment
+## 🚢 Hosting
 
-### Vercel (Recommended)
+The site is a **fully static export** (`output: "export"` in `next.config.ts`) hosted on
+**Cloudflare Pages** (free plan) as the project `cyberutsav-lumbini`.
 
-1. Push to GitHub
-2. Go to [vercel.com/new](https://vercel.com/new)
-3. Import the repository
-4. Deploy — zero config needed
+- **Production:** https://cyberutsavlumbini.butwalhacks.com (CNAME → `cyberutsav-lumbini.pages.dev`, DNS at Porkbun)
+- **Pages URL:** https://cyberutsav-lumbini.pages.dev
+- **Deploys:** `.github/workflows/deploy-pages.yml` builds and uploads `out/` on every push to `main`
+  (and on manual `workflow_dispatch`). It needs the repo secret `CLOUDFLARE_API_TOKEN`
+  (Pages Write only) and the repo variable `CLOUDFLARE_ACCOUNT_ID`.
+- **Headers:** security headers live in `public/_headers`. There are no redirects; add them to
+  `public/_redirects` if needed.
+
+Because the build is static there are no API routes, server actions, middleware or on-demand
+image optimization. Registration happens on https://registration.cyberutsav.com/butwal.
+
+Manual deploy:
+
+```bash
+npm run build
+npx wrangler pages deploy out --project-name cyberutsav-lumbini --branch main
+```
+
+## 🔒 Security
+
+Report security issues to **tech@butwalhacks.com**.
 
 ## 🤝 Contributing
 
