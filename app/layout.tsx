@@ -78,10 +78,10 @@ export const metadata: Metadata = {
       "Jan 15–17, 2027 in Butwal, Nepal. Free 3-day student hackathon — teams of 3, 6 tracks, 150 seats. Winners advance to the Kathmandu Grand Finale. Register in 2 minutes.",
     images: [
       {
-        url: `${baseUrl}/opengraph-image`,
+        url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "CyberUtsav Lumbini — Provincial Hackathon Chapter in Butwal",
+        alt: "CyberUtsav Lumbini · by Butwal Hacks — free 3-day student hackathon in Butwal, Nepal, Jan 15–17, 2027",
         type: "image/png",
       },
     ],
@@ -91,7 +91,12 @@ export const metadata: Metadata = {
     title: "CyberUtsav Lumbini 2027 — Free Student Hackathon in Butwal",
     description:
       "Jan 15–17, 2027 in Butwal, Nepal. Free 3-day student hackathon — teams of 3, 6 tracks, 150 seats. Winners advance to the Kathmandu Grand Finale.",
-    images: [`${baseUrl}/opengraph-image`],
+    images: [
+      {
+        url: `${baseUrl}/og-image.png`,
+        alt: "CyberUtsav Lumbini · by Butwal Hacks — free 3-day student hackathon in Butwal, Nepal, Jan 15–17, 2027",
+      },
+    ],
     creator: "@butwalhacks",
   },
   manifest: "/site.webmanifest",
@@ -144,7 +149,7 @@ export default function RootLayout({
       url: "https://cyberutsav.com",
     },
     url: baseUrl,
-    image: `${baseUrl}/opengraph-image`,
+    image: `${baseUrl}/og-image.png`,
     organizer: [
       {
         "@type": "Organization",

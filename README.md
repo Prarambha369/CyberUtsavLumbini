@@ -53,7 +53,6 @@ CyberUtsavLumbini/
 │   ├── robots.ts            # AI-friendly robots.txt
 │   ├── sitemap.ts           # Sitemap (generated at build time)
 │   ├── icon.png             # Favicon
-│   └── opengraph-image.tsx  # OG image (rendered to PNG at build time)
 ├── components/
 │   └── Nav.tsx              # Sticky nav with mobile hamburger
 ├── lib/
